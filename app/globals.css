@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: 244 246 248;
+  --foreground: 16 23 35;
+  --card: 255 255 255;
+  --border: 219 225 234;
+  --muted: 103 113 130;
+  --accent: 96 122 165;
+  --accent-soft: 232 238 246;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: 10 15 24;
+  --foreground: 238 242 247;
+  --card: 16 23 35;
+  --border: 53 66 87;
+  --muted: 150 161 177;
+  --accent: 155 177 214;
+  --accent-soft: 30 39 54;
+}
+
+* {
+  border-color: rgb(var(--border) / 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgb(var(--accent) / 0.16), transparent 28%),
+    linear-gradient(180deg, rgb(255 255 255 / 0.45), transparent 20%),
+    rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-family:
+    "SF Pro Display",
+    "SF Pro Text",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top, rgb(var(--accent) / 0.14), transparent 30%),
+    linear-gradient(180deg, rgb(255 255 255 / 0.03), transparent 22%),
+    rgb(var(--background));
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at center, black, transparent 82%);
+  opacity: 0.25;
+}
+
+.dark body::before {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.018) 1px, transparent 1px);
+}
+
+a,
+button {
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.2);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .button-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-background shadow-lg hover:-translate-y-0.5 hover:opacity-90;
+    background-color: rgb(var(--foreground));
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-foreground backdrop-blur hover:-translate-y-0.5;
+    border: 1px solid rgb(var(--border) / 0.75);
+    background-color: rgb(var(--card) / 0.76);
+  }
+
+  .section-kicker {
+    @apply text-[0.68rem] font-semibold uppercase tracking-[0.32em];
+    color: rgb(var(--muted) / 0.85);
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold tracking-[-0.05em] sm:text-5xl;
+    color: rgb(var(--foreground));
+  }
+
+  .section-copy {
+    @apply text-base leading-8 sm:text-lg;
+    color: rgb(var(--muted));
+  }
+
+  .button-secondary:hover {
+    border-color: rgb(var(--foreground) / 0.1);
+    background-color: rgb(var(--card));
+  }
+}
