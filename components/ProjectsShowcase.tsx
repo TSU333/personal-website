@@ -33,7 +33,7 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
         <div className="grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-end">
           <div className="space-y-5">
             <p className="section-kicker">{dictionary.projectsPage.eyebrow}</p>
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.06em] text-foreground sm:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.04em] text-foreground sm:text-6xl">
               {dictionary.projectsPage.title}
             </h1>
             <p className="section-copy max-w-2xl">
@@ -42,7 +42,7 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
           </div>
 
           <div className="rounded-[28px] border border-border/70 bg-card/76 p-6 shadow-soft backdrop-blur-xl">
-            <p className="text-sm font-semibold tracking-[-0.02em] text-foreground">
+            <p className="text-sm font-semibold tracking-[-0.01em] text-foreground">
               {dictionary.projectsPage.highlightTitle}
             </p>
             <p className="mt-3 text-sm leading-7 text-muted">
@@ -62,7 +62,7 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted/80">
                 {stat.label}
               </p>
-              <p className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-foreground">
+              <p className="mt-4 text-3xl font-semibold tracking-[-0.02em] text-foreground">
                 {stat.value}
               </p>
             </div>

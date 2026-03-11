@@ -15,6 +15,7 @@ export type Project = {
   gradient: string;
   glow: string;
   github?: string;
+  store?: string;
   demo?: string;
   featured?: boolean;
 };
@@ -39,12 +40,12 @@ export const projects: Project[] = [
       zh: "ThinkBreak 围绕一个很直接的想法展开：AI 回复过慢时，用户不该被困在等待界面里。它把这些空档变成可控的短暂休息，并在答案准备好时把注意力带回来。",
     },
     problem: {
-      en: "Waiting for AI responses often leads to low-value tab watching, distracted scrolling, or losing track of the original task entirely.",
-      zh: "等待 AI 回复的过程经常会变成低价值的盯屏、分心刷内容，或者干脆忘记原本要做的事。",
+      en: "",
+      zh: "",
     },
     solution: {
-      en: "ThinkBreak watches for slow replies, opens a user-selected break site when the wait drags on, and restores focus once the answer arrives. The experience stays lightweight so the tool feels practical rather than disruptive.",
-      zh: "ThinkBreak 会在回复明显过慢时触发，自动打开用户预设的休息页面，并在答案完成后及时带回原页面。整个体验保持轻量，让它更像一个实用工具，而不是新的干扰源。",
+      en: "ThinkBreak watches for slow replies, opens a user-selected break site when the wait drags on, and restores focus once the answer arrives.",
+      zh: "ThinkBreak 会在回复明显过慢时触发，自动打开用户预设的休息页面，并在答案完成后及时带回原页面。",
     },
     features: {
       en: [
@@ -77,6 +78,8 @@ export const projects: Project[] = [
       "linear-gradient(135deg, rgba(173, 203, 255, 0.56), rgba(255, 255, 255, 0.92) 42%, rgba(226, 235, 248, 0.84))",
     glow: "rgba(107, 141, 214, 0.4)",
     github: "https://github.com/TSU333/ThinkBreak",
+    store:
+      "https://chromewebstore.google.com/detail/thinkbreak/iniicihbhceodiibohojnfodficielel",
     featured: true,
   },
 ];

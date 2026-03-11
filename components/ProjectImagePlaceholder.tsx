@@ -36,7 +36,7 @@ export function ProjectImagePlaceholder({
             className="max-w-[15rem] rounded-[24px] border border-white/60 bg-white/72 p-4 shadow-panel backdrop-blur-lg dark:border-white/10 dark:bg-black/25"
             style={{ boxShadow: `0 32px 80px -44px ${glow}` }}
           >
-            <p className="text-lg font-semibold tracking-[-0.03em] text-foreground">
+            <p className="text-lg font-semibold tracking-[-0.015em] text-foreground">
               {title}
             </p>
             <p className="mt-2 text-sm leading-6 text-muted">{category}</p>

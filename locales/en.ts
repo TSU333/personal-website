@@ -3,18 +3,17 @@ export const en = {
     home: "Home",
     projects: "Projects",
     contact: "Contact",
-    label: "Portfolio",
+    label: "",
   },
   hero: {
-    eyebrow: "Personal Product Portfolio",
+    eyebrow: "Independent Developer",
     title: "TSU",
     subtitle: "Software Projects, Browser Extensions, and Creative Tools",
     description:
       "I design clean and practical software, browser extensions, and digital tools.",
     primaryCta: "View Projects",
     secondaryCta: "Contact Me",
-    status:
-      "Minimal, practical, and built with a clear product mindset.",
+    status: "",
     metrics: [
       {
         label: "Principle",
@@ -28,7 +27,7 @@ export const en = {
   },
   about: {
     eyebrow: "About",
-    title: "A personal portfolio shaped with product thinking.",
+    title: "Software and extensions built with a product mindset.",
     description:
       "TSU focuses on browser extensions and software tools with a preference for quiet interfaces, practical value, and product-level polish.",
   },
@@ -41,12 +40,12 @@ export const en = {
   },
   projectsPage: {
     eyebrow: "Projects",
-    title: "Currently centered around one product: ThinkBreak.",
+    title: "ThinkBreak",
     description:
-      "The portfolio is intentionally focused for now, with a single browser extension presented in a more polished product format.",
-    highlightTitle: "Current focus",
+      "A Chrome extension that lets you step away while AI thinks, then brings you back when the answer is ready.",
+    highlightTitle: "Available now",
     highlightDescription:
-      "ThinkBreak is the only live project at the moment. The structure still supports future additions when new work is ready.",
+      "ThinkBreak is available on GitHub and the Chrome Web Store.",
     statLabels: {
       total: "Projects",
       featured: "Featured",
@@ -62,6 +61,7 @@ export const en = {
     stack: "Tech Stack",
     challenges: "Challenges",
     github: "GitHub",
+    store: "Chrome Web Store",
     demo: "Live Demo",
     details: "Details",
     placeholder: "Product Preview",
@@ -80,7 +80,7 @@ export const en = {
     emailAction: "Send an Email",
   },
   footer: {
-    line: "Personal portfolio for digital tools and creative products.",
+    line: "Software, browser extensions, and digital tools by TSU.",
     contact: "Contact",
     rights: "All rights reserved.",
   },

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -37,15 +38,16 @@ export function Navbar() {
             href="/"
             className="flex items-center gap-3 rounded-full px-2 py-1 transition hover:bg-foreground/5"
           >
-            <span className="h-2.5 w-2.5 rounded-full bg-foreground/85" />
-            <div className="flex items-baseline gap-2">
-              <span className="text-sm font-semibold tracking-[0.22em] text-foreground">
-                TSU
-              </span>
-              <span className="hidden text-xs uppercase tracking-[0.22em] text-muted sm:inline-block">
-                {dictionary.nav.label}
-              </span>
-            </div>
+            <Image
+              src="/tsu-mark.svg"
+              alt="TSU"
+              width={28}
+              height={28}
+              className="rounded-[9px]"
+            />
+            <span className="text-sm font-semibold tracking-[-0.01em] text-foreground">
+              TSU
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-2 md:flex">

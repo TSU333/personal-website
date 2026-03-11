@@ -3,17 +3,17 @@ export const zh = {
     home: "首页",
     projects: "项目",
     contact: "联系",
-    label: "作品集",
+    label: "",
   },
   hero: {
-    eyebrow: "个人产品作品集",
+    eyebrow: "独立开发者",
     title: "TSU",
     subtitle: "软件项目｜浏览器插件｜创意工具",
     description:
       "我专注于设计简洁而实用的软件、浏览器插件和数字工具。",
     primaryCta: "查看项目",
     secondaryCta: "联系我",
-    status: "保持克制的界面、明确的用途，以及产品级的完成度。",
+    status: "",
     metrics: [
       {
         label: "理念",
@@ -27,7 +27,7 @@ export const zh = {
   },
   about: {
     eyebrow: "关于",
-    title: "以产品思维整理的个人作品展示。",
+    title: "以产品思维打造软件与插件。",
     description:
       "TSU 目前专注于浏览器插件与软件工具，希望把安静克制的界面、真实用途和产品质感结合在一起。",
   },
@@ -40,12 +40,12 @@ export const zh = {
   },
   projectsPage: {
     eyebrow: "项目",
-    title: "目前聚焦于一个项目：ThinkBreak。",
+    title: "ThinkBreak",
     description:
-      "目前作品集刻意保持聚焦，只展示一个浏览器插件，并用更像产品页的方式来呈现。",
-    highlightTitle: "当前重心",
+      "一个让你在 AI 思考时先去休息一下、等答案准备好再带你回来的 Chrome 插件。",
+    highlightTitle: "现在可用",
     highlightDescription:
-      "现在只有 ThinkBreak 这一个公开项目，后续如果有新作品可以继续在这套结构上扩展。",
+      "ThinkBreak 已上线 GitHub 与 Chrome 商店。",
     statLabels: {
       total: "项目数",
       featured: "精选数",
@@ -61,6 +61,7 @@ export const zh = {
     stack: "技术栈",
     challenges: "挑战点",
     github: "GitHub",
+    store: "Chrome 商店",
     demo: "在线演示",
     details: "查看详情",
     placeholder: "产品预览",
@@ -79,7 +80,7 @@ export const zh = {
     emailAction: "发送邮件",
   },
   footer: {
-    line: "数字工具与创意产品个人作品集。",
+    line: "TSU 的软件、浏览器插件与数字工具。",
     contact: "联系",
     rights: "保留所有权利。",
   },

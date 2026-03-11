@@ -18,10 +18,10 @@ export function Hero() {
           </span>
 
           <div className="space-y-6">
-            <h1 className="max-w-3xl text-5xl font-semibold tracking-[-0.08em] text-foreground sm:text-7xl lg:text-[5.5rem]">
+            <h1 className="max-w-3xl text-5xl font-semibold tracking-[-0.05em] text-foreground sm:text-7xl lg:text-[5.5rem]">
               {dictionary.hero.title}
             </h1>
-            <p className="max-w-2xl text-xl font-medium tracking-[-0.03em] text-foreground/86 sm:text-2xl">
+            <p className="max-w-2xl text-xl font-medium tracking-[-0.015em] text-foreground/86 sm:text-2xl">
               {dictionary.hero.subtitle}
             </p>
             <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
@@ -40,9 +40,11 @@ export function Hero() {
             </Link>
           </div>
 
-          <p className="max-w-2xl text-sm leading-7 text-muted sm:text-base">
-            {dictionary.hero.status}
-          </p>
+          {dictionary.hero.status ? (
+            <p className="max-w-2xl text-sm leading-7 text-muted sm:text-base">
+              {dictionary.hero.status}
+            </p>
+          ) : null}
 
           <div className="grid gap-4 sm:grid-cols-2">
             {dictionary.hero.metrics.map((metric) => (

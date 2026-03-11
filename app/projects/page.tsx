@@ -5,7 +5,8 @@ import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Selected projects, browser extensions, software tools, and creative digital products by TSU.",
+  description:
+    "ThinkBreak for Chrome, built by TSU. A simple extension for AI waiting time.",
 };
 
 export default function ProjectsPage() {

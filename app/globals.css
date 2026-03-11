@@ -40,6 +40,8 @@ body {
     rgb(var(--background));
   color: rgb(var(--foreground));
   font-family:
+    -apple-system,
+    BlinkMacSystemFont,
     "SF Pro Display",
     "SF Pro Text",
     "Helvetica Neue",
@@ -120,7 +122,7 @@ button {
   }
 
   .section-title {
-    @apply text-3xl font-semibold tracking-[-0.05em] sm:text-5xl;
+    @apply text-3xl font-semibold tracking-[-0.03em] sm:text-5xl;
     color: rgb(var(--foreground));
   }
 

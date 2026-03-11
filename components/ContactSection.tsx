@@ -47,7 +47,7 @@ export function ContactSection() {
                   {dictionary.contact.emailLabel}
                 </p>
               </div>
-              <p className="mt-5 text-lg font-semibold tracking-[-0.03em] text-foreground">
+              <p className="mt-5 text-lg font-semibold tracking-[-0.015em] text-foreground">
                 {email}
               </p>
             </a>

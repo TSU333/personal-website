@@ -8,11 +8,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "TSU | Personal Portfolio",
+    default: "TSU",
     template: "%s | TSU",
   },
   description:
-    "A premium bilingual portfolio for TSU, showcasing browser extensions, software tools, and creative digital products.",
+    "TSU builds clean and practical software, browser extensions, and digital tools, including ThinkBreak.",
 };
 
 export default function RootLayout({

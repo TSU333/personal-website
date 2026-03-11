@@ -27,6 +27,8 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
   const imageLabel = pickLocalizedText(project.imageLabel, locale);
   const features = pickLocalizedList(project.features, locale);
   const challenges = pickLocalizedList(project.challenges, locale);
+  const hasProblem = problem.trim().length > 0;
+  const hasSolution = solution.trim().length > 0;
   const buttonClass =
     "inline-flex items-center gap-2 rounded-full border border-border/75 px-4 py-2 text-sm transition";
 
@@ -41,7 +43,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <div className="space-y-6">
             <p className="section-kicker">{category}</p>
-            <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.06em] text-foreground sm:text-6xl">
+            <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.04em] text-foreground sm:text-6xl">
               {title}
             </h1>
             <p className="max-w-xl text-base leading-8 text-muted sm:text-lg">
@@ -58,6 +60,18 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 >
                   <Github size={15} />
                   {dictionary.projectDetail.github}
+                </a>
+              ) : null}
+
+              {project.store ? (
+                <a
+                  href={project.store}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`${buttonClass} bg-background/55 text-foreground hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-background`}
+                >
+                  <Globe size={15} />
+                  {dictionary.projectDetail.store}
                 </a>
               ) : null}
 
@@ -97,23 +111,27 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
       <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_0.95fr]">
         <AnimatedSection className="space-y-6">
-          <div className="rounded-[28px] border border-border/70 bg-card/78 p-6 shadow-soft backdrop-blur-xl">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted/80">
-              {dictionary.projectDetail.problem}
-            </p>
-            <p className="mt-4 text-base leading-8 text-foreground/80">
-              {problem}
-            </p>
-          </div>
+          {hasProblem ? (
+            <div className="rounded-[28px] border border-border/70 bg-card/78 p-6 shadow-soft backdrop-blur-xl">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted/80">
+                {dictionary.projectDetail.problem}
+              </p>
+              <p className="mt-4 text-base leading-8 text-foreground/80">
+                {problem}
+              </p>
+            </div>
+          ) : null}
 
-          <div className="rounded-[28px] border border-border/70 bg-card/78 p-6 shadow-soft backdrop-blur-xl">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted/80">
-              {dictionary.projectDetail.solution}
-            </p>
-            <p className="mt-4 text-base leading-8 text-foreground/80">
-              {solution}
-            </p>
-          </div>
+          {hasSolution ? (
+            <div className="rounded-[28px] border border-border/70 bg-card/78 p-6 shadow-soft backdrop-blur-xl">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted/80">
+                {dictionary.projectDetail.solution}
+              </p>
+              <p className="mt-4 text-base leading-8 text-foreground/80">
+                {solution}
+              </p>
+            </div>
+          ) : null}
         </AnimatedSection>
 
         <AnimatedSection className="space-y-6" delay={0.08}>

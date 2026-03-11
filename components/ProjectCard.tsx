@@ -44,7 +44,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted/85">
             {category}
           </p>
-          <h3 className="text-2xl font-semibold tracking-[-0.04em] text-foreground">
+          <h3 className="text-2xl font-semibold tracking-[-0.025em] text-foreground">
             {title}
           </h3>
         </div>
@@ -81,17 +81,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Github size={14} />
             {dictionary.projectDetail.github}
           </a>
-        ) : (
-          <span
-            className={`${buttonClass} cursor-not-allowed bg-background/40 text-muted/70`}
-            title={dictionary.misc.comingSoon}
-          >
-            <Github size={14} />
-            {dictionary.projectDetail.github}
-          </span>
-        )}
+        ) : null}
 
-        {project.demo ? (
+        {project.store ? (
+          <a
+            href={project.store}
+            target="_blank"
+            rel="noreferrer"
+            className={`${buttonClass} bg-background/55 text-foreground hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-background`}
+          >
+            <Globe size={14} />
+            {dictionary.projectDetail.store}
+          </a>
+        ) : project.demo ? (
           <a
             href={project.demo}
             target="_blank"
@@ -101,15 +103,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Globe size={14} />
             {dictionary.projectDetail.demo}
           </a>
-        ) : (
-          <span
-            className={`${buttonClass} cursor-not-allowed bg-background/40 text-muted/70`}
-            title={dictionary.misc.comingSoon}
-          >
-            <Globe size={14} />
-            {dictionary.projectDetail.demo}
-          </span>
-        )}
+        ) : null}
 
         <Link
           href={`/projects/${project.slug}`}

@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 pb-8 pt-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-12">
       <div className="space-y-1">
-        <p className="font-semibold uppercase tracking-[0.22em] text-foreground">
+        <p className="font-semibold tracking-[-0.01em] text-foreground">
           TSU
         </p>
         <p>{dictionary.footer.line}</p>
