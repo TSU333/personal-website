@@ -31,9 +31,9 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
-      <div className="mx-auto max-w-7xl">
-        <div className="flex items-center justify-between rounded-full border border-border/70 bg-card/72 px-4 py-3 shadow-soft backdrop-blur-xl sm:px-5">
+    <header className="fixed inset-x-0 top-0 z-50 pt-4">
+      <div className="site-shell">
+        <div className="surface-panel flex items-center justify-between rounded-full px-4 py-3 sm:px-5">
           <Link
             href="/"
             className="flex items-center gap-3 rounded-full px-2 py-1 transition hover:bg-foreground/5"
@@ -57,7 +57,7 @@ export function Navbar() {
                 href={link.href}
                 className={`rounded-full px-4 py-2 text-sm transition ${
                   link.active
-                    ? "bg-foreground text-background"
+                    ? "bg-foreground/8 text-foreground"
                     : "text-muted hover:bg-foreground/5 hover:text-foreground"
                 }`}
               >
@@ -75,7 +75,7 @@ export function Navbar() {
             type="button"
             onClick={() => setIsOpen((current) => !current)}
             aria-label={isOpen ? dictionary.misc.close : dictionary.misc.menu}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/75 bg-card/70 text-foreground/80 backdrop-blur transition hover:bg-card md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/75 bg-card/74 text-foreground/80 backdrop-blur transition hover:bg-card md:hidden"
           >
             {isOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -88,7 +88,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-3 overflow-hidden rounded-[28px] border border-border/70 bg-card/86 p-4 shadow-panel backdrop-blur-xl md:hidden"
+              className="subtle-panel mt-3 overflow-hidden p-4 md:hidden"
             >
               <div className="flex flex-col gap-2">
                 {links.map((link) => (
@@ -97,7 +97,7 @@ export function Navbar() {
                     href={link.href}
                     className={`rounded-2xl px-4 py-3 text-sm transition ${
                       link.active
-                        ? "bg-foreground text-background"
+                        ? "bg-foreground/8 text-foreground"
                         : "text-foreground hover:bg-foreground/5"
                     }`}
                   >

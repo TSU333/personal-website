@@ -9,7 +9,8 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 pb-8 pt-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-12">
+    <footer className="site-shell mt-24 border-t border-border/70 pb-10 pt-8 text-sm text-muted">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div className="space-y-1">
         <p className="font-semibold tracking-[-0.01em] text-foreground">
           TSU
@@ -24,6 +25,7 @@ export function Footer() {
         <Link href="/#contact" className="transition hover:text-foreground">
           {dictionary.footer.contact}
         </Link>
+      </div>
       </div>
     </footer>
   );

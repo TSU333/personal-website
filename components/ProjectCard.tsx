@@ -21,13 +21,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const description = pickLocalizedText(project.description, locale);
   const imageLabel = pickLocalizedText(project.imageLabel, locale);
   const buttonClass =
-    "inline-flex items-center gap-2 rounded-full border border-border/75 px-4 py-2 text-sm transition";
+    "inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-medium transition";
 
   return (
     <motion.article
       whileHover={reduceMotion ? undefined : { y: -6 }}
       transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-      className="group rounded-[30px] border border-border/70 bg-card/82 p-4 shadow-soft backdrop-blur-xl"
+      className="surface-panel group overflow-hidden p-5 sm:p-6"
     >
       <ProjectImagePlaceholder
         title={title}
@@ -39,7 +39,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         compact
       />
 
-      <div className="mt-6 flex items-start justify-between gap-4">
+      <div className="mt-6 space-y-4">
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted/85">
             {category}
@@ -48,22 +48,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {title}
           </h3>
         </div>
-        {project.featured ? (
-          <span className="rounded-full border border-border/70 bg-accent-soft/80 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-accent">
-            {dictionary.misc.featured}
-          </span>
-        ) : null}
-      </div>
 
-      <p className="mt-4 max-w-xl text-sm leading-7 text-muted sm:text-base">
-        {description}
-      </p>
+        <p className="max-w-xl text-sm leading-7 text-muted sm:text-base">
+          {description}
+        </p>
+      </div>
 
       <div className="mt-5 flex flex-wrap gap-2">
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-border/70 bg-background/55 px-3 py-1.5 text-xs font-medium text-muted"
+            className="rounded-full border border-border/70 bg-background/46 px-3 py-1.5 text-xs font-medium text-muted"
           >
             {tag}
           </span>
@@ -76,7 +71,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.github}
             target="_blank"
             rel="noreferrer"
-            className={`${buttonClass} bg-background/55 text-foreground hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-background`}
+            className={`${buttonClass} border border-border/75 bg-card/74 text-foreground backdrop-blur hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-card`}
           >
             <Github size={14} />
             {dictionary.projectDetail.github}
@@ -88,7 +83,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.store}
             target="_blank"
             rel="noreferrer"
-            className={`${buttonClass} bg-background/55 text-foreground hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-background`}
+            className={`${buttonClass} border border-border/75 bg-card/74 text-foreground backdrop-blur hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-card`}
           >
             <Globe size={14} />
             {dictionary.projectDetail.store}
@@ -98,7 +93,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.demo}
             target="_blank"
             rel="noreferrer"
-            className={`${buttonClass} bg-background/55 text-foreground hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-background`}
+            className={`${buttonClass} border border-border/75 bg-card/74 text-foreground backdrop-blur hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-card`}
           >
             <Globe size={14} />
             {dictionary.projectDetail.demo}
@@ -107,7 +102,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <Link
           href={`/projects/${project.slug}`}
-          className={`${buttonClass} bg-foreground text-background hover:-translate-y-0.5 hover:bg-foreground/92`}
+          className={`${buttonClass} bg-accent text-white shadow-[0_16px_36px_-20px_rgb(var(--accent)/0.55)] hover:-translate-y-0.5 hover:bg-accent/92`}
         >
           <ArrowUpRight size={14} />
           {dictionary.projectDetail.details}

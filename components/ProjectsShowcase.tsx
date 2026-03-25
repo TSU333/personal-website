@@ -28,12 +28,12 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
   ];
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl flex-col px-6 sm:px-10 lg:px-12">
+    <div className="site-shell">
       <AnimatedSection>
-        <div className="grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-end">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-end">
           <div className="space-y-5">
             <p className="section-kicker">{dictionary.projectsPage.eyebrow}</p>
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.04em] text-foreground sm:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.035em] text-foreground sm:text-6xl">
               {dictionary.projectsPage.title}
             </h1>
             <p className="section-copy max-w-2xl">
@@ -41,7 +41,7 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
             </p>
           </div>
 
-          <div className="rounded-[28px] border border-border/70 bg-card/76 p-6 shadow-soft backdrop-blur-xl">
+          <div className="subtle-panel p-6">
             <p className="text-sm font-semibold tracking-[-0.01em] text-foreground">
               {dictionary.projectsPage.highlightTitle}
             </p>
@@ -52,12 +52,12 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="mt-8" delay={0.08}>
+      <AnimatedSection className="mt-10" delay={0.08}>
         <div className="grid gap-4 sm:grid-cols-3">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="rounded-[24px] border border-border/70 bg-card/70 p-5 shadow-soft backdrop-blur"
+              className="metric-panel"
             >
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted/80">
                 {stat.label}
@@ -71,7 +71,7 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
       </AnimatedSection>
 
       <AnimatedSection className="mt-10" delay={0.12}>
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 xl:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}

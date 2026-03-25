@@ -10,52 +10,54 @@ export function Hero() {
   const { dictionary } = useLanguage();
 
   return (
-    <AnimatedSection className="mx-auto flex w-full max-w-7xl flex-col px-6 sm:px-10 lg:px-12">
-      <div className="overflow-hidden rounded-[36px] border border-border/70 bg-card/78 px-6 py-8 shadow-panel backdrop-blur-xl sm:px-10 sm:py-12 lg:px-14 lg:py-14">
-        <div className="space-y-8">
-          <span className="inline-flex rounded-full border border-border/75 bg-background/55 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted">
-            {dictionary.hero.eyebrow}
-          </span>
+    <AnimatedSection className="site-shell">
+      <div className="surface-panel overflow-hidden px-6 py-8 sm:px-10 sm:py-12 lg:px-14 lg:py-16">
+        <div className="grid gap-10 xl:grid-cols-[minmax(0,1.15fr)_20rem] xl:items-end">
+          <div className="space-y-8">
+            <span className="eyebrow-label">
+              {dictionary.hero.eyebrow}
+            </span>
 
-          <div className="space-y-6">
-            <h1 className="max-w-3xl text-5xl font-semibold tracking-[-0.05em] text-foreground sm:text-7xl lg:text-[5.5rem]">
-              {dictionary.hero.title}
-            </h1>
-            <p className="max-w-2xl text-xl font-medium tracking-[-0.015em] text-foreground/86 sm:text-2xl">
-              {dictionary.hero.subtitle}
-            </p>
-            <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              {dictionary.hero.description}
-            </p>
+            <div className="space-y-5">
+              <h1 className="max-w-4xl text-[clamp(4rem,10vw,7.4rem)] font-semibold leading-[0.9] tracking-[-0.055em] text-foreground">
+                {dictionary.hero.title}
+              </h1>
+              <p className="max-w-xl text-[1.6rem] leading-[1.35] tracking-[-0.02em] text-foreground/88 sm:text-[1.85rem]">
+                {dictionary.hero.subtitle}
+              </p>
+              <p className="section-copy max-w-2xl">
+                {dictionary.hero.description}
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link href="/projects" className="button-primary">
+                {dictionary.hero.primaryCta}
+                <ArrowRight size={16} />
+              </Link>
+              <Link href="/#contact" className="button-secondary">
+                {dictionary.hero.secondaryCta}
+                <Mail size={16} />
+              </Link>
+            </div>
+
+            {dictionary.hero.status ? (
+              <p className="max-w-2xl text-sm leading-7 text-muted sm:text-base">
+                {dictionary.hero.status}
+              </p>
+            ) : null}
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link href="/projects" className="button-primary">
-              {dictionary.hero.primaryCta}
-              <ArrowRight size={16} />
-            </Link>
-            <Link href="/#contact" className="button-secondary">
-              {dictionary.hero.secondaryCta}
-              <Mail size={16} />
-            </Link>
-          </div>
-
-          {dictionary.hero.status ? (
-            <p className="max-w-2xl text-sm leading-7 text-muted sm:text-base">
-              {dictionary.hero.status}
-            </p>
-          ) : null}
-
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 xl:pl-4">
             {dictionary.hero.metrics.map((metric) => (
               <div
                 key={metric.label}
-                className="rounded-[24px] border border-border/70 bg-background/52 p-4 backdrop-blur"
+                className="metric-panel"
               >
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted/80">
                   {metric.label}
                 </p>
-                <p className="mt-3 text-sm leading-7 text-foreground/78">
+                <p className="mt-4 text-sm leading-7 text-foreground/78 sm:text-[0.95rem]">
                   {metric.value}
                 </p>
               </div>
