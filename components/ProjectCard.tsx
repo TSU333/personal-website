@@ -44,7 +44,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted/85">
             {category}
           </p>
-          <h3 className="text-2xl font-semibold tracking-[-0.025em] text-foreground">
+          <h3 className="text-2xl font-semibold tracking-[-0.045em] text-foreground">
             {title}
           </h3>
         </div>
@@ -102,7 +102,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <Link
           href={`/projects/${project.slug}`}
-          className={`${buttonClass} bg-accent text-white shadow-[0_16px_36px_-20px_rgb(var(--accent)/0.55)] hover:-translate-y-0.5 hover:bg-accent/92`}
+          className={`${buttonClass} border border-transparent bg-foreground text-background shadow-[0_16px_36px_-20px_rgba(17,17,19,0.3)] hover:-translate-y-0.5 hover:bg-foreground/92`}
         >
           <ArrowUpRight size={14} />
           {dictionary.projectDetail.details}

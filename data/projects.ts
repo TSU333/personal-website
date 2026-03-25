@@ -75,8 +75,8 @@ export const projects: Project[] = [
     },
     tags: ["TypeScript", "Chrome Extension", "Productivity"],
     gradient:
-      "linear-gradient(135deg, rgba(173, 203, 255, 0.56), rgba(255, 255, 255, 0.92) 42%, rgba(226, 235, 248, 0.84))",
-    glow: "rgba(107, 141, 214, 0.4)",
+      "linear-gradient(135deg, rgba(216, 216, 220, 0.78), rgba(255, 255, 255, 0.96) 42%, rgba(232, 232, 235, 0.9))",
+    glow: "rgba(17, 17, 19, 0.16)",
     github: "https://github.com/TSU333/ThinkBreak",
     store:
       "https://chromewebstore.google.com/detail/thinkbreak/iniicihbhceodiibohojnfodficielel",
@@ -134,10 +134,10 @@ export const projects: Project[] = [
       en: "System Preview",
       zh: "系统预览",
     },
-    tags: ["TypeScript", "Automation", "Incident Response"],
+    tags: ["Python", "Shell", "Incident Response"],
     gradient:
-      "linear-gradient(135deg, rgba(210, 225, 236, 0.78), rgba(255, 255, 255, 0.94) 42%, rgba(231, 238, 243, 0.88))",
-    glow: "rgba(93, 119, 143, 0.32)",
+      "linear-gradient(135deg, rgba(201, 201, 206, 0.8), rgba(255, 255, 255, 0.95) 42%, rgba(228, 228, 231, 0.9))",
+    glow: "rgba(17, 17, 19, 0.14)",
     github: "https://github.com/TSU333/OpenClaw-Emergency-Ops",
     featured: true,
   },

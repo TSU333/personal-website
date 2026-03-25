@@ -45,7 +45,7 @@ export function Navbar() {
               height={28}
               className="rounded-[9px]"
             />
-            <span className="text-sm font-semibold tracking-[-0.01em] text-foreground">
+            <span className="text-sm font-semibold tracking-[-0.035em] text-foreground">
               TSU
             </span>
           </Link>

@@ -19,10 +19,10 @@ export function Hero() {
             </span>
 
             <div className="space-y-5">
-              <h1 className="max-w-4xl text-[clamp(4rem,10vw,7.4rem)] font-semibold leading-[0.9] tracking-[-0.055em] text-foreground">
+              <h1 className="max-w-4xl text-[clamp(4rem,10vw,7.4rem)] font-semibold leading-[0.88] tracking-[-0.07em] text-foreground">
                 {dictionary.hero.title}
               </h1>
-              <p className="max-w-xl text-[1.6rem] leading-[1.35] tracking-[-0.02em] text-foreground/88 sm:text-[1.85rem]">
+              <p className="max-w-xl text-[1.6rem] leading-[1.32] tracking-[-0.045em] text-foreground/88 sm:text-[1.85rem]">
                 {dictionary.hero.subtitle}
               </p>
               <p className="section-copy max-w-2xl">
@@ -54,7 +54,7 @@ export function Hero() {
                 key={metric.label}
                 className="metric-panel"
               >
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted/80">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-muted/80">
                   {metric.label}
                 </p>
                 <p className="mt-4 text-sm leading-7 text-foreground/78 sm:text-[0.95rem]">

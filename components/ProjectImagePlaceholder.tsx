@@ -19,27 +19,27 @@ export function ProjectImagePlaceholder({
 }: ProjectImagePlaceholderProps) {
   return (
     <div
-      className={`relative overflow-hidden rounded-[30px] border border-white/35 bg-white/52 p-6 dark:border-white/12 dark:bg-white/[0.08] ${
+      className={`relative overflow-hidden rounded-[30px] border border-black/6 bg-white/72 p-6 dark:border-white/10 dark:bg-zinc-900/65 ${
         compact ? "min-h-[252px]" : "min-h-[340px]"
       }`}
       style={{ backgroundImage: gradient }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.78),transparent_42%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.84),transparent_42%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_40%)]" />
       <div className="relative flex h-full flex-col justify-between gap-8">
-        <div className="flex items-center justify-between gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-foreground/55 dark:text-slate-800/75">
+        <div className="flex items-center justify-between gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-black/42">
           <span>{label}</span>
           <span>{category}</span>
         </div>
 
         <div className="space-y-4">
           <div
-            className="max-w-[15rem] rounded-[26px] border border-white/60 bg-white/76 p-5 shadow-panel backdrop-blur-lg dark:border-black/10 dark:bg-white/78"
+            className="max-w-[15rem] rounded-[26px] border border-black/6 bg-white/82 p-5 shadow-panel backdrop-blur-lg"
             style={{ boxShadow: `0 32px 80px -44px ${glow}` }}
           >
-            <p className="text-lg font-semibold tracking-[-0.015em] text-foreground dark:text-slate-900">
+            <p className="text-lg font-semibold tracking-[-0.04em] text-zinc-950">
               {title}
             </p>
-            <p className="mt-2 text-sm leading-6 text-muted dark:text-slate-700">
+            <p className="mt-2 text-sm leading-6 text-zinc-600">
               {category}
             </p>
           </div>
@@ -48,7 +48,7 @@ export function ProjectImagePlaceholder({
             {tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-white/55 bg-white/68 px-3 py-1.5 text-xs font-medium text-foreground/75 backdrop-blur dark:border-black/10 dark:bg-white/72 dark:text-slate-800"
+                className="rounded-full border border-black/6 bg-white/74 px-3 py-1.5 text-xs font-medium text-zinc-700 backdrop-blur"
               >
                 {tag}
               </span>
