@@ -44,7 +44,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           <div className="grid gap-10 xl:grid-cols-[0.92fr_1.08fr] xl:items-center">
             <div className="space-y-6">
               <p className="section-kicker">{category}</p>
-              <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.06em] text-foreground sm:text-6xl">
+              <h1 className="max-w-3xl text-4xl font-semibold text-foreground sm:text-6xl">
                 {title}
               </h1>
               <p className="max-w-xl text-base leading-8 text-muted sm:text-lg">

@@ -4,17 +4,27 @@
 
 :root {
   color-scheme: light;
-  --background: 247 247 244;
-  --foreground: 17 17 19;
-  --card: 255 255 255;
-  --border: 220 220 224;
-  --muted: 110 110 118;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f7;
+  --bg-soft: #fbfbfd;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --background: 255 255 255;
+  --foreground: 29 29 31;
+  --card: 251 251 253;
+  --border: 224 224 229;
+  --muted: 110 110 115;
   --accent: 17 17 19;
-  --accent-soft: 238 238 240;
+  --accent-soft: 245 245 247;
 }
 
 .dark {
   color-scheme: dark;
+  --bg-primary: #000000;
+  --bg-secondary: #0f0f10;
+  --bg-soft: #17171a;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
   --background: 10 10 12;
   --foreground: 245 245 247;
   --card: 18 18 21;
@@ -37,18 +47,18 @@ body {
   background:
     radial-gradient(circle at top, rgb(0 0 0 / 0.045), transparent 28%),
     linear-gradient(180deg, rgb(255 255 255 / 0.4), transparent 24%),
-    rgb(var(--background));
-  color: rgb(var(--foreground));
+    var(--bg-primary);
+  color: var(--text-primary);
   font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
     "SF Pro Display",
     "SF Pro Text",
     "Helvetica Neue",
-    Helvetica,
+    "Helvetica",
     Arial,
     sans-serif;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.022em;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "kern" 1;
   font-kerning: normal;
@@ -60,7 +70,7 @@ body {
   background:
     radial-gradient(circle at top, rgb(255 255 255 / 0.05), transparent 28%),
     linear-gradient(180deg, rgb(255 255 255 / 0.02), transparent 20%),
-    rgb(var(--background));
+    var(--bg-primary);
 }
 
 a,
@@ -79,6 +89,18 @@ button {
 }
 
 @layer base {
+  h1,
+  .hero-title {
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+
+  h2,
+  .section-title {
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+  }
+
   h1,
   h2,
   h3,
@@ -99,14 +121,14 @@ button {
   .surface-panel {
     @apply rounded-[34px] border backdrop-blur-xl;
     border-color: rgb(var(--border) / 0.78);
-    background-color: rgb(var(--card) / 0.84);
+    background-color: rgb(var(--card) / 0.8);
     box-shadow: 0 24px 70px -42px rgba(17, 17, 19, 0.14);
   }
 
   .subtle-panel {
     @apply rounded-[28px] border backdrop-blur-lg;
     border-color: rgb(var(--border) / 0.74);
-    background-color: rgb(var(--card) / 0.74);
+    background-color: rgb(var(--card) / 0.76);
     box-shadow: 0 18px 52px -40px rgba(17, 17, 19, 0.11);
   }
 
@@ -144,8 +166,6 @@ button {
   .section-title {
     @apply text-3xl font-semibold sm:text-5xl;
     color: rgb(var(--foreground));
-    letter-spacing: -0.052em;
-    line-height: 0.94;
   }
 
   .section-copy {

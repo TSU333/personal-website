@@ -19,7 +19,7 @@ export function Hero() {
             </span>
 
             <div className="space-y-5">
-              <h1 className="max-w-4xl text-[clamp(4rem,10vw,7.4rem)] font-semibold leading-[0.88] tracking-[-0.07em] text-foreground">
+              <h1 className="hero-title max-w-4xl text-[clamp(4rem,10vw,7.4rem)] font-semibold text-foreground">
                 {dictionary.hero.title}
               </h1>
               <p className="max-w-xl text-[1.6rem] leading-[1.32] tracking-[-0.045em] text-foreground/88 sm:text-[1.85rem]">

@@ -33,7 +33,7 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
         <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-end">
           <div className="space-y-5">
             <p className="section-kicker">{dictionary.projectsPage.eyebrow}</p>
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.055em] text-foreground sm:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-semibold text-foreground sm:text-6xl">
               {dictionary.projectsPage.title}
             </h1>
             <p className="section-copy max-w-2xl">
