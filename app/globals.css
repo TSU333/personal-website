@@ -169,7 +169,7 @@ button {
   }
 
   .section-copy {
-    @apply text-base leading-8 sm:text-lg;
+    @apply text-[1.05rem] leading-8 sm:text-[1.12rem];
     color: rgb(var(--muted));
   }
 

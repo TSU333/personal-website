@@ -22,7 +22,7 @@ export function ContactSection() {
             <p className="section-kicker">{dictionary.contact.eyebrow}</p>
             <h2 className="section-title max-w-2xl">{dictionary.contact.title}</h2>
             <p className="section-copy max-w-xl">{dictionary.contact.description}</p>
-            <p className="max-w-xl text-sm leading-7 text-muted sm:text-base">
+            <p className="max-w-xl text-base leading-8 text-muted sm:text-[1.05rem]">
               {dictionary.contact.invite}
             </p>
             <a href={`mailto:${email}`} className="button-primary">

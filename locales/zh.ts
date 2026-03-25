@@ -76,7 +76,7 @@ export const zh = {
     linkedinLabel: "LinkedIn",
     githubValue: "github.com/TSU333",
     linkedinValue: "主页稍后补充",
-    invite: "适合讨论有质感的数字产品、创意工具和未来合作。",
+    invite: "乐于讨论数字产品、创意工具和未来合作等。",
     emailAction: "发送邮件",
   },
   footer: {
