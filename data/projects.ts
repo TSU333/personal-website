@@ -82,6 +82,65 @@ export const projects: Project[] = [
       "https://chromewebstore.google.com/detail/thinkbreak/iniicihbhceodiibohojnfodficielel",
     featured: true,
   },
+  {
+    slug: "openclaw-emergency-ops",
+    title: {
+      en: "OpenClaw Emergency Ops",
+      zh: "OpenClaw Emergency Ops",
+    },
+    category: {
+      en: "Backend System",
+      zh: "后端系统",
+    },
+    description: {
+      en: "A structured incident workflow backend for high-signal automation. It receives events, generates readable summaries, routes alerts by severity, escalates to backup contacts, and keeps a full response timeline.",
+      zh: "一个面向高信号自动化的结构化事故处理后端。它接收事件、生成可读摘要、按严重级别路由告警、升级到备用联系人，并保留完整响应时间线。",
+    },
+    overview: {
+      en: "OpenClaw Emergency Ops is built to make incident handling more structured and easier to follow under pressure. It turns raw incoming events into clear summaries, routes the right alerts to the right people, and keeps response history readable from first signal to final resolution.",
+      zh: "OpenClaw Emergency Ops 的目标，是让高压场景下的事故处置更结构化、更容易追踪。它把原始事件整理成清晰摘要，把正确的告警送到正确的人手里，并把从第一条信号到最终处理的全过程保留下来。",
+    },
+    problem: {
+      en: "Emergency workflows often break down when raw alerts are noisy, routing rules are inconsistent, and escalation context gets lost across different steps.",
+      zh: "应急流程经常会在原始告警过于嘈杂、路由规则不一致、升级上下文不断丢失的情况下失去效率。",
+    },
+    solution: {
+      en: "OpenClaw Emergency Ops provides a structured backend layer that ingests events, rewrites them into readable summaries, routes by severity, escalates to backup contacts when needed, and preserves a full response timeline.",
+      zh: "OpenClaw Emergency Ops 提供了一个结构化后端层，负责接收事件、重写为可读摘要、按严重级别路由，在需要时升级到备用联系人，并保留完整的响应时间线。",
+    },
+    features: {
+      en: [
+        "Receives raw incident events and normalizes them into a stable workflow.",
+        "Generates readable summaries for faster triage and handoff.",
+        "Routes alerts by severity and escalates to backup contacts when needed.",
+      ],
+      zh: [
+        "接收原始事故事件，并把它们归一到稳定流程中。",
+        "生成可读摘要，加快分诊和交接速度。",
+        "按严重级别路由告警，并在需要时升级到备用联系人。",
+      ],
+    },
+    challenges: {
+      en: [
+        "Balancing automation speed with readable, trustworthy operator context.",
+        "Designing escalation rules that stay predictable as workflows become more complex.",
+      ],
+      zh: [
+        "在自动化速度和可读、可信的人工上下文之间保持平衡。",
+        "在流程变复杂之后，仍然让升级规则保持可预测性。",
+      ],
+    },
+    imageLabel: {
+      en: "System Preview",
+      zh: "系统预览",
+    },
+    tags: ["TypeScript", "Automation", "Incident Response"],
+    gradient:
+      "linear-gradient(135deg, rgba(210, 225, 236, 0.78), rgba(255, 255, 255, 0.94) 42%, rgba(231, 238, 243, 0.88))",
+    glow: "rgba(93, 119, 143, 0.32)",
+    github: "https://github.com/TSU333/OpenClaw-Emergency-Ops",
+    featured: true,
+  },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);

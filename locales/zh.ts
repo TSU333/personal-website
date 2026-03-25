@@ -8,9 +8,9 @@ export const zh = {
   hero: {
     eyebrow: "独立开发者",
     title: "TSU",
-    subtitle: "软件项目｜浏览器插件｜创意工具",
+    subtitle: "插件 AI 创意",
     description:
-      "我专注于设计简洁而实用的软件、浏览器插件和数字工具。",
+      "我专注于设计简洁而实用的软件、插件和数字工具。",
     primaryCta: "查看项目",
     secondaryCta: "联系我",
     status: "",
@@ -21,15 +21,15 @@ export const zh = {
       },
       {
         label: "当前项目",
-        value: "ThinkBreak，一个面向 AI 等待时间的浏览器插件。",
+        value: "ThinkBreak 与 OpenClaw Emergency Ops。",
       },
     ],
   },
   about: {
     eyebrow: "关于",
-    title: "以产品思维打造软件与插件。",
+    title: "简约 实用与创造",
     description:
-      "TSU 目前专注于浏览器插件与软件工具，希望把安静克制的界面、真实用途和产品质感结合在一起。",
+      "TSU专注于插件 软件 游戏制作 AI领域 希望结合真实用途与产品质感",
   },
   featured: {
     eyebrow: "精选项目",
@@ -40,12 +40,12 @@ export const zh = {
   },
   projectsPage: {
     eyebrow: "项目",
-    title: "ThinkBreak",
+    title: "项目",
     description:
-      "一个让你在 AI 思考时先去休息一下、等答案准备好再带你回来的 Chrome 插件。",
-    highlightTitle: "现在可用",
+      "一组以清晰结构、实际用途和安静表达为核心的浏览器插件与后端系统。",
+    highlightTitle: "当前项目",
     highlightDescription:
-      "ThinkBreak 已上线 GitHub 与 Chrome 商店。",
+      "ThinkBreak 已上线 GitHub 与 Chrome 商店，OpenClaw Emergency Ops 已上线 GitHub。",
     statLabels: {
       total: "项目数",
       featured: "精选数",

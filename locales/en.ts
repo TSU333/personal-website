@@ -8,9 +8,9 @@ export const en = {
   hero: {
     eyebrow: "Independent Developer",
     title: "TSU",
-    subtitle: "Software Projects, Browser Extensions, and Creative Tools",
+    subtitle: "Extensions, AI, and Creativity",
     description:
-      "I design clean and practical software, browser extensions, and digital tools.",
+      "I focus on designing clean and practical software, extensions, and digital tools.",
     primaryCta: "View Projects",
     secondaryCta: "Contact Me",
     status: "",
@@ -20,16 +20,16 @@ export const en = {
         value: "Design clean and practical software and extensions.",
       },
       {
-        label: "Current Project",
-        value: "ThinkBreak, a browser extension for AI waiting time.",
+        label: "Current Work",
+        value: "ThinkBreak and OpenClaw Emergency Ops.",
       },
     ],
   },
   about: {
     eyebrow: "About",
-    title: "Software and extensions built with a product mindset.",
+    title: "Minimal, practical, and creative.",
     description:
-      "TSU focuses on browser extensions and software tools with a preference for quiet interfaces, practical value, and product-level polish.",
+      "TSU focuses on extensions, software, game creation, and AI, with an emphasis on real usefulness and product quality.",
   },
   featured: {
     eyebrow: "Featured Projects",
@@ -40,12 +40,12 @@ export const en = {
   },
   projectsPage: {
     eyebrow: "Projects",
-    title: "ThinkBreak",
+    title: "Projects",
     description:
-      "A Chrome extension that lets you step away while AI thinks, then brings you back when the answer is ready.",
-    highlightTitle: "Available now",
+      "A growing set of browser extensions and backend systems built with clarity, usefulness, and calm product structure.",
+    highlightTitle: "Current lineup",
     highlightDescription:
-      "ThinkBreak is available on GitHub and the Chrome Web Store.",
+      "ThinkBreak is on GitHub and the Chrome Web Store. OpenClaw Emergency Ops is available on GitHub.",
     statLabels: {
       total: "Projects",
       featured: "Featured",

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | TSU",
   },
   description:
-    "TSU builds clean and practical software, browser extensions, and digital tools, including ThinkBreak.",
+    "TSU builds clean and practical software, browser extensions, and systems, including ThinkBreak and OpenClaw Emergency Ops.",
 };
 
 export default function RootLayout({
