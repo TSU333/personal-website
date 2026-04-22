@@ -21,10 +21,6 @@ const previewCopy = {
         "Watches the wait, opens a chosen break tab, and returns when the reply is ready.",
       selectedSite: "selected site",
       selectedSiteValue: "Break Tab",
-      state: "state",
-      stateValue: "Waiting Quietly",
-      sessionLine: "session line",
-      ready: "ready",
       stack: "stack",
     },
     ops: {
@@ -52,10 +48,6 @@ const previewCopy = {
       useText: "在等待过程中监测回复，打开设定的休息页，并在答案准备好后带你返回。",
       selectedSite: "休息页面",
       selectedSiteValue: "Break Tab",
-      state: "状态",
-      stateValue: "安静等待中",
-      sessionLine: "等待进度",
-      ready: "已就绪",
       stack: "技术栈",
     },
     ops: {
@@ -127,37 +119,19 @@ function ExtensionPreview({
             </div>
 
             <div className="px-5 py-5 sm:px-6">
-              <div className="space-y-5">
-                <div className="border-b border-black/8 pb-4 dark:border-white/10">
-                  <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                    {copy.selectedSite}
-                  </p>
-                  <p className="mt-3 text-[1.1rem] leading-7 text-zinc-950 dark:text-white">
-                    {copy.selectedSiteValue}
-                  </p>
-                </div>
-                <div className="border-b border-black/8 pb-4 dark:border-white/10">
-                  <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                    {copy.state}
-                  </p>
-                  <p className="mt-3 text-[1.1rem] leading-7 text-zinc-950 dark:text-white">
-                    {copy.stateValue}
-                  </p>
-                </div>
+              <div className="border-b border-black/8 pb-4 dark:border-white/10">
+                <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
+                  {copy.selectedSite}
+                </p>
+                <p className="mt-3 text-[1.1rem] leading-7 text-zinc-950 dark:text-white">
+                  {copy.selectedSiteValue}
+                </p>
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-[1.08fr_0.92fr] border-t border-black/8 dark:border-white/10">
-            <div className="px-5 py-4 sm:px-6">
-              <div className="flex items-center justify-between gap-4 text-[11px] text-black/44 dark:text-white/44">
-                <span className="type-ui uppercase tracking-[0.12em]">{copy.sessionLine}</span>
-                <span className="type-ui uppercase tracking-[0.12em]">{copy.ready}</span>
-              </div>
-              <div className="mt-3 h-px bg-black/18 dark:bg-white/16">
-                <div className="h-px w-[64%] bg-black/58 dark:bg-white/56" />
-              </div>
-            </div>
+            <div className="px-5 py-4 sm:px-6" />
             <div className="border-l border-black/8 px-5 py-4 dark:border-white/10 sm:px-6">
               <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
                 {copy.stack}
