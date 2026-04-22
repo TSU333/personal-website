@@ -27,7 +27,7 @@ export const zh = {
   },
   about: {
     eyebrow: "关于",
-    title: "简约 实用与创造",
+    title: "简约 实用 创造",
     description:
       "TSU专注于插件 软件 游戏制作 AI领域 希望结合真实用途与产品质感",
   },
