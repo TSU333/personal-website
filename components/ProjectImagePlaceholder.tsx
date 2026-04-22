@@ -19,41 +19,32 @@ export function ProjectImagePlaceholder({
 }: ProjectImagePlaceholderProps) {
   return (
     <div
-      className={`relative overflow-hidden rounded-[30px] border border-black/6 bg-white/72 p-6 dark:border-white/10 dark:bg-zinc-900/65 ${
-        compact ? "min-h-[252px]" : "min-h-[340px]"
+      className={`figure-stage ${
+        compact ? "min-h-[320px]" : "min-h-[420px]"
       }`}
       style={{ backgroundImage: gradient }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.84),transparent_42%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_40%)]" />
-      <div className="relative flex h-full flex-col justify-between gap-8">
-        <div className="flex items-center justify-between gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-black/42">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.32),transparent_40%,rgba(255,255,255,0.08))] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),transparent_42%,rgba(255,255,255,0.02))]" />
+      <div className="absolute left-[10%] right-[10%] top-[18%] h-px bg-black/8 dark:bg-white/10" />
+      <div className="absolute bottom-[16%] left-[10%] right-[26%] h-px bg-black/8 dark:bg-white/10" />
+      <div className="absolute bottom-[16%] top-[18%] left-[10%] w-px bg-black/8 dark:bg-white/10" />
+
+      <div className="relative flex h-full flex-col justify-between gap-8 p-6 sm:p-8">
+        <div className="type-ui flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-black/48 dark:text-white/48">
           <span>{label}</span>
           <span>{category}</span>
         </div>
 
-        <div className="space-y-4">
-          <div
-            className="max-w-[15rem] rounded-[26px] border border-black/6 bg-white/82 p-5 shadow-panel backdrop-blur-lg"
-            style={{ boxShadow: `0 32px 80px -44px ${glow}` }}
+        <div className="max-w-[18rem] space-y-4 sm:max-w-[22rem]">
+          <p
+            className="text-[clamp(2rem,4vw,3.2rem)] font-semibold tracking-[-0.06em] text-zinc-950 dark:text-white"
+            style={{ textShadow: `0 18px 42px ${glow}` }}
           >
-            <p className="text-lg font-semibold tracking-[-0.04em] text-zinc-950">
-              {title}
-            </p>
-            <p className="mt-2 text-sm leading-6 text-zinc-600">
-              {category}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {tags.slice(0, 3).map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-black/6 bg-white/74 px-3 py-1.5 text-xs font-medium text-zinc-700 backdrop-blur"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+            {title}
+          </p>
+          <p className="type-ui text-[12px] uppercase tracking-[0.14em] text-zinc-600 dark:text-zinc-300/80">
+            {tags.slice(0, 3).join(" / ")}
+          </p>
         </div>
       </div>
     </div>

@@ -14,37 +14,35 @@ export function ContactSection() {
   return (
     <AnimatedSection
       id="contact"
-      className="site-shell mt-28 scroll-mt-32"
+      className="site-shell section-space scroll-mt-28"
     >
-      <div className="surface-panel overflow-hidden px-6 py-8 sm:p-10 lg:px-12 lg:py-12">
-        <div className="grid gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
-          <div className="space-y-5">
+      <div className="section-rule">
+        <div className="grid gap-12 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
+          <div className="space-y-6">
             <p className="section-kicker">{dictionary.contact.eyebrow}</p>
-            <h2 className="section-title max-w-2xl">{dictionary.contact.title}</h2>
-            <p className="section-copy max-w-xl">{dictionary.contact.description}</p>
-            <p className="max-w-xl text-base leading-8 text-muted sm:text-[1.05rem]">
+            <h2 className="section-title max-w-[11ch]">{dictionary.contact.title}</h2>
+            <p className="section-copy max-w-[33rem]">{dictionary.contact.description}</p>
+            <p className="body-large max-w-[33rem]">
               {dictionary.contact.invite}
             </p>
             <a href={`mailto:${email}`} className="button-primary">
               {dictionary.contact.emailAction}
-              <ArrowRight size={16} />
+              <ArrowRight size={15} />
             </a>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="space-y-8 xl:pt-16">
             <a
               href={`mailto:${email}`}
-              className="subtle-panel p-6 transition hover:-translate-y-1 hover:border-foreground/10 hover:bg-card"
+              className="block border-t border-border/70 pt-5 transition hover:opacity-78"
             >
-              <div className="flex items-center gap-3">
-                <div className="rounded-full border border-border/70 bg-card/80 p-2">
-                  <Mail size={16} className="text-foreground/80" />
-                </div>
-                <p className="text-sm font-semibold text-foreground">
+              <div className="flex items-center justify-between gap-4">
+                <p className="type-ui text-[12px] font-semibold uppercase tracking-[0.14em] text-muted/82">
                   {dictionary.contact.emailLabel}
                 </p>
+                <Mail size={15} className="text-foreground/70" />
               </div>
-              <p className="mt-5 text-lg font-semibold tracking-[-0.015em] text-foreground">
+              <p className="mt-5 text-[1.4rem] leading-[1.28] tracking-[-0.03em] text-foreground sm:text-[1.7rem]">
                 {email}
               </p>
             </a>
@@ -53,17 +51,15 @@ export function ContactSection() {
               href={githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="subtle-panel p-6 transition hover:-translate-y-1 hover:border-foreground/10 hover:bg-card"
+              className="block border-t border-border/70 pt-5 transition hover:opacity-78"
             >
-              <div className="flex items-center gap-3">
-                <div className="rounded-full border border-border/70 bg-card/80 p-2">
-                  <Github size={16} className="text-foreground/80" />
-                </div>
-                <p className="text-sm font-semibold text-foreground">
+              <div className="flex items-center justify-between gap-4">
+                <p className="type-ui text-[12px] font-semibold uppercase tracking-[0.14em] text-muted/82">
                   {dictionary.contact.githubLabel}
                 </p>
+                <Github size={15} className="text-foreground/70" />
               </div>
-              <p className="mt-5 text-base leading-7 text-muted">
+              <p className="mt-5 text-[1.18rem] leading-[1.5] text-foreground/82 sm:text-[1.28rem]">
                 {dictionary.contact.githubValue}
               </p>
             </a>

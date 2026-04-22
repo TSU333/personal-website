@@ -11,102 +11,96 @@ import { ProjectImagePlaceholder } from "@/components/ProjectImagePlaceholder";
 
 type ProjectCardProps = {
   project: Project;
+  index?: number;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const { locale, dictionary } = useLanguage();
   const reduceMotion = useReducedMotion();
   const title = pickLocalizedText(project.title, locale);
   const category = pickLocalizedText(project.category, locale);
   const description = pickLocalizedText(project.description, locale);
   const imageLabel = pickLocalizedText(project.imageLabel, locale);
-  const buttonClass =
-    "inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-medium transition";
+  const isReversed = index % 2 === 1;
 
   return (
     <motion.article
-      whileHover={reduceMotion ? undefined : { y: -6 }}
-      transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-      className="surface-panel group overflow-hidden p-5 sm:p-6"
+      whileHover={reduceMotion ? undefined : { y: -2 }}
+      transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+      className="border-t border-border/70 pt-8 sm:pt-10"
     >
-      <ProjectImagePlaceholder
-        title={title}
-        category={category}
-        label={imageLabel}
-        tags={project.tags}
-        gradient={project.gradient}
-        glow={project.glow}
-        compact
-      />
-
-      <div className="mt-6 space-y-4">
-        <div className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted/85">
-            {category}
-          </p>
-          <h3 className="text-2xl font-semibold tracking-[-0.045em] text-foreground">
-            {title}
-          </h3>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:items-start lg:gap-14">
+        <div className={isReversed ? "lg:order-2" : undefined}>
+          <ProjectImagePlaceholder
+            title={title}
+            category={category}
+            label={imageLabel}
+            tags={project.tags}
+            gradient={project.gradient}
+            glow={project.glow}
+            compact
+          />
         </div>
 
-        <p className="max-w-xl text-sm leading-7 text-muted sm:text-base">
-          {description}
-        </p>
-      </div>
+        <div className={`space-y-5 ${isReversed ? "lg:order-1" : undefined}`}>
+          <p className="section-kicker">{category}</p>
+          <div className="space-y-4">
+            <h3 className="max-w-[11ch] text-[2.35rem] font-semibold text-foreground sm:text-[3.5rem]">
+              {title}
+            </h3>
+            <p className="max-w-[32rem] text-[1.02rem] leading-8 text-muted sm:text-[1.08rem]">
+              {description}
+            </p>
+          </div>
 
-      <div className="mt-5 flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full border border-border/70 bg-background/46 px-3 py-1.5 text-xs font-medium text-muted"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
+          <p className="type-ui text-[12px] uppercase tracking-[0.14em] text-muted/78">
+            {project.tags.join(" · ")}
+          </p>
 
-      <div className="mt-6 flex flex-wrap gap-3">
-        {project.github ? (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className={`${buttonClass} border border-border/75 bg-card/74 text-foreground backdrop-blur hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-card`}
-          >
-            <Github size={14} />
-            {dictionary.projectDetail.github}
-          </a>
-        ) : null}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-4 pt-2">
+            {project.github ? (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="text-link"
+              >
+                <Github size={14} />
+                {dictionary.projectDetail.github}
+              </a>
+            ) : null}
 
-        {project.store ? (
-          <a
-            href={project.store}
-            target="_blank"
-            rel="noreferrer"
-            className={`${buttonClass} border border-border/75 bg-card/74 text-foreground backdrop-blur hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-card`}
-          >
-            <Globe size={14} />
-            {dictionary.projectDetail.store}
-          </a>
-        ) : project.demo ? (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noreferrer"
-            className={`${buttonClass} border border-border/75 bg-card/74 text-foreground backdrop-blur hover:-translate-y-0.5 hover:border-foreground/10 hover:bg-card`}
-          >
-            <Globe size={14} />
-            {dictionary.projectDetail.demo}
-          </a>
-        ) : null}
+            {project.store ? (
+              <a
+                href={project.store}
+                target="_blank"
+                rel="noreferrer"
+                className="text-link"
+              >
+                <Globe size={14} />
+                {dictionary.projectDetail.store}
+              </a>
+            ) : project.demo ? (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noreferrer"
+                className="text-link"
+              >
+                <Globe size={14} />
+                {dictionary.projectDetail.demo}
+              </a>
+            ) : null}
 
-        <Link
-          href={`/projects/${project.slug}`}
-          className={`${buttonClass} border border-transparent bg-foreground text-background shadow-[0_16px_36px_-20px_rgba(17,17,19,0.3)] hover:-translate-y-0.5 hover:bg-foreground/92`}
-        >
-          <ArrowUpRight size={14} />
-          {dictionary.projectDetail.details}
-        </Link>
+            <Link
+              href={`/projects/${project.slug}`}
+              className="button-primary"
+            >
+              {dictionary.projectDetail.details}
+              <ArrowUpRight size={14} />
+            </Link>
+          </div>
+        </div>
       </div>
     </motion.article>
   );
