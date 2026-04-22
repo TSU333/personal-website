@@ -41,8 +41,7 @@ export const zh = {
   projectsPage: {
     eyebrow: "项目",
     title: "项目",
-    description:
-      "一组以清晰结构、实际用途和安静表达为核心的浏览器插件与后端系统。",
+    description: "",
     highlightTitle: "当前项目",
     highlightDescription:
       "ThinkBreak 已上线 GitHub 与 Chrome 商店，OpenClaw Emergency Ops 已上线 GitHub。",

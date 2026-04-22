@@ -36,9 +36,11 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
             <h1 className="max-w-4xl text-4xl font-semibold text-foreground sm:text-6xl">
               {dictionary.projectsPage.title}
             </h1>
-            <p className="section-copy max-w-2xl">
-              {dictionary.projectsPage.description}
-            </p>
+            {dictionary.projectsPage.description ? (
+              <p className="section-copy max-w-2xl">
+                {dictionary.projectsPage.description}
+              </p>
+            ) : null}
           </div>
 
           <div className="subtle-panel p-6">

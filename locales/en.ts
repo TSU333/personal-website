@@ -41,8 +41,7 @@ export const en = {
   projectsPage: {
     eyebrow: "Projects",
     title: "Projects",
-    description:
-      "A growing set of browser extensions and backend systems built with clarity, usefulness, and calm product structure.",
+    description: "",
     highlightTitle: "Current lineup",
     highlightDescription:
       "ThinkBreak is on GitHub and the Chrome Web Store. OpenClaw Emergency Ops is available on GitHub.",
