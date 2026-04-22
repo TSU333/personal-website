@@ -82,11 +82,10 @@ body {
 
 html[lang="en"] body {
   font-family:
-    "Bodoni 72",
-    "Bodoni 72 Oldstyle",
-    "Didot",
-    "Times New Roman",
-    serif;
+    "Helvetica Neue",
+    "Helvetica",
+    Arial,
+    sans-serif;
   letter-spacing: -0.012em;
 }
 
@@ -95,9 +94,10 @@ html[lang="zh"] body {
     "PingFang SC",
     "Hiragino Sans GB",
     "Helvetica Neue",
+    "Helvetica",
     "Microsoft YaHei",
     sans-serif;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 a,
@@ -118,14 +118,14 @@ button {
 @layer base {
   h1,
   .hero-title {
-    letter-spacing: -0.06em;
-    line-height: 0.92;
+    letter-spacing: -0.05em;
+    line-height: 0.96;
   }
 
   h2,
   .section-title {
-    letter-spacing: -0.045em;
-    line-height: 0.98;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
   }
 
   h3 {
@@ -145,6 +145,23 @@ button {
   }
 }
 
+html[lang="zh"] .hero-title {
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+html[lang="zh"] .section-title {
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+html[lang="zh"] .body-large,
+html[lang="zh"] .section-copy,
+html[lang="zh"] .detail-copy,
+html[lang="zh"] p {
+  letter-spacing: 0.01em;
+}
+
 @layer components {
   .site-shell {
     @apply mx-auto w-full max-w-[1380px] px-6 sm:px-10 lg:px-14;
@@ -161,8 +178,6 @@ button {
 
   .type-ui {
     font-family:
-      "SF Pro Text",
-      "SF Pro Display",
       "Helvetica Neue",
       "Helvetica",
       Arial,
@@ -180,8 +195,6 @@ button {
     @apply inline-flex h-11 items-center justify-center gap-2 px-4 hover:-translate-y-0.5;
     border-radius: 999px;
     font-family:
-      "SF Pro Text",
-      "SF Pro Display",
       "Helvetica Neue",
       "Helvetica",
       Arial,
@@ -199,8 +212,6 @@ button {
     border: 1px solid rgb(var(--border) / 0.75);
     background-color: transparent;
     font-family:
-      "SF Pro Text",
-      "SF Pro Display",
       "Helvetica Neue",
       "Helvetica",
       Arial,
@@ -214,8 +225,6 @@ button {
     @apply inline-flex items-center;
     color: rgb(var(--muted) / 0.88);
     font-family:
-      "SF Pro Text",
-      "SF Pro Display",
       "Helvetica Neue",
       "Helvetica",
       Arial,
@@ -229,8 +238,6 @@ button {
   .section-kicker {
     color: rgb(var(--muted) / 0.85);
     font-family:
-      "SF Pro Text",
-      "SF Pro Display",
       "Helvetica Neue",
       "Helvetica",
       Arial,
@@ -242,28 +249,26 @@ button {
   }
 
   .section-title {
-    @apply text-[2.6rem] font-semibold sm:text-[4.6rem];
+    @apply text-[2.2rem] font-semibold sm:text-[3.9rem];
     color: rgb(var(--foreground));
   }
 
   .section-copy {
-    @apply text-[1.02rem] sm:text-[1.12rem];
+    @apply text-[1rem] sm:text-[1.08rem];
     color: rgb(var(--muted));
-    line-height: 1.78;
+    line-height: 1.82;
   }
 
   .body-large {
     color: rgb(var(--muted));
-    font-size: clamp(1.04rem, 1.2vw, 1.2rem);
-    line-height: 1.78;
+    font-size: clamp(1rem, 1.12vw, 1.15rem);
+    line-height: 1.86;
   }
 
   .text-link {
     @apply inline-flex items-center gap-2;
     color: rgb(var(--foreground));
     font-family:
-      "SF Pro Text",
-      "SF Pro Display",
       "Helvetica Neue",
       "Helvetica",
       Arial,
@@ -288,8 +293,6 @@ button {
   .detail-label {
     color: rgb(var(--muted) / 0.86);
     font-family:
-      "SF Pro Text",
-      "SF Pro Display",
       "Helvetica Neue",
       "Helvetica",
       Arial,

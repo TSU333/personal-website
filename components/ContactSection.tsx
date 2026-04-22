@@ -20,9 +20,11 @@ export function ContactSection() {
         <div className="grid gap-12 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
           <div className="space-y-6">
             <p className="section-kicker">{dictionary.contact.eyebrow}</p>
-            <h2 className="section-title max-w-[11ch]">{dictionary.contact.title}</h2>
-            <p className="section-copy max-w-[33rem]">{dictionary.contact.description}</p>
-            <p className="body-large max-w-[33rem]">
+            <h2 className="section-title max-w-[15ch] sm:max-w-[13ch] xl:max-w-[12ch]">
+              {dictionary.contact.title}
+            </h2>
+            <p className="section-copy max-w-[36rem]">{dictionary.contact.description}</p>
+            <p className="body-large max-w-[36rem]">
               {dictionary.contact.invite}
             </p>
             <a href={`mailto:${email}`} className="button-primary">
