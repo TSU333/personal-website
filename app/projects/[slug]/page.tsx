@@ -5,9 +5,9 @@ import { ProjectDetail } from "@/components/ProjectDetail";
 import { getProjectBySlug, projects } from "@/data/projects";
 
 type ProjectDetailPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
@@ -16,10 +16,11 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
-}: ProjectDetailPageProps): Metadata {
-  const project = getProjectBySlug(params.slug);
+}: ProjectDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     return {
@@ -33,8 +34,11 @@ export function generateMetadata({
   };
 }
 
-export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectDetailPage({
+  params,
+}: ProjectDetailPageProps) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     notFound();
