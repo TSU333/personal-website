@@ -32,7 +32,7 @@ export const thinkBreakProject = {
     zh: "不必一直盯着 AI 的等待界面。回复时间过长时，ThinkBreak 会打开你选择的休息页面，并在答案完成后带你返回。",
   },
   overview: {
-    en: "ThinkBreak is a Chrome and Edge extension for long AI response times. It watches supported AI pages, detects when a response is still being generated, and turns the wait into a deliberate short break without losing the original conversation.",
+    en: "ThinkBreak is a Chrome and Edge extension for long AI response times. It watches supported AI pages, detects when a response is still being generated, and opens a short break while preserving the original conversation.",
     zh: "ThinkBreak 是一个面向 Chrome 与 Edge 的浏览器插件。它会监测支持的 AI 页面，判断回复是否仍在生成，并把漫长等待转化成一次可控的短暂休息，同时保留原本的对话流程。",
   },
   problem: {
@@ -46,7 +46,7 @@ export const thinkBreakProject = {
   features: {
     en: [
       "Supports ChatGPT, Claude, Gemini, Grok, and Doubao web experiences.",
-      "Uses multiple page signals instead of relying on an official AI API.",
+      "Combines multiple page signals to infer the AI state.",
       "Offers configurable thresholds, break destinations, and completion actions.",
       "Runs as a Manifest V3 extension for Chrome and Edge.",
     ],
@@ -60,13 +60,13 @@ export const thinkBreakProject = {
   challenges: {
     en: [
       "Keeping detection stable as AI products continuously change their interfaces.",
-      "Coordinating content scripts, the service worker, tabs, and session state without interrupting the user.",
-      "Making automatic switching feel useful and predictable rather than intrusive.",
+      "Coordinating content scripts, the service worker, tabs, and session state reliably.",
+      "Keeping automatic switching predictable and easy to control.",
     ],
     zh: [
       "在 AI 产品界面持续变化的情况下保持检测稳定。",
       "协调内容脚本、Service Worker、标签页和会话状态，同时避免打断用户。",
-      "让自动切换保持可控、可预测，而不是制造新的干扰。",
+      "让自动切换保持可控、可预测。",
     ],
   },
   imageLabel: {

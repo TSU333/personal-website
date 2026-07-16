@@ -8,21 +8,19 @@ export const en = {
   hero: {
     eyebrow: "Independent Developer / TSU",
     title: "TSU",
-    subtitle: "I build focused software and playable worlds.",
+    subtitle: "Software, browser extensions, and games.",
     description:
-      "Independent developer working across browser extensions, AI workflows, and game systems. From product direction to the final line of code.",
+      "I independently develop browser extensions and software. I am currently working on a game development project.",
     primaryCta: "Explore ThinkBreak",
     secondaryCta: "View GitHub",
     status: "Currently building an independent game.",
     roles: ["Extension Developer", "Independent Developer", "Game Developer"],
-    signalLabel: "Current signal",
-    signalValue: "Building in public",
   },
   about: {
     eyebrow: "What I Do",
-    title: "One developer. Multiple disciplines.",
+    title: "Independent Development",
     description:
-      "I care about products that feel considered on the surface and remain clear underneath. Design, interaction, architecture, and implementation are treated as one continuous process.",
+      "I focus on visual quality, clear structure, and practical use, and handle design, interaction, architecture, and implementation independently.",
     roles: [
       {
         index: "01",
@@ -37,14 +35,14 @@ export const en = {
       {
         index: "03",
         title: "Game Developer",
-        description: "Designing systems, interactions, and worlds through code.",
+        description: "I am currently working on a game development project.",
       },
     ],
   },
   thinkBreak: {
-    eyebrow: "Flagship Project / 01",
+    eyebrow: "Public Project",
     title: "ThinkBreak",
-    headline: "Let AI work. Take your attention back.",
+    headline: "Take a break while AI thinks.",
     description:
       "A Chrome and Edge extension that monitors long AI replies, opens a chosen break site, and returns when the answer is ready.",
     github: "Source on GitHub",
@@ -66,19 +64,13 @@ export const en = {
     flow: ["Detect", "Release", "Return"],
   },
   game: {
-    eyebrow: "Now Building / 02",
-    title: "An independent game is in development.",
-    description:
-      "A new playable project is taking shape through systems design, rapid prototypes, and a lot of iteration. More will be revealed when the core experience is ready.",
-    status: "In development",
-    disciplines: ["Game Design", "Systems", "Engineering"],
-    buildLabel: "Current build",
-    buildValue: "Prototype",
-    progressLabel: "Focus",
-    progressValue: "Core loop",
+    eyebrow: "Game Development",
+    title: "I am currently working on a game development project.",
+    status: "In progress",
+    label: "Game Development Project",
   },
   projectsPage: {
-    eyebrow: "Flagship Project",
+    eyebrow: "Public Project",
     title: "ThinkBreak",
     description:
       "A browser extension that gives your attention back while AI is still generating.",
@@ -106,7 +98,7 @@ export const en = {
   },
   contact: {
     eyebrow: "Contact",
-    title: "Have an idea worth building?",
+    title: "Contact TSU",
     description:
       "I am open to conversations around useful digital products, browser extensions, games, and independent development.",
     emailLabel: "Email",

@@ -25,9 +25,6 @@ export function ProjectImagePlaceholder({
 
   return (
     <div className={`product-stage ${compact ? "product-stage-compact" : ""}`}>
-      <div className="product-grid" aria-hidden="true" />
-      <div className="product-glow" aria-hidden="true" />
-
       <div className="relative z-10 flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-7">
         <div className="flex min-w-0 items-center gap-3">
           <Image
@@ -48,7 +45,7 @@ export function ProjectImagePlaceholder({
         </div>
 
         <div className="type-ui flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-white/58">
-          <span className="signal-dot" />
+          <span className="h-1.5 w-1.5 bg-accent" />
           {copy.live}
         </div>
       </div>
@@ -130,7 +127,7 @@ export function ProjectImagePlaceholder({
 
             <div className="signal-route mt-10" aria-hidden="true">
               <span className="signal-route-node signal-route-node-start" />
-              <span className="signal-route-pulse" />
+              <span className="signal-route-node signal-route-node-middle" />
               <span className="signal-route-node signal-route-node-end" />
             </div>
           </div>

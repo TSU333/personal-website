@@ -8,21 +8,19 @@ export const zh = {
   hero: {
     eyebrow: "独立开发者 / TSU",
     title: "TSU",
-    subtitle: "独立做产品，也独立创造可玩的世界。",
+    subtitle: "开发软件、浏览器插件与游戏。",
     description:
-      "专注于浏览器插件、AI 工作流与游戏系统，从产品方向、交互体验到最终代码，保持完整的独立开发过程。",
+      "独立开发浏览器插件与软件，目前正在进行一个游戏开发项目。",
     primaryCta: "探索 ThinkBreak",
     secondaryCta: "查看 GitHub",
     status: "正在开发一款独立游戏。",
     roles: ["插件开发者", "独立开发者", "游戏开发者"],
-    signalLabel: "当前状态",
-    signalValue: "持续构建中",
   },
   about: {
     eyebrow: "开发方向",
-    title: "一个开发者，多种创造方式。",
+    title: "独立开发",
     description:
-      "我希望产品在表面上足够精致，在结构上依然清晰。设计、交互、架构和实现不是分开的步骤，而是同一个完整过程。",
+      "我关注产品的外观、结构与实际使用体验，并独立完成设计、交互、架构和实现。",
     roles: [
       {
         index: "01",
@@ -37,14 +35,14 @@ export const zh = {
       {
         index: "03",
         title: "游戏开发者",
-        description: "通过代码设计系统、交互与可以探索的世界。",
+        description: "目前正在进行一个游戏开发项目。",
       },
     ],
   },
   thinkBreak: {
-    eyebrow: "旗舰项目 / 01",
+    eyebrow: "公开项目",
     title: "ThinkBreak",
-    headline: "让 AI 继续工作，把注意力还给自己。",
+    headline: "AI 思考时，去休息一下。",
     description:
       "一个面向 Chrome 与 Edge 的浏览器插件：监测较长的 AI 回复，打开选定的休息页面，并在答案完成后带你返回。",
     github: "查看 GitHub 源码",
@@ -66,19 +64,13 @@ export const zh = {
     flow: ["检测", "释放", "返回"],
   },
   game: {
-    eyebrow: "正在开发 / 02",
-    title: "一款独立游戏正在形成。",
-    description:
-      "新的可玩项目正在通过系统设计、快速原型和持续迭代逐步成形。核心体验足够成熟时，会公开更多内容。",
-    status: "开发中",
-    disciplines: ["游戏设计", "系统设计", "工程实现"],
-    buildLabel: "当前版本",
-    buildValue: "原型阶段",
-    progressLabel: "当前重点",
-    progressValue: "核心循环",
+    eyebrow: "游戏开发",
+    title: "目前正在进行一个游戏开发项目。",
+    status: "进行中",
+    label: "游戏开发项目",
   },
   projectsPage: {
-    eyebrow: "旗舰项目",
+    eyebrow: "公开项目",
     title: "ThinkBreak",
     description: "一个在 AI 仍在生成时，把注意力还给你的浏览器插件。",
     highlightTitle: "已公开发布",
@@ -105,7 +97,7 @@ export const zh = {
   },
   contact: {
     eyebrow: "联系",
-    title: "有值得实现的想法？",
+    title: "联系 TSU",
     description:
       "乐于交流实用的数字产品、浏览器插件、游戏与独立开发。",
     emailLabel: "邮箱",

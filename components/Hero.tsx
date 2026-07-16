@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, Github } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDownRight, Github } from "lucide-react";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { useLanguage } from "@/components/Providers";
@@ -11,30 +10,17 @@ const githubUrl = "https://github.com/TSU333";
 
 export function Hero() {
   const { dictionary } = useLanguage();
-  const reduceMotion = useReducedMotion();
 
   return (
     <AnimatedSection className="site-shell pt-3 sm:pt-8">
       <div className="hero-stage">
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-bloom" aria-hidden="true" />
-
-        <motion.div
-          className="hero-orbit"
-          aria-hidden="true"
-          animate={reduceMotion ? undefined : { rotate: 360 }}
-          transition={{ duration: 28, ease: "linear", repeat: Infinity }}
-        >
-          <span className="hero-orbit-dot" />
-        </motion.div>
-
         <div className="relative z-10 flex min-h-[calc(100svh-8.5rem)] flex-col justify-between p-6 sm:min-h-[650px] sm:p-10 lg:min-h-[720px] lg:p-14">
           <div className="flex flex-wrap items-center justify-between gap-5">
             <p className="eyebrow-label text-white/54">
               {dictionary.hero.eyebrow}
             </p>
             <div className="type-ui flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">
-              <span className="signal-dot" />
+              <span className="h-1.5 w-1.5 bg-accent" />
               {dictionary.hero.status}
             </div>
           </div>
@@ -72,7 +58,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="grid gap-5 border-t border-white/12 pt-5 sm:grid-cols-[1fr_auto] sm:items-end">
+          <div className="border-t border-white/12 pt-5">
             <div className="flex flex-wrap gap-x-7 gap-y-3">
               {dictionary.hero.roles.map((role) => (
                 <span
@@ -82,16 +68,6 @@ export function Hero() {
                   {role}
                 </span>
               ))}
-            </div>
-
-            <div className="flex items-center gap-3 sm:justify-end">
-              <span className="type-ui text-[9px] uppercase tracking-[0.14em] text-white/32">
-                {dictionary.hero.signalLabel}
-              </span>
-              <span className="type-ui inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/72">
-                {dictionary.hero.signalValue}
-                <ArrowUpRight size={13} />
-              </span>
             </div>
           </div>
         </div>

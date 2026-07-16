@@ -17,8 +17,6 @@ export function ContactSection() {
       className="site-shell section-space scroll-mt-28"
     >
       <div className="contact-stage">
-        <div className="contact-grid" aria-hidden="true" />
-
         <div className="relative z-10 p-6 sm:p-10 lg:p-14">
           <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
             <div>
