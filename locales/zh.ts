@@ -3,7 +3,6 @@ export const zh = {
     home: "首页",
     projects: "ThinkBreak",
     contact: "联系",
-    label: "导航",
   },
   hero: {
     eyebrow: "独立开发者 / TSU",
@@ -15,29 +14,6 @@ export const zh = {
     secondaryCta: "查看 GitHub",
     status: "正在开发一款独立游戏。",
     roles: ["插件开发者", "独立开发者", "游戏开发者"],
-  },
-  about: {
-    eyebrow: "开发方向",
-    title: "独立开发",
-    description:
-      "我关注产品的外观、结构与实际使用体验，并独立完成设计、交互、架构和实现。",
-    roles: [
-      {
-        index: "01",
-        title: "独立开发者",
-        description: "把一个有用的想法推进成完整、可交付的产品。",
-      },
-      {
-        index: "02",
-        title: "插件开发者",
-        description: "围绕真实工作流与浏览器限制，构建原生工具。",
-      },
-      {
-        index: "03",
-        title: "游戏开发者",
-        description: "目前正在进行一个游戏开发项目。",
-      },
-    ],
   },
   thinkBreak: {
     eyebrow: "公开项目",
@@ -73,13 +49,7 @@ export const zh = {
     eyebrow: "公开项目",
     title: "ThinkBreak",
     description: "一个在 AI 仍在生成时，把注意力还给你的浏览器插件。",
-    highlightTitle: "已公开发布",
     highlightDescription: "Chrome 商店 · GitHub · Apache 2.0",
-    statLabels: {
-      total: "项目数",
-      featured: "精选数",
-      categories: "分类数",
-    },
   },
   projectDetail: {
     backToProjects: "返回 ThinkBreak",
@@ -87,26 +57,18 @@ export const zh = {
     problem: "要解决的问题",
     solution: "系统实现",
     features: "核心能力",
-    stack: "技术基础",
     challenges: "工程挑战",
     github: "GitHub",
     store: "Chrome 商店",
-    demo: "在线演示",
     details: "技术详情",
-    placeholder: "产品系统",
   },
   contact: {
     eyebrow: "联系",
     title: "联系 TSU",
     description:
       "乐于交流实用的数字产品、浏览器插件、游戏与独立开发。",
-    emailLabel: "邮箱",
-    githubLabel: "GitHub",
-    linkedinLabel: "LinkedIn",
     githubValue: "github.com/TSU333",
-    linkedinValue: "主页稍后补充",
     invite: "邮件是联系我的最快方式。",
-    emailAction: "开始交流",
   },
   footer: {
     line: "TSU 的独立软件、浏览器插件与游戏。",
@@ -118,8 +80,5 @@ export const zh = {
     themeToggle: "切换深浅色模式",
     menu: "打开菜单",
     close: "关闭菜单",
-    comingSoon: "即将公开",
-    featured: "精选",
-    productShowcase: "产品展示",
   },
 } as const;

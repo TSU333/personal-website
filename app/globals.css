@@ -4,17 +4,17 @@
 
 :root {
   color-scheme: light;
-  --bg-primary: #f1f3f1;
-  --bg-secondary: #e8ebe8;
-  --text-primary: #111312;
-  --text-secondary: #666c69;
-  --background: 241 243 241;
-  --foreground: 17 19 18;
-  --card: 247 248 247;
-  --border: 198 204 200;
-  --muted: 102 108 105;
-  --accent: 70 194 171;
-  --accent-soft: 215 240 233;
+  --bg-primary: #f1f1ee;
+  --bg-secondary: #e7e7e3;
+  --text-primary: #141414;
+  --text-secondary: #686865;
+  --background: 241 241 238;
+  --foreground: 20 20 20;
+  --card: 247 247 244;
+  --border: 194 194 188;
+  --muted: 104 104 101;
+  --accent: 55 148 130;
+  --accent-soft: 219 235 230;
   --space-1: 0.5rem;
   --space-2: 0.75rem;
   --space-3: 1rem;
@@ -25,8 +25,8 @@
   --space-8: 6rem;
   --space-9: 9rem;
   --radius-s: 10px;
-  --radius-m: 18px;
-  --radius-l: 26px;
+  --radius-m: 12px;
+  --radius-l: 16px;
   --shadow-soft: 0 24px 70px -46px rgba(5, 13, 10, 0.28);
 }
 
@@ -136,11 +136,11 @@ button {
 
 @layer components {
   .site-shell {
-    @apply mx-auto w-full max-w-[1480px] px-4 sm:px-8 lg:px-12;
+    @apply mx-auto w-full max-w-[1600px] px-4 sm:px-8 lg:px-12;
   }
 
   .section-space {
-    margin-top: clamp(6.5rem, 12vw, 11rem);
+    margin-top: clamp(7rem, 11vw, 10rem);
   }
 
   .section-rule {
@@ -155,15 +155,13 @@ button {
 
   .nav-shell {
     border-bottom: 1px solid rgb(var(--border) / 0.54);
-    background-color: rgb(var(--background) / 0.78);
-    backdrop-filter: blur(20px) saturate(130%);
-    -webkit-backdrop-filter: blur(20px) saturate(130%);
+    background-color: rgb(var(--background) / 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .button-primary,
-  .button-secondary,
-  .button-light,
-  .button-ghost-light {
+  .button-secondary {
     @apply type-ui inline-flex h-11 items-center justify-center gap-2 px-4 text-[12px] font-semibold tracking-[0.035em];
     border-radius: var(--radius-s);
   }
@@ -188,29 +186,6 @@ button {
     transform: translateY(-2px);
     border-color: rgb(var(--foreground) / 0.22);
     background: rgb(var(--card) / 0.72);
-  }
-
-  .button-light {
-    color: #07100d;
-    background: #f6faf8;
-  }
-
-  .button-light:hover {
-    transform: translateY(-2px);
-    background: #ffffff;
-  }
-
-  .button-ghost-light {
-    border: 1px solid rgb(255 255 255 / 0.16);
-    color: rgb(255 255 255 / 0.76);
-    background: rgb(255 255 255 / 0.035);
-  }
-
-  .button-ghost-light:hover {
-    transform: translateY(-2px);
-    border-color: rgb(255 255 255 / 0.28);
-    color: #ffffff;
-    background: rgb(255 255 255 / 0.07);
   }
 
   .eyebrow-label,
@@ -280,29 +255,16 @@ button {
     line-height: 1.7;
   }
 
-  .discipline-row {
-    @apply grid grid-cols-[2.5rem_1fr_auto] gap-4 border-b border-border/70 py-7 sm:gap-6 sm:py-8;
-  }
-}
-
-.hero-stage,
-.contact-stage {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgb(255 255 255 / 0.1);
-  border-radius: var(--radius-l);
-  background: #060807;
-  box-shadow: 0 40px 120px -70px rgb(0 0 0 / 0.9);
 }
 
 .product-stage {
   position: relative;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / 0.1);
-  border-radius: var(--radius-l);
+  border-radius: 6px;
   color: #ffffff;
   background: #090c0b;
-  box-shadow: 0 42px 120px -74px rgb(0 0 0 / 0.9);
+  box-shadow: 0 34px 90px -68px rgb(0 0 0 / 0.72);
 }
 
 .product-stage {
@@ -431,18 +393,14 @@ button {
   right: 0;
 }
 
-.contact-stage {
-  background: #060807;
-}
-
 .contact-email {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 1rem;
-  border-top: 1px solid rgb(255 255 255 / 0.14);
+  border-top: 1px solid rgb(var(--border) / 0.72);
   padding-top: 1.4rem;
-  color: rgb(255 255 255 / 0.86);
+  color: rgb(var(--foreground) / 0.9);
   font-size: clamp(1.4rem, 4.8vw, 5rem);
   font-weight: 450;
   line-height: 1;
@@ -451,21 +409,21 @@ button {
 }
 
 .contact-email:hover {
-  color: #ffffff;
+  color: rgb(var(--foreground));
 }
 
 .contact-email-arrow {
   width: clamp(1.5rem, 4vw, 3.5rem);
   height: clamp(1.5rem, 4vw, 3.5rem);
   flex: none;
-  color: rgb(255 255 255 / 0.38);
+  color: rgb(var(--muted) / 0.52);
   transition:
     color 180ms ease,
     transform 180ms ease;
 }
 
 .contact-email:hover .contact-email-arrow {
-  color: #70dec9;
+  color: rgb(var(--accent));
   transform: translate(3px, -3px);
 }
 
@@ -475,10 +433,8 @@ button {
     padding-right: 1rem;
   }
 
-  .hero-stage,
-  .product-stage,
-  .contact-stage {
-    border-radius: 16px;
+  .product-stage {
+    border-radius: 4px;
   }
 
   .section-space {

@@ -1,4 +1,3 @@
-import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
 import { GameSection } from "@/components/GameSection";
 import { Hero } from "@/components/Hero";
@@ -8,7 +7,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <AboutSection />
       <ThinkBreakShowcase />
       <GameSection />
       <ContactSection />

@@ -3,7 +3,6 @@ export const en = {
     home: "Home",
     projects: "ThinkBreak",
     contact: "Contact",
-    label: "Navigation",
   },
   hero: {
     eyebrow: "Independent Developer / TSU",
@@ -15,29 +14,6 @@ export const en = {
     secondaryCta: "View GitHub",
     status: "Currently building an independent game.",
     roles: ["Extension Developer", "Independent Developer", "Game Developer"],
-  },
-  about: {
-    eyebrow: "What I Do",
-    title: "Independent Development",
-    description:
-      "I focus on visual quality, clear structure, and practical use, and handle design, interaction, architecture, and implementation independently.",
-    roles: [
-      {
-        index: "01",
-        title: "Independent Developer",
-        description: "Turning a useful idea into a complete, shippable product.",
-      },
-      {
-        index: "02",
-        title: "Extension Developer",
-        description: "Building browser-native tools around real workflows and constraints.",
-      },
-      {
-        index: "03",
-        title: "Game Developer",
-        description: "I am currently working on a game development project.",
-      },
-    ],
   },
   thinkBreak: {
     eyebrow: "Public Project",
@@ -74,13 +50,7 @@ export const en = {
     title: "ThinkBreak",
     description:
       "A browser extension that gives your attention back while AI is still generating.",
-    highlightTitle: "Available now",
     highlightDescription: "Chrome Web Store · GitHub · Apache 2.0",
-    statLabels: {
-      total: "Projects",
-      featured: "Featured",
-      categories: "Categories",
-    },
   },
   projectDetail: {
     backToProjects: "Back to ThinkBreak",
@@ -88,26 +58,18 @@ export const en = {
     problem: "The problem",
     solution: "The system",
     features: "Capabilities",
-    stack: "Technical foundation",
     challenges: "Engineering challenges",
     github: "GitHub",
     store: "Chrome Web Store",
-    demo: "Live Demo",
     details: "Technical details",
-    placeholder: "Product system",
   },
   contact: {
     eyebrow: "Contact",
     title: "Contact TSU",
     description:
       "I am open to conversations around useful digital products, browser extensions, games, and independent development.",
-    emailLabel: "Email",
-    githubLabel: "GitHub",
-    linkedinLabel: "LinkedIn",
     githubValue: "github.com/TSU333",
-    linkedinValue: "Profile coming soon",
     invite: "Email is the fastest way to reach me.",
-    emailAction: "Start a conversation",
   },
   footer: {
     line: "Independent software, extensions, and games by TSU.",
@@ -119,8 +81,5 @@ export const en = {
     themeToggle: "Toggle theme",
     menu: "Open menu",
     close: "Close menu",
-    comingSoon: "Coming soon",
-    featured: "Featured",
-    productShowcase: "Product Showcase",
   },
 } as const;
