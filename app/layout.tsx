@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | TSU",
   },
   description:
-    "TSU builds clean and practical software, browser extensions, and systems, including ThinkBreak and OpenClaw Emergency Ops.",
+    "TSU is an independent developer building browser extensions, AI tools, and games. Creator of ThinkBreak.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
         <Providers>
           <div className="relative min-h-screen">
             <Navbar />
-            <main className="pb-12 pt-24 sm:pt-28">{children}</main>
+            <main className="pb-12 pt-20 sm:pt-24">{children}</main>
             <Footer />
           </div>
         </Providers>

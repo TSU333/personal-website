@@ -1,0 +1,24 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="clock" x1="41" y1="28" x2="103" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9F7F0"/>
+      <stop offset="1" stop-color="#76CDBD"/>
+    </linearGradient>
+    <filter id="shadow" x="16" y="14" width="100" height="104" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="3" dy="9" stdDeviation="7" flood-color="#061A17" flood-opacity="0.22"/>
+    </filter>
+    <clipPath id="brain-clip">
+      <rect width="66" height="128"/>
+    </clipPath>
+  </defs>
+  <g filter="url(#shadow)">
+    <circle cx="75" cy="64" r="35" fill="#F8FFFD"/>
+    <circle cx="75" cy="64" r="33" stroke="url(#clock)" stroke-width="4"/>
+    <path d="M75 64V40M75 64H90M75 31V23" stroke="#6BBEAE" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="75" cy="64" r="3.6" fill="#6BBEAE"/>
+  </g>
+  <g clip-path="url(#brain-clip)" filter="url(#shadow)">
+    <path d="M54 42C54 34.268 47.732 28 40 28C32.91 28 27.051 33.276 26.133 40.113C19.023 41.338 14 47.526 14 54.75C14 59.693 16.353 64.159 20 66.98C18.735 69.103 18 71.585 18 74.25C18 81.982 24.268 88.25 32 88.25C35.708 88.25 39.078 86.807 41.584 84.455C44.16 86.648 47.501 88 51.158 88C59.352 88 66 81.352 66 73.158C66 68.775 64.099 64.836 61.078 62.126C63.521 59.687 65 56.316 65 52.6C65 45.342 59.658 39.255 52.668 38.1C53.537 39.272 54 40.723 54 42Z" fill="#F4F6F5"/>
+    <path d="M26 46C30 43 35 43 39 46M28 58C34 55 40 57 43 62M34 72C39 69 44 69 48 73M43 41C40 47 40 55 44 61M50 52C47 58 47 66 51 72" stroke="#C9CECC" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

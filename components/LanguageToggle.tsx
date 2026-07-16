@@ -10,7 +10,7 @@ export function LanguageToggle() {
       type="button"
       onClick={toggleLocale}
       aria-label={dictionary.misc.languageSwitch}
-      className="type-ui inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.1em] text-foreground/78 transition hover:text-foreground"
+      className="type-ui inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.1em] text-foreground/70 transition hover:text-foreground"
     >
       <span className={locale === "en" ? "text-foreground" : "text-muted"}>
         EN

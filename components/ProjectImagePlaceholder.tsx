@@ -1,5 +1,8 @@
 "use client";
 
+import Image from "next/image";
+import { Check, Radio, TimerReset } from "lucide-react";
+
 import { useLanguage } from "@/components/Providers";
 
 type ProjectImagePlaceholderProps = {
@@ -7,290 +10,154 @@ type ProjectImagePlaceholderProps = {
   category: string;
   label: string;
   tags: string[];
-  gradient: string;
-  glow: string;
   compact?: boolean;
 };
-
-const previewCopy = {
-  en: {
-    extension: {
-      monitor: "response monitor",
-      use: "use",
-      useText:
-        "Watches the wait, opens a chosen break tab, and returns when the reply is ready.",
-      selectedSite: "selected site",
-      selectedSiteValue: "Break Tab",
-      stack: "stack",
-    },
-    ops: {
-      workflow: "incident workflow",
-      routing: "routing",
-      routingValue: "Severity aware",
-      incoming: "incoming event",
-      incomingText:
-        "Event received, summarized, then routed to the right path without losing context.",
-      escalation: "escalation path",
-      escalationItems: [
-        "SEV-1 -> primary",
-        "SEV-2 -> notify",
-        "backup -> if missed",
-      ],
-      live: "live",
-      timeline: "timeline",
-      stack: "stack",
-    },
-  },
-  zh: {
-    extension: {
-      monitor: "响应监测",
-      use: "用途",
-      useText: "在等待过程中监测回复，打开设定的休息页，并在答案准备好后带你返回。",
-      selectedSite: "休息页面",
-      selectedSiteValue: "Break Tab",
-      stack: "技术栈",
-    },
-    ops: {
-      workflow: "事件流程",
-      routing: "路由",
-      routingValue: "按严重级别处理",
-      incoming: "输入事件",
-      incomingText: "接收事件，整理摘要，并在不丢失上下文的前提下送往正确处理路径。",
-      escalation: "升级路径",
-      escalationItems: [
-        "SEV-1 -> primary",
-        "SEV-2 -> notify",
-        "backup -> if missed",
-      ],
-      live: "进行中",
-      timeline: "时间线",
-      stack: "技术栈",
-    },
-  },
-} as const;
-
-function ExtensionPreview({
-  title,
-  category,
-  label,
-  tags,
-  compact,
-  locale,
-}: {
-  title: string;
-  category: string;
-  label: string;
-  tags: string[];
-  compact: boolean;
-  locale: "en" | "zh";
-}) {
-  const copy = previewCopy[locale].extension;
-
-  return (
-    <div className="relative flex h-full flex-col p-5 sm:p-7">
-      <div className="type-ui flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-black/48 dark:text-white/48">
-        <span>{label}</span>
-        <span>{category}</span>
-      </div>
-
-      <div className="mt-5 flex-1 border border-black/8 dark:border-white/10">
-        <div className="grid h-full grid-rows-[auto_1fr_auto]">
-          <div className="border-b border-black/8 px-5 py-4 dark:border-white/10 sm:px-6">
-            <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-              {copy.monitor}
-            </p>
-            <p
-              className={`mt-4 max-w-[8ch] font-semibold leading-[0.96] tracking-[-0.055em] text-zinc-950 dark:text-white ${
-                compact ? "text-[2.55rem]" : "text-[3rem]"
-              }`}
-            >
-              {title}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-[1.08fr_0.92fr]">
-            <div className="border-r border-black/8 px-5 py-5 dark:border-white/10 sm:px-6">
-              <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                {copy.use}
-              </p>
-              <p className="mt-3 max-w-[24rem] text-[1.04rem] leading-8 text-black/70 dark:text-white/74">
-                {copy.useText}
-              </p>
-            </div>
-
-            <div className="px-5 py-5 sm:px-6">
-              <div className="border-b border-black/8 pb-4 dark:border-white/10">
-                <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                  {copy.selectedSite}
-                </p>
-                <p className="mt-3 text-[1.1rem] leading-7 text-zinc-950 dark:text-white">
-                  {copy.selectedSiteValue}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-[1.08fr_0.92fr] border-t border-black/8 dark:border-white/10">
-            <div className="px-5 py-4 sm:px-6" />
-            <div className="border-l border-black/8 px-5 py-4 dark:border-white/10 sm:px-6">
-              <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                {copy.stack}
-              </p>
-              <p className="mt-3 text-[11px] leading-5 uppercase tracking-[0.14em] text-black/54 dark:text-white/54">
-                {tags.slice(0, 3).join(" / ")}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function OpsPreview({
-  title,
-  category,
-  label,
-  tags,
-  compact,
-  locale,
-}: {
-  title: string;
-  category: string;
-  label: string;
-  tags: string[];
-  compact: boolean;
-  locale: "en" | "zh";
-}) {
-  const copy = previewCopy[locale].ops;
-
-  return (
-    <div className="relative flex h-full flex-col p-5 sm:p-7">
-      <div className="type-ui flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-black/48 dark:text-white/48">
-        <span>{label}</span>
-        <span>{category}</span>
-      </div>
-
-      <div className="mt-5 flex-1 border border-black/8 dark:border-white/10">
-        <div className="grid h-full grid-rows-[auto_1fr_auto]">
-          <div className="grid grid-cols-[1.15fr_0.85fr] border-b border-black/8 dark:border-white/10">
-            <div className="px-5 py-4 sm:px-6">
-              <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                {copy.workflow}
-              </p>
-              <p
-                className={`mt-4 font-semibold leading-[1.02] tracking-[-0.045em] text-zinc-950 dark:text-white ${
-                  compact ? "text-[1.6rem]" : "text-[2rem]"
-                }`}
-              >
-                {title}
-              </p>
-            </div>
-            <div className="border-l border-black/8 px-5 py-4 dark:border-white/10 sm:px-6">
-              <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                {copy.routing}
-              </p>
-              <p className="mt-4 text-[1.08rem] leading-7 text-black/72 dark:text-white/74">
-                {copy.routingValue}
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-[1fr_1fr]">
-            <div className="border-r border-black/8 px-5 py-5 dark:border-white/10 sm:px-6">
-              <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                {copy.incoming}
-              </p>
-              <p className="mt-4 max-w-[24rem] text-[1.04rem] leading-8 text-black/70 dark:text-white/74">
-                {copy.incomingText}
-              </p>
-            </div>
-
-            <div className="px-5 py-5 sm:px-6">
-              <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                {copy.escalation}
-              </p>
-              <div className="mt-4 space-y-0">
-                {copy.escalationItems.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center justify-between border-b border-black/8 py-3 text-[1.02rem] leading-7 text-black/72 dark:border-white/10 dark:text-white/74"
-                  >
-                    <span>{item}</span>
-                    <span className="type-ui text-[10px] uppercase tracking-[0.12em] text-black/42 dark:text-white/42">
-                      {copy.live}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-[1fr_1fr] border-t border-black/8 dark:border-white/10">
-            <div className="px-5 py-4 sm:px-6">
-              <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                {copy.timeline}
-              </p>
-              <div className="mt-4 flex items-center gap-3">
-                <span className="h-2 w-2 rounded-full bg-black/56 dark:bg-white/56" />
-                <span className="h-px flex-1 bg-black/16 dark:bg-white/14" />
-                <span className="h-2 w-2 rounded-full bg-black/24 dark:bg-white/24" />
-                <span className="h-px flex-1 bg-black/16 dark:bg-white/14" />
-                <span className="h-2 w-2 rounded-full bg-black/24 dark:bg-white/24" />
-              </div>
-            </div>
-            <div className="border-l border-black/8 px-5 py-4 dark:border-white/10 sm:px-6">
-              <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
-                {copy.stack}
-              </p>
-              <p className="mt-3 text-[11px] leading-5 uppercase tracking-[0.14em] text-black/54 dark:text-white/54">
-                {tags.slice(0, 3).join(" / ")}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function ProjectImagePlaceholder({
   title,
   category,
   label,
   tags,
-  gradient: _gradient,
-  glow: _glow,
   compact = false,
 }: ProjectImagePlaceholderProps) {
-  const { locale } = useLanguage();
-  const isExtension = tags.includes("Chrome Extension");
+  const { dictionary } = useLanguage();
+  const copy = dictionary.thinkBreak;
 
   return (
-    <div
-      className={`figure-stage ${
-        compact ? "min-h-[320px]" : "min-h-[420px]"
-      }`}
-    >
-      {isExtension ? (
-        <ExtensionPreview
-          title={title}
-          category={category}
-          label={label}
-          tags={tags}
-          compact={compact}
-          locale={locale}
-        />
-      ) : (
-        <OpsPreview
-          title={title}
-          category={category}
-          label={label}
-          tags={tags}
-          compact={compact}
-          locale={locale}
-        />
-      )}
+    <div className={`product-stage ${compact ? "product-stage-compact" : ""}`}>
+      <div className="product-grid" aria-hidden="true" />
+      <div className="product-glow" aria-hidden="true" />
+
+      <div className="relative z-10 flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-7">
+        <div className="flex min-w-0 items-center gap-3">
+          <Image
+            src="/thinkbreak-mark.svg"
+            alt=""
+            width={34}
+            height={34}
+            className="rounded-[10px]"
+          />
+          <div className="min-w-0">
+            <p className="type-ui truncate text-[13px] font-semibold tracking-[-0.01em] text-white">
+              {title}
+            </p>
+            <p className="type-ui mt-0.5 truncate text-[10px] uppercase tracking-[0.14em] text-white/42">
+              {label}
+            </p>
+          </div>
+        </div>
+
+        <div className="type-ui flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-white/58">
+          <span className="signal-dot" />
+          {copy.live}
+        </div>
+      </div>
+
+      <div className="relative z-10 grid flex-1 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="border-b border-white/10 p-5 sm:p-7 lg:border-b-0 lg:border-r">
+          <div className="extension-panel">
+            <div className="flex items-center gap-2 border-b border-black/8 px-4 py-3 dark:border-white/8">
+              <span className="h-2 w-2 rounded-full bg-black/16 dark:bg-white/18" />
+              <span className="h-2 w-2 rounded-full bg-black/10 dark:bg-white/12" />
+              <span className="ml-2 type-ui text-[9px] font-semibold uppercase tracking-[0.15em] text-black/38 dark:text-white/38">
+                ThinkBreak / Settings
+              </span>
+            </div>
+
+            <div className="space-y-5 p-5 sm:p-6">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-black/42 dark:text-white/42">
+                    {copy.monitor}
+                  </p>
+                  <p className="mt-2 text-[1.28rem] font-semibold tracking-[-0.035em] text-black dark:text-white">
+                    {copy.generating}
+                  </p>
+                </div>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white dark:bg-white dark:text-black">
+                  <Radio size={15} />
+                </span>
+              </div>
+
+              <div className="setting-row">
+                <div>
+                  <p className="setting-label">{copy.threshold}</p>
+                  <p className="setting-value">{copy.seconds}</p>
+                </div>
+                <TimerReset size={16} className="text-black/38 dark:text-white/38" />
+              </div>
+
+              <div className="setting-row">
+                <div>
+                  <p className="setting-label">{copy.destination}</p>
+                  <p className="setting-value">{copy.destinationValue}</p>
+                </div>
+                <Check size={16} className="text-black/38 dark:text-white/38" />
+              </div>
+
+              <div className="setting-row">
+                <div>
+                  <p className="setting-label">{copy.completion}</p>
+                  <p className="setting-value">{copy.completionValue}</p>
+                </div>
+                <span className="relative h-6 w-11 rounded-full bg-black dark:bg-white">
+                  <span className="absolute right-1 top-1 h-4 w-4 rounded-full bg-white dark:bg-black" />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-between p-5 sm:p-7">
+          <div>
+            <div className="flex items-center justify-between gap-4">
+              <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.15em] text-white/42">
+                Runtime / Manifest V3
+              </p>
+              <span className="type-ui text-[10px] uppercase tracking-[0.14em] text-white/42">
+                0.1.3
+              </span>
+            </div>
+
+            <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-3">
+              {copy.flow.map((step, index) => (
+                <div key={step} className="flow-step">
+                  <span className="flow-index">0{index + 1}</span>
+                  <span className="flow-label">{step}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="signal-route mt-10" aria-hidden="true">
+              <span className="signal-route-node signal-route-node-start" />
+              <span className="signal-route-pulse" />
+              <span className="signal-route-node signal-route-node-end" />
+            </div>
+          </div>
+
+          <div className="mt-10 space-y-5">
+            <div>
+              <p className="technical-label">{copy.platformLabel}</p>
+              <p className="technical-value">{copy.platforms}</p>
+            </div>
+            {!compact ? (
+              <div className="border-t border-white/10 pt-5">
+                <p className="technical-label">{copy.systemLabel}</p>
+                <p className="technical-value">{copy.systemValue}</p>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </div>
+
+      <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 px-5 py-4 sm:px-7">
+        <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-white/38">
+          {category}
+        </p>
+        <p className="type-ui text-[9px] uppercase tracking-[0.13em] text-white/32">
+          {tags.join(" / ")}
+        </p>
+      </div>
     </div>
   );
 }

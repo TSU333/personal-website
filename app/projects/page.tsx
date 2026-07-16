@@ -4,9 +4,9 @@ import { ProjectsShowcase } from "@/components/ProjectsShowcase";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "ThinkBreak",
   description:
-    "Projects by TSU, including ThinkBreak and OpenClaw Emergency Ops.",
+    "ThinkBreak is a Chrome and Edge extension that opens a break site during long AI responses and returns when the answer is ready.",
 };
 
 export default function ProjectsPage() {

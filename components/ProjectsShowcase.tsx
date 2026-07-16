@@ -15,37 +15,32 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
   return (
     <div className="site-shell">
       <AnimatedSection>
-        <div className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_24rem] xl:items-end">
-          <div className="space-y-4">
+        <div className="grid min-h-[46vh] gap-10 border-b border-border/70 pb-14 pt-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end lg:pb-20">
+          <div>
             <p className="section-kicker">{dictionary.projectsPage.eyebrow}</p>
-            <h1 className="max-w-4xl text-[3rem] font-semibold text-foreground sm:text-[5.6rem]">
-              {dictionary.projectsPage.title}
-            </h1>
-            {dictionary.projectsPage.description ? (
-              <p className="section-copy max-w-2xl">
-                {dictionary.projectsPage.description}
-              </p>
-            ) : null}
+            <p className="type-ui mt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted/60">
+              01 / 01
+            </p>
           </div>
 
-          <div className="section-rule xl:pb-1">
-            <p className="type-ui text-[12px] font-semibold uppercase tracking-[0.14em] text-muted/82">
-              {dictionary.projectsPage.highlightTitle}
+          <div>
+            <h1 className="text-[clamp(4.3rem,11vw,10.5rem)] font-semibold leading-[0.9] tracking-[-0.075em] text-foreground">
+              {dictionary.projectsPage.title}
+            </h1>
+            <p className="mt-7 max-w-[38rem] text-[1.05rem] leading-8 text-muted sm:text-[1.16rem]">
+              {dictionary.projectsPage.description}
             </p>
-            <p className="mt-4 text-base leading-8 text-muted">
+            <p className="type-ui mt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/68">
               {dictionary.projectsPage.highlightDescription}
             </p>
           </div>
         </div>
       </AnimatedSection>
 
-      <div className="section-space space-y-0">
-        {projects.map((project, index) => (
-          <AnimatedSection
-            key={project.slug}
-            delay={0.05 + index * 0.04}
-          >
-            <ProjectCard project={project} index={index} />
+      <div className="section-space">
+        {projects.map((project) => (
+          <AnimatedSection key={project.slug}>
+            <ProjectCard project={project} />
           </AnimatedSection>
         ))}
       </div>

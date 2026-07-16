@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Github, Mail } from "lucide-react";
+import { ArrowUpRight, Github, Mail } from "lucide-react";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { useLanguage } from "@/components/Providers";
@@ -16,55 +16,54 @@ export function ContactSection() {
       id="contact"
       className="site-shell section-space scroll-mt-28"
     >
-      <div className="section-rule">
-        <div className="grid gap-12 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
-          <div className="space-y-6">
-            <p className="section-kicker">{dictionary.contact.eyebrow}</p>
-            <h2 className="section-title max-w-[15ch] sm:max-w-[13ch] xl:max-w-[12ch]">
-              {dictionary.contact.title}
-            </h2>
-            <p className="section-copy max-w-[36rem]">{dictionary.contact.description}</p>
-            <p className="body-large max-w-[36rem]">
-              {dictionary.contact.invite}
-            </p>
-            <a href={`mailto:${email}`} className="button-primary">
-              {dictionary.contact.emailAction}
-              <ArrowRight size={15} />
-            </a>
+      <div className="contact-stage">
+        <div className="contact-grid" aria-hidden="true" />
+
+        <div className="relative z-10 p-6 sm:p-10 lg:p-14">
+          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+            <div>
+              <p className="eyebrow-label text-white/46">
+                {dictionary.contact.eyebrow}
+              </p>
+              <div className="mt-6 flex items-center gap-2 text-white/48">
+                <Mail size={15} />
+                <span className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em]">
+                  {dictionary.contact.invite}
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="max-w-[13ch] text-[clamp(2.7rem,6vw,6.5rem)] font-medium leading-[0.98] tracking-[-0.06em] text-white">
+                {dictionary.contact.title}
+              </h2>
+              <p className="mt-7 max-w-[38rem] text-[1rem] leading-8 text-white/52 sm:text-[1.08rem]">
+                {dictionary.contact.description}
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-8 xl:pt-16">
-            <a
-              href={`mailto:${email}`}
-              className="block border-t border-border/70 pt-5 transition hover:opacity-78"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <p className="type-ui text-[12px] font-semibold uppercase tracking-[0.14em] text-muted/82">
-                  {dictionary.contact.emailLabel}
-                </p>
-                <Mail size={15} className="text-foreground/70" />
-              </div>
-              <p className="mt-5 text-[1.4rem] leading-[1.28] tracking-[-0.03em] text-foreground sm:text-[1.7rem]">
-                {email}
-              </p>
-            </a>
+          <a
+            href={`mailto:${email}`}
+            className="contact-email group mt-16 sm:mt-24"
+          >
+            <span>{email}</span>
+            <ArrowUpRight className="contact-email-arrow" />
+          </a>
 
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-5 border-t border-white/12 pt-5">
             <a
               href={githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="block border-t border-border/70 pt-5 transition hover:opacity-78"
+              className="type-ui inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/52 transition hover:text-white"
             >
-              <div className="flex items-center justify-between gap-4">
-                <p className="type-ui text-[12px] font-semibold uppercase tracking-[0.14em] text-muted/82">
-                  {dictionary.contact.githubLabel}
-                </p>
-                <Github size={15} className="text-foreground/70" />
-              </div>
-              <p className="mt-5 text-[1.18rem] leading-[1.5] text-foreground/82 sm:text-[1.28rem]">
-                {dictionary.contact.githubValue}
-              </p>
+              <Github size={14} />
+              {dictionary.contact.githubValue}
             </a>
+            <span className="type-ui text-[9px] uppercase tracking-[0.14em] text-white/28">
+              {dictionary.contact.emailAction}
+            </span>
           </div>
         </div>
       </div>

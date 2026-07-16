@@ -62,7 +62,7 @@ export function Navbar() {
   const links = [
     { href: "/", label: dictionary.nav.home, active: pathname === "/" },
     {
-      href: "/projects",
+      href: "/projects/thinkbreak",
       label: dictionary.nav.projects,
       active: pathname.startsWith("/projects"),
     },
@@ -72,30 +72,31 @@ export function Navbar() {
   return (
     <header ref={headerRef} className="fixed inset-x-0 top-0 z-50">
       <div className="nav-shell">
-        <div className="site-shell flex items-center justify-between py-4 sm:py-5">
+        <div className="site-shell flex items-center justify-between py-3.5 sm:py-4">
           <Link
             href="/"
             onClick={closeMenu}
-            className="flex items-center gap-3 transition hover:opacity-70"
+            className="flex items-center gap-3 transition hover:opacity-72"
           >
             <Image
               src="/tsu-mark.svg"
               alt="TSU"
-              width={26}
-              height={26}
-              className="rounded-[8px]"
+              width={28}
+              height={28}
+              className="rounded-[7px]"
             />
-            <span className="type-ui text-[15px] font-semibold tracking-[0.08em] text-foreground">
-              TSU
+            <span className="type-ui text-[13px] font-semibold tracking-[0.12em] text-foreground">TSU</span>
+            <span className="type-ui hidden text-[9px] font-semibold uppercase tracking-[0.14em] text-muted/48 sm:inline">
+              Independent Developer
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-7 md:flex">
+          <nav className="hidden items-center gap-8 md:flex">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`type-ui border-b pb-1 text-[14px] font-medium transition ${
+                className={`type-ui border-b pb-1 text-[11px] font-semibold uppercase tracking-[0.11em] transition ${
                   link.active
                     ? "border-foreground/60 text-foreground"
                     : "border-transparent text-muted hover:border-border hover:text-foreground"
@@ -117,7 +118,7 @@ export function Navbar() {
             aria-label={isOpen ? dictionary.misc.close : dictionary.misc.menu}
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
-            className="type-ui inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition hover:border-foreground/20 hover:bg-foreground/5 md:hidden"
+            className="type-ui inline-flex h-9 w-9 items-center justify-center rounded-[10px] border border-border/70 text-foreground/80 transition hover:border-foreground/20 hover:bg-foreground/5 md:hidden"
           >
             {isOpen ? <X size={17} /> : <Menu size={17} />}
           </button>
@@ -153,7 +154,7 @@ export function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={closeMenu}
-                      className={`type-ui flex items-center justify-between border-b border-border/60 py-5 text-[15px] font-medium transition last:border-b-0 ${
+                      className={`flex items-center justify-between border-b border-border/60 py-5 text-[1.55rem] font-medium tracking-[-0.035em] transition last:border-b-0 ${
                         link.active
                           ? "text-foreground"
                           : "text-foreground/82 hover:text-foreground"
