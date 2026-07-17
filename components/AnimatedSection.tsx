@@ -30,11 +30,11 @@ export function AnimatedSection({
     <motion.section
       id={id}
       className={className}
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{
-        duration: 0.46,
+        duration: 0.42,
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}

@@ -20,7 +20,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const imageLabel = pickLocalizedText(project.imageLabel, locale);
 
   return (
-    <article className="border-t border-border/70 pt-8 sm:pt-10">
+    <article className="border-t border-border/30 pt-7 sm:pt-9">
       <ProjectImagePlaceholder
         title={title}
         category={category}
@@ -28,19 +28,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
         tags={project.tags}
       />
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+      <div className="mt-9 grid gap-9 border-b border-border/30 pb-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
         <div>
           <p className="section-kicker">01 / {category}</p>
-          <h2 className="mt-5 text-[clamp(3rem,7vw,7rem)] font-semibold tracking-[-0.065em] text-foreground">
+          <h2
+            lang="en"
+            className="display-type mt-5 text-[clamp(3.25rem,7vw,7rem)] leading-[0.92] tracking-[-0.045em] text-foreground"
+          >
             {title}
           </h2>
         </div>
 
         <div className="lg:pt-3">
-          <p className="max-w-[38rem] text-[1.05rem] leading-8 text-muted sm:text-[1.15rem]">
+          <p className="max-w-[38rem] text-[1rem] leading-[1.55] text-muted sm:text-[1.125rem]">
             {description}
           </p>
-          <p className="type-ui mt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted/70">
+          <p className="type-ui mt-6 text-[11px] uppercase tracking-[0.06em] text-muted/70">
             {project.tags.join(" · ")}
           </p>
 

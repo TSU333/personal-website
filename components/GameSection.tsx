@@ -7,27 +7,23 @@ export function GameSection() {
   const { dictionary } = useLanguage();
 
   return (
-    <AnimatedSection className="site-shell section-space">
-      <div className="border-t border-border/70 pt-7">
-        <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end lg:gap-16">
-          <div>
-            <p className="section-kicker">{dictionary.game.eyebrow}</p>
-          </div>
-
-          <h2 className="section-title max-w-[15ch]">
-            {dictionary.game.title}
-          </h2>
-        </div>
-
-        <div className="mt-12 grid border-y border-border/70 lg:grid-cols-[0.72fr_1.28fr]">
-          <div className="py-7 lg:py-9">
-            <p className="type-ui text-[10px] font-semibold uppercase tracking-[0.15em] text-muted">
+    <AnimatedSection className="game-band section-space py-20 sm:py-28 lg:py-36">
+      <div className="site-shell">
+        <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+          <div className="flex flex-col justify-between gap-8">
+            <p className="type-ui text-[12px] uppercase tracking-[0.075em] text-[#030812]/55">
+              {dictionary.game.eyebrow}
+            </p>
+            <p className="type-ui text-[12px] uppercase tracking-[0.075em] text-[#030812]/55">
               {dictionary.game.status}
             </p>
           </div>
 
-          <div className="border-t border-border/70 py-7 lg:border-l lg:border-t-0 lg:px-10 lg:py-9">
-            <p className="text-[clamp(1.5rem,3vw,3rem)] font-medium leading-[1.08] tracking-[-0.045em] text-foreground/86">
+          <div>
+            <h2 className="display-type max-w-[15ch] text-[clamp(3rem,7vw,7rem)] leading-[0.94] tracking-[-0.045em] text-[#030812]">
+              {dictionary.game.title}
+            </h2>
+            <p className="mt-10 border-t border-[#030812]/25 pt-5 text-[1rem] text-[#030812]/62 sm:text-[1.125rem]">
               {dictionary.game.label}
             </p>
           </div>

@@ -14,17 +14,19 @@ export function ContactSection() {
   return (
     <AnimatedSection
       id="contact"
-      className="site-shell section-space scroll-mt-28"
+      className="contact-band scroll-mt-28 py-20 sm:py-28 lg:py-36"
     >
-      <div className="border-t border-border/70 pt-7">
+      <div className="site-shell">
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
-          <p className="section-kicker">{dictionary.contact.eyebrow}</p>
+          <p className="type-ui text-[12px] uppercase tracking-[0.075em] text-[#d7d2c6]/48">
+            {dictionary.contact.eyebrow}
+          </p>
 
           <div>
-            <h2 className="section-title max-w-[12ch]">
+            <h2 className="display-type max-w-[12ch] text-[clamp(3rem,7vw,7rem)] leading-[0.92] tracking-[-0.045em] text-[#d7d2c6]">
               {dictionary.contact.title}
             </h2>
-            <p className="section-copy mt-7 max-w-[38rem]">
+            <p className="mt-7 max-w-[38rem] text-[1rem] leading-[1.55] text-[#d7d2c6]/62 sm:text-[1.125rem]">
               {dictionary.contact.description}
             </p>
           </div>
@@ -35,17 +37,17 @@ export function ContactSection() {
           <ArrowUpRight className="contact-email-arrow" />
         </a>
 
-        <div className="mt-7 flex flex-wrap items-center justify-between gap-5">
+        <div className="mt-7 flex flex-wrap items-center justify-between gap-5 border-b border-[#d7d2c6]/20 pb-7">
           <a
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="type-ui inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted transition hover:text-foreground"
+            className="type-ui inline-flex items-center gap-2 text-[13px] text-[#d7d2c6]/62 transition hover:text-[#f2ff9e]"
           >
             <Github size={14} />
             {dictionary.contact.githubValue}
           </a>
-          <span className="type-ui text-[9px] uppercase tracking-[0.14em] text-muted/60">
+          <span className="type-ui text-[12px] text-[#d7d2c6]/42">
             {dictionary.contact.invite}
           </span>
         </div>

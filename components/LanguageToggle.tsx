@@ -10,13 +10,13 @@ export function LanguageToggle() {
       type="button"
       onClick={toggleLocale}
       aria-label={dictionary.misc.languageSwitch}
-      className="type-ui inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.1em] text-foreground/70 transition hover:text-foreground"
+      className="nav-control type-ui inline-flex items-center gap-2 text-[12px] tracking-[-0.01em]"
     >
-      <span className={locale === "en" ? "text-foreground" : "text-muted"}>
+      <span className={locale === "en" ? "text-[#f2ff9e]" : ""}>
         EN
       </span>
-      <span className="text-muted/50">|</span>
-      <span className={locale === "zh" ? "text-foreground" : "text-muted"}>
+      <span className="opacity-40">|</span>
+      <span className={locale === "zh" ? "text-[#f2ff9e]" : ""}>
         中文
       </span>
     </button>

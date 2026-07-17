@@ -12,31 +12,36 @@ export function Hero() {
   const { dictionary } = useLanguage();
 
   return (
-    <AnimatedSection className="site-shell pt-7 sm:pt-12">
-      <div className="border-b border-border/70 pb-10 sm:pb-14">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <p className="section-kicker">{dictionary.hero.eyebrow}</p>
-          <p className="type-ui flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted">
-            <span className="h-1.5 w-1.5 bg-accent" />
+    <AnimatedSection className="hero-section">
+      <div className="site-shell hero-inner">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#d7d2c6]/20 pb-4">
+          <p className="type-ui text-[12px] uppercase tracking-[0.075em] text-[#d7d2c6]/62">
+            {dictionary.hero.eyebrow}
+          </p>
+          <p className="type-ui flex items-center gap-2 text-[12px] text-[#d7d2c6]/62">
+            <span className="h-1.5 w-1.5 bg-[#f2ff9e]" />
             {dictionary.hero.status}
           </p>
         </div>
 
-        <h1 className="mt-14 text-[clamp(7rem,25vw,23rem)] font-semibold leading-[0.76] tracking-[-0.085em] text-foreground sm:mt-20">
+        <h1
+          lang="en"
+          className="display-type hero-title mt-auto pt-16 text-[#d7d2c6]"
+        >
           {dictionary.hero.title}
         </h1>
 
-        <div className="mt-16 grid gap-10 border-t border-border/70 pt-7 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+        <div className="mt-12 grid gap-10 border-t border-[#d7d2c6]/20 pt-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <div>
-            <p className="max-w-[17ch] text-[clamp(2rem,4.3vw,4.4rem)] font-medium leading-[1.02] tracking-[-0.055em] text-foreground">
+            <p className="display-type hero-statement text-[#d7d2c6]">
               {dictionary.hero.subtitle}
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-x-7 gap-y-3">
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
               {dictionary.hero.roles.map((role) => (
                 <span
                   key={role}
-                  className="type-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-muted"
+                  className="type-ui text-[11px] uppercase tracking-[0.06em] text-[#d7d2c6]/48"
                 >
                   {role}
                 </span>
@@ -45,11 +50,11 @@ export function Hero() {
           </div>
 
           <div className="lg:pt-1">
-            <p className="max-w-[32rem] text-[1rem] leading-8 text-muted sm:text-[1.08rem]">
+            <p className="max-w-[32rem] text-[1rem] leading-[1.55] text-[#d7d2c6]/72 sm:text-[1.125rem]">
               {dictionary.hero.description}
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link href="/projects/thinkbreak" className="button-primary">
                 {dictionary.hero.primaryCta}
                 <ArrowDownRight size={16} />
@@ -58,7 +63,7 @@ export function Hero() {
                 href={githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="button-secondary"
+                className="type-ui inline-flex h-11 items-center justify-center gap-2 rounded-[3px] border border-[#d7d2c6]/30 px-5 text-[14px] font-medium text-[#d7d2c6] hover:border-[#d7d2c6]/70"
               >
                 <Github size={15} />
                 {dictionary.hero.secondaryCta}

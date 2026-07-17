@@ -13,24 +13,24 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
   const { dictionary } = useLanguage();
 
   return (
-    <div className="site-shell">
+    <div className="site-shell pb-24 pt-8 sm:pb-32 sm:pt-12">
       <AnimatedSection>
-        <div className="grid min-h-[46vh] gap-10 border-b border-border/70 pb-14 pt-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end lg:pb-20">
+        <div className="grid min-h-[48vh] gap-10 border-b border-border/30 pb-14 lg:grid-cols-[0.7fr_1.3fr] lg:items-end lg:pb-20">
           <div>
             <p className="section-kicker">{dictionary.projectsPage.eyebrow}</p>
-            <p className="type-ui mt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted/60">
+            <p className="type-ui mt-6 text-[11px] uppercase tracking-[0.07em] text-muted/60">
               01 / 01
             </p>
           </div>
 
           <div>
-            <h1 className="text-[clamp(4.3rem,11vw,10.5rem)] font-semibold leading-[0.9] tracking-[-0.075em] text-foreground">
+            <h1 lang="en" className="display-type page-title">
               {dictionary.projectsPage.title}
             </h1>
-            <p className="mt-7 max-w-[38rem] text-[1.05rem] leading-8 text-muted sm:text-[1.16rem]">
+            <p className="mt-7 max-w-[38rem] text-[1rem] leading-[1.55] text-muted sm:text-[1.125rem]">
               {dictionary.projectsPage.description}
             </p>
-            <p className="type-ui mt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/68">
+            <p className="type-ui mt-6 text-[11px] uppercase tracking-[0.07em] text-foreground/62">
               {dictionary.projectsPage.highlightDescription}
             </p>
           </div>

@@ -26,26 +26,26 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
   const challenges = pickLocalizedList(project.challenges, locale);
 
   return (
-    <div className="site-shell">
+    <div className="site-shell pb-24 pt-8 sm:pb-32 sm:pt-12">
       <AnimatedSection>
         <Link href="/projects" className="text-link">
           <ArrowLeft size={14} />
           {dictionary.projectDetail.backToProjects}
         </Link>
 
-        <div className="mt-12 grid gap-12 border-b border-border/70 pb-14 lg:grid-cols-[0.72fr_1.28fr] lg:items-end lg:pb-20">
+        <div className="mt-12 grid gap-12 border-b border-border/30 pb-14 lg:grid-cols-[0.72fr_1.28fr] lg:items-end lg:pb-20">
           <div>
             <p className="section-kicker">01 / {category}</p>
-            <p className="type-ui mt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted/56">
+            <p className="type-ui mt-6 text-[11px] uppercase tracking-[0.07em] text-muted/56">
               TypeScript / Manifest V3
             </p>
           </div>
 
           <div>
-            <h1 className="text-[clamp(4rem,11vw,10rem)] font-semibold leading-[0.9] tracking-[-0.075em] text-foreground">
+            <h1 lang="en" className="display-type page-title">
               {title}
             </h1>
-            <p className="mt-8 max-w-[42rem] text-[1.05rem] leading-8 text-muted sm:text-[1.17rem]">
+            <p className="mt-8 max-w-[42rem] text-[1rem] leading-[1.55] text-muted sm:text-[1.125rem]">
               {description}
             </p>
 
@@ -95,7 +95,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         </AnimatedSection>
       </div>
 
-      <div className="section-space grid gap-14 border-t border-border/70 pt-7 lg:grid-cols-2 lg:gap-20">
+      <div className="section-space grid gap-14 border-t border-border/30 pt-7 lg:grid-cols-2 lg:gap-20">
         <AnimatedSection>
           <p className="detail-label">{dictionary.projectDetail.problem}</p>
           <p className="detail-copy mt-5">{problem}</p>
@@ -106,10 +106,10 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         </AnimatedSection>
       </div>
 
-      <div className="section-space grid gap-14 border-t border-border/70 pt-7 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+      <div className="section-space grid gap-14 border-t border-border/30 pt-7 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
         <AnimatedSection>
           <p className="section-kicker">02 / {dictionary.projectDetail.features}</p>
-          <p className="type-ui mt-6 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted/58">
+          <p className="type-ui mt-6 text-[11px] uppercase tracking-[0.07em] text-muted/58">
             {project.tags.join(" / ")}
           </p>
         </AnimatedSection>
@@ -118,7 +118,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           <ol className="space-y-0">
             {features.map((feature, index) => (
               <li key={feature} className="feature-row">
-                <span className="type-ui text-[10px] font-semibold tracking-[0.14em] text-muted/48">
+                <span className="type-ui text-[11px] tracking-[0.07em] text-muted/48">
                   0{index + 1}
                 </span>
                 <span>{feature}</span>
@@ -128,7 +128,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         </AnimatedSection>
       </div>
 
-      <div className="section-space grid gap-14 border-t border-border/70 pt-7 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+      <div className="section-space grid gap-14 border-t border-border/30 pt-7 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
         <AnimatedSection>
           <p className="section-kicker">03 / {dictionary.projectDetail.challenges}</p>
         </AnimatedSection>
@@ -137,7 +137,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           <ol className="space-y-0">
             {challenges.map((challenge, index) => (
               <li key={challenge} className="feature-row">
-                <span className="type-ui text-[10px] font-semibold tracking-[0.14em] text-muted/48">
+                <span className="type-ui text-[11px] tracking-[0.07em] text-muted/48">
                   0{index + 1}
                 </span>
                 <span>{challenge}</span>
