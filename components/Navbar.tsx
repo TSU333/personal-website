@@ -8,7 +8,6 @@ import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { LanguageToggle } from "@/components/LanguageToggle";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { useLanguage } from "@/components/Providers";
 
 export function Navbar() {
@@ -105,9 +104,8 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden items-center justify-end gap-5 md:flex">
+          <div className="hidden items-center justify-end md:flex">
             <LanguageToggle />
-            <ThemeToggle />
           </div>
 
           <button
@@ -163,9 +161,8 @@ export function Navbar() {
                   ))}
                 </nav>
 
-                <div className="mt-8 flex items-center justify-between gap-5 border-t border-[#d7d2c6]/18 pt-5">
+                <div className="mt-8 border-t border-[#d7d2c6]/18 pt-5">
                   <LanguageToggle />
-                  <ThemeToggle />
                 </div>
               </div>
             </motion.div>

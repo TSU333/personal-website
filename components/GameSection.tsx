@@ -20,7 +20,7 @@ export function GameSection() {
           </div>
 
           <div>
-            <h2 className="display-type max-w-[15ch] text-[clamp(3rem,7vw,7rem)] leading-[0.94] tracking-[-0.045em] text-[#030812]">
+            <h2 className="display-type game-title text-[#030812]">
               {dictionary.game.title}
             </h2>
             <p className="mt-10 border-t border-[#030812]/25 pt-5 text-[1rem] text-[#030812]/62 sm:text-[1.125rem]">

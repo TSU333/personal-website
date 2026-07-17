@@ -7,7 +7,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import { ThemeProvider } from "next-themes";
 
 import {
   Dictionary,
@@ -60,16 +59,7 @@ function LanguageProvider({ children }: { children: ReactNode }) {
 }
 
 export function Providers({ children }: { children: ReactNode }) {
-  return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="light"
-      enableSystem={false}
-      disableTransitionOnChange
-    >
-      <LanguageProvider>{children}</LanguageProvider>
-    </ThemeProvider>
-  );
+  return <LanguageProvider>{children}</LanguageProvider>;
 }
 
 export function useLanguage() {

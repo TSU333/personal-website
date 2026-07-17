@@ -77,7 +77,6 @@ export const zh = {
   },
   misc: {
     languageSwitch: "切换语言",
-    themeToggle: "切换深浅色模式",
     menu: "打开菜单",
     close: "关闭菜单",
   },

@@ -78,7 +78,6 @@ export const en = {
   },
   misc: {
     languageSwitch: "Switch language",
-    themeToggle: "Toggle theme",
     menu: "Open menu",
     close: "Close menu",
   },

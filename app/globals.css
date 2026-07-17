@@ -22,17 +22,6 @@
   --transition-fast: 180ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dark {
-  color-scheme: dark;
-  --background: 3 8 18;
-  --foreground: 224 220 209;
-  --card: 19 24 31;
-  --border: 215 210 198;
-  --muted: 170 173 164;
-  --accent: 242 255 158;
-  --accent-soft: 53 58 37;
-}
-
 * {
   box-sizing: border-box;
   border-color: rgb(var(--border) / 0.22);
@@ -419,6 +408,19 @@ button {
 .game-band {
   color: #030812;
   background: #aaada4;
+}
+
+.game-title {
+  max-width: 18ch;
+  font-size: clamp(2.5rem, 5.25vw, 5.25rem);
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+}
+
+html[lang="zh"] .game-title {
+  max-width: 11em;
+  line-height: 1.16;
+  letter-spacing: -0.022em;
 }
 
 .contact-band,

@@ -8,7 +8,6 @@ const config: Config = {
     "./lib/**/*.{ts,tsx}",
     "./locales/**/*.{ts,tsx}",
   ],
-  darkMode: "class",
   theme: {
     extend: {
       colors: {
