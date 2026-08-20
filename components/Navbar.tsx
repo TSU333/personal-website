@@ -65,6 +65,11 @@ export function Navbar() {
       label: dictionary.nav.projects,
       active: pathname.startsWith("/projects"),
     },
+    {
+      href: "/web-design/maison-tsu",
+      label: dictionary.nav.webDesign,
+      active: pathname.startsWith("/web-design"),
+    },
     { href: "/#contact", label: dictionary.nav.contact, active: false },
   ];
 

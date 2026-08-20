@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
-import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
 import { Providers } from "@/components/Providers";
+import { SiteFrame } from "@/components/SiteFrame";
 
 import "./globals.css";
 
@@ -21,14 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body>
         <Providers>
-          <div className="relative min-h-screen">
-            <Navbar />
-            <main className="pt-[61px] sm:pt-[65px]">{children}</main>
-            <Footer />
-          </div>
+          <SiteFrame>{children}</SiteFrame>
         </Providers>
       </body>
     </html>

@@ -2,6 +2,7 @@ export const zh = {
   nav: {
     home: "首页",
     projects: "ThinkBreak",
+    webDesign: "网页设计",
     contact: "联系",
   },
   hero: {
@@ -44,6 +45,14 @@ export const zh = {
     title: "目前正在进行一个游戏开发项目。",
     status: "进行中",
     label: "游戏开发项目",
+  },
+  webDesign: {
+    eyebrow: "网页设计服务",
+    title: "提供清晰、有辨识度的网站设计。",
+    description:
+      "为独立品牌与创意项目设计并开发网站。Maison Tsu 是一套完整的餐厅官网设计与实现示例。",
+    sample: "网页设计实例",
+    cta: "查看实例网页",
   },
   projectsPage: {
     eyebrow: "公开项目",

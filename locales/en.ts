@@ -2,6 +2,7 @@ export const en = {
   nav: {
     home: "Home",
     projects: "ThinkBreak",
+    webDesign: "Web Design",
     contact: "Contact",
   },
   hero: {
@@ -44,6 +45,14 @@ export const en = {
     title: "I am currently working on a game development project.",
     status: "In progress",
     label: "Game Development Project",
+  },
+  webDesign: {
+    eyebrow: "Web Design Service",
+    title: "Websites with a clear point of view.",
+    description:
+      "I design and build focused websites for independent businesses and creative work. Maison Tsu is a complete restaurant website concept and implementation sample.",
+    sample: "Website design sample",
+    cta: "View live sample",
   },
   projectsPage: {
     eyebrow: "Public Project",
