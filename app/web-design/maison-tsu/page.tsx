@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
+import { AnimatedBlock, AnimatedSection } from "@/components/AnimatedSection";
 import { MaisonReservationForm } from "@/components/MaisonReservationForm";
 
 import styles from "./maison.module.css";
@@ -85,7 +86,13 @@ export default function MaisonTsuPage() {
         </div>
       </header>
 
-      <section id="house" className={styles.contentSection}>
+      <AnimatedSection
+        id="house"
+        className={styles.contentSection}
+        distance={24}
+        duration={0.68}
+        viewportAmount={0.14}
+      >
         <p className={styles.kicker}>The house · La maison</p>
         <div className={styles.splitContent}>
           <h2>A single room, an open kitchen, and one menu a night.</h2>
@@ -105,9 +112,14 @@ export default function MaisonTsuPage() {
             </p>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className={styles.chefSection}>
+      <AnimatedSection
+        className={styles.chefSection}
+        distance={28}
+        duration={0.72}
+        viewportAmount={0.12}
+      >
         <div className={styles.chefCopy}>
           <p className={styles.kicker}>The kitchen · La cuisine</p>
           <h2>Precision, restraint and ingredients in season.</h2>
@@ -127,9 +139,15 @@ export default function MaisonTsuPage() {
             className={styles.coverImage}
           />
         </figure>
-      </section>
+      </AnimatedSection>
 
-      <section id="menu" className={styles.menuSection}>
+      <AnimatedSection
+        id="menu"
+        className={styles.menuSection}
+        distance={24}
+        duration={0.68}
+        viewportAmount={0.08}
+      >
         <div className={styles.sectionInner}>
           <p className={styles.kicker}>Menu · Les plats</p>
           <div className={styles.menuHeading}>
@@ -150,19 +168,27 @@ export default function MaisonTsuPage() {
             and allergies are considered when shared at booking.
           </p>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <figure className={styles.dishImage}>
-        <Image
-          src="/maison-tsu/dish.png"
-          alt="Maison Tsu plated main course"
-          fill
-          sizes="100vw"
-          className={styles.coverImage}
-        />
-      </figure>
+      <AnimatedBlock distance={18} duration={0.75} viewportAmount={0.16}>
+        <figure className={styles.dishImage}>
+          <Image
+            src="/maison-tsu/dish.png"
+            alt="Maison Tsu plated main course"
+            fill
+            sizes="100vw"
+            className={styles.coverImage}
+          />
+        </figure>
+      </AnimatedBlock>
 
-      <section id="reserve" className={styles.reserveSection}>
+      <AnimatedSection
+        id="reserve"
+        className={styles.reserveSection}
+        distance={24}
+        duration={0.68}
+        viewportAmount={0.1}
+      >
         <div className={styles.sectionInner}>
           <p className={styles.kicker}>Reserve · Réservations</p>
           <div className={styles.reserveGrid}>
@@ -193,9 +219,14 @@ export default function MaisonTsuPage() {
             </aside>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className={styles.closingSection}>
+      <AnimatedSection
+        className={styles.closingSection}
+        distance={20}
+        duration={0.68}
+        viewportAmount={0.18}
+      >
         <div className={styles.sectionInner}>
           <h2>
             Eleven courses.
@@ -210,7 +241,7 @@ export default function MaisonTsuPage() {
             <ArrowUpRight size={16} />
           </a>
         </div>
-      </section>
+      </AnimatedSection>
 
       <footer className={styles.footer}>
         <span>Maison Tsu · Cuisine française, Melbourne</span>
