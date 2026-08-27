@@ -21,7 +21,10 @@
 <style>
   html { scroll-behavior: smooth; }
   body { margin: 0; text-wrap: pretty; background: var(--color-bg); color: var(--color-text); }
+  /* Source Serif 4 has no CJK glyphs. Keep Chinese display text on a serif fallback. */
+  html[lang="zh"] { --font-heading: "Source Serif 4", "Songti SC", "STSong", serif; }
   html[lang="zh"] body { font-family: "Source Serif 4", "Songti SC", "PingFang SC", serif; }
+  html[lang="zh"] h1, html[lang="zh"] h2 { font-family: var(--font-heading); }
   h1, h2, h3, p { margin: 0; }
   a { color: inherit; text-decoration: none; }
   a:hover { color: var(--color-accent-700); }
@@ -40,6 +43,8 @@
   @media (max-width: 860px) {
     [data-pin="tb"] { height: auto !important; }
     [data-pin="tb"] > div { position: static !important; height: auto !important; padding-top: 0 !important; }
+    .cmyk [class^="sep-"] { display: none !important; }
+    .cmyk img:first-child { opacity: 1 !important; filter: none !important; }
     [data-pin-grid] { grid-template-columns: 1fr !important; max-height: none !important; }
   }
 </style>
@@ -105,12 +110,12 @@
       <p style="max-width: 58ch; font-size: 17px; line-height: 28px; color: var(--color-neutral-800)" data-zh="独立开发浏览器插件与软件，目前正在进行一个游戏开发项目。">I independently develop browser extensions and software. I am currently working on a game development project.</p>
       <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 15px">
         <a href="./thinkbreak.html" class="btn btn-primary">
-          <span data-zh="探索 ThinkBreak">Explore ThinkBreak</span>
+          <span data-zh="了解 ThinkBreak">Explore ThinkBreak</span>
           <i class="ph-duotone ph-arrow-up-right" aria-hidden="true"></i>
         </a>
         <a href="https://github.com/TSU333" target="_blank" rel="noreferrer" class="btn btn-secondary">
           <i class="ph-duotone ph-github-logo" aria-hidden="true"></i>
-          <span data-zh="查看 GitHub">View GitHub</span>
+          <span data-zh="访问 GitHub">View GitHub</span>
         </a>
       </div>
     </div>
@@ -195,7 +200,7 @@
           </p>
           <p data-step="1" style="display: flex; align-items: baseline; gap: 10px; font-size: 17px; line-height: 28px; transition: color .45s ease, opacity .45s ease; opacity: .38">
             <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 15px">02</span>
-            <span data-zh="释放">Release</span>
+            <span data-zh="切换">Release</span>
           </p>
           <p data-step="2" style="display: flex; align-items: baseline; gap: 10px; font-size: 17px; line-height: 28px; transition: color .45s ease, opacity .45s ease; opacity: .38">
             <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 15px">03</span>
@@ -204,7 +209,7 @@
         </div>
 
         <div>
-          <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="支持平台">AI platforms</p>
+          <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="支持的 AI 平台">AI platforms</p>
           <p style="margin-top: 12px; font-size: 15.5px; line-height: 28px; color: var(--color-neutral-800)" data-zh="ChatGPT · Claude · Gemini · Grok · 豆包">ChatGPT · Claude · Gemini · Grok · Doubao</p>
         </div>
       </div>
@@ -218,14 +223,14 @@
     <div style="display: flex; flex-wrap: wrap; gap: 15px; opacity: 0; transform: translateY(24px)" data-rv="up" data-rv-d="120">
       <a href="https://chromewebstore.google.com/detail/thinkbreak/iniicihbhceodiibohojnfodficielel" target="_blank" rel="noreferrer" class="btn btn-primary">
         <i class="ph-duotone ph-storefront" aria-hidden="true"></i>
-        <span data-zh="前往 Chrome 商店">Get on Chrome</span>
+        <span data-zh="在 Chrome 安装">Get on Chrome</span>
       </a>
       <a href="https://github.com/TSU333/ThinkBreak" target="_blank" rel="noreferrer" class="btn btn-secondary">
         <i class="ph-duotone ph-github-logo" aria-hidden="true"></i>
         <span data-zh="查看 GitHub 源码">Source on GitHub</span>
       </a>
       <a href="./thinkbreak.html" class="btn btn-ghost">
-        <span data-zh="阅读技术实现">Read the technical story</span>
+        <span data-zh="阅读技术细节">Read the technical story</span>
         <i class="ph-duotone ph-arrow-up-right" aria-hidden="true"></i>
       </a>
     </div>
@@ -241,7 +246,7 @@
       <p style="max-width: 58ch; font-size: 17px; line-height: 28px; color: var(--color-neutral-800); opacity: 0; transform: translateY(24px)" data-rv="up" data-rv-d="140" data-zh="为独立品牌与创意项目设计并开发网站。Maison Tsu 是一套完整的餐厅官网设计与实现示例。">I design and build focused websites for independent businesses and creative work. Maison Tsu is a complete restaurant website concept and implementation sample.</p>
       <div style="margin-top: 28px; opacity: 0; transform: translateY(22px)" data-rv="up" data-rv-d="220">
         <a href="./maison-tsu.html" class="btn btn-primary">
-          <span data-zh="查看实例网页">View live sample</span>
+          <span data-zh="查看在线示例">View live sample</span>
           <i class="ph-duotone ph-arrow-up-right" aria-hidden="true"></i>
         </a>
       </div>
@@ -250,7 +255,7 @@
 
   <div style="margin-top: clamp(36px, 5vw, 64px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 30px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up">
     <span>01 / Maison Tsu</span>
-    <span data-zh="网页设计实例">Website design sample</span>
+    <span data-zh="网页设计示例">Website design sample</span>
   </div>
 
   <a href="./maison-tsu.html" style="display: block; margin-top: 18px; opacity: 0; clip-path: inset(0 0 100% 0)" data-rv="mask" data-rv-d="80">
@@ -314,7 +319,15 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;motionIntensity&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;subtle&quot;,&quot;confident&quot;,&quot;cinematic&quot;],&quot;default&quot;:&quot;cinematic&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
 class Component extends DCLogic {
-  state = { locale: "en" };
+  state = { locale: this.readLocale() };
+
+  readLocale() {
+    try {
+      return localStorage.getItem("tsu-locale") === "zh" ? "zh" : "en";
+    } catch (e) {
+      return "en";
+    }
+  }
 
   componentDidMount() {
     this.boot();

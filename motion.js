@@ -35,11 +35,24 @@
   const api = {
     intensity: 1,
 
+    /* Persist the reader's language choice across page navigation. */
+    storedLocale() {
+      try {
+        return localStorage.getItem("tsu-locale") === "zh" ? "zh" : "en";
+      } catch (e) {
+        return "en";
+      }
+    },
+
     init(opts) {
       const root = (opts && opts.root) || document;
       this.root = root;
       this.pinHandlers = (opts && opts.pins) || {};
-      this.intensity = opts && opts.intensity != null ? opts.intensity : 1;
+      const narrow = window.matchMedia("(max-width: 860px)").matches;
+      const asked = opts && opts.intensity != null ? opts.intensity : 1;
+      this.intensity = narrow ? asked * 0.3 : asked;
+
+      this.setLocale(this.storedLocale(), root);
 
       if (reduced) {
         force(root);
@@ -174,8 +187,11 @@
 
     /* EN <-> ZH text swap driven by data-zh attributes */
     setLocale(locale, root) {
-      const scope = root || document;
+      const scope = root || this.root || document;
       document.documentElement.lang = locale;
+      try {
+        localStorage.setItem("tsu-locale", locale);
+      } catch (e) {}
       scope.querySelectorAll("[data-zh]").forEach((el) => {
         if (!el.hasAttribute("data-en")) el.setAttribute("data-en", el.textContent.trim());
         el.textContent =
