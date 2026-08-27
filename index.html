@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TSU — Independent Developer</title>
+<link rel="icon" href="./public/tsu-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="_ds/broadsheet-9e78ebc8-dea0-4583-a636-d7d56102e2e0/styles.css">
+<script src="_ds/broadsheet-9e78ebc8-dea0-4583-a636-d7d56102e2e0/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+<script src="./motion.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; text-wrap: pretty; background: var(--color-bg); color: var(--color-text); }
+  html[lang="zh"] body { font-family: "Source Serif 4", "Songti SC", "PingFang SC", serif; }
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--color-accent-700); }
+  i[class^="ph-"] { line-height: 1; }
+  @keyframes heroL { from { opacity: 0; transform: translateY(0.9em); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(-16% 0 -20% 0); } }
+  @keyframes maskUp { from { opacity: 0; transform: translateY(22px); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(-10% 0 -14% 0); } }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: .28; } }
+  @keyframes caret { 0%, 45% { opacity: 1; } 46%, 100% { opacity: .12; } }
+  @keyframes cueDrop { 0% { transform: translateY(-60%); opacity: 0; } 40% { opacity: 1; } 100% { transform: translateY(60%); opacity: 0; } }
+  @media (max-width: 700px) {
+    .nav { flex-wrap: wrap; gap: 8px 14px; padding: 10px 20px !important; }
+    .nav::after { content: ""; flex-basis: 100%; height: 0; order: 2; }
+    .nav-brand { order: 1; margin-right: auto !important; }
+    .nav-brand span:last-child { display: none; }
+    .nav > button { order: 1; }
+    .nav > a:not(.nav-brand) { order: 3; font-size: 12px; }
+    #top { padding-top: calc(102px + clamp(40px, 7vw, 96px)) !important; }
+  }
+</style>
+</helmet>
+
+<div style="position: fixed; inset: 0 0 auto 0; height: 2px; background: var(--color-accent); transform: scaleX(0); transform-origin: 0 50%; z-index: 60; will-change: transform" data-progress></div>
+
+<header data-nav data-nav-bg="rgba(243,242,242,.72)" data-nav-bg-scrolled="rgba(243,242,242,.96)" data-nav-border="rgba(32,30,29,.14)" data-nav-border-scrolled="rgba(32,30,29,.9)" class="nav" style="position: fixed; inset: 0 0 auto 0; z-index: 50; background: rgba(243,242,242,.72); border-bottom: 1px solid rgba(32,30,29,.14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding-inline: clamp(20px, 5vw, 72px); transition: background .4s ease, border-color .4s ease">
+  <a href="#top" class="nav-brand" style="display: flex; align-items: baseline; gap: 12px; margin-right: auto">
+    <span>TSU</span>
+    <span style="font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="独立开发者">Independent Developer</span>
+  </a>
+  <a href="#top" aria-current="page" data-zh="首页">Home</a>
+  <a href="./thinkbreak.html">ThinkBreak</a>
+  <a href="./maison-tsu.html" data-zh="网页设计">Web Design</a>
+  <a href="#contact" data-zh="联系">Contact</a>
+  <button type="button" class="btn btn-ghost" onClick="{{ toggleLocale }}" style="min-height: 32px; padding: 4px 10px; font-size: 13px">{{ localeLabel }}</button>
+</header>
+
+<section id="top" style="max-width: 1200px; margin: 0 auto; padding: calc(65px + clamp(40px, 7vw, 96px)) clamp(20px, 5vw, 72px) 0">
+  <hr style="height: 5px; border: 0; margin: 0; border-top: 2px solid var(--color-text); border-bottom: 1px solid var(--color-text); animation: fadeIn .8s ease both">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 30px; padding: 14px 0; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); animation: fadeIn .9s ease .08s both">
+    <span data-zh="独立开发者 / TSU">Independent Developer / TSU</span>
+    <span style="display: inline-flex; align-items: center; gap: 9px">
+      <span style="width: 6px; height: 6px; background: var(--color-accent); animation: pulseDot 2.4s ease-in-out infinite"></span>
+      <span data-zh="正在开发一款独立游戏。">Currently building an independent game.</span>
+    </span>
+  </div>
+  <hr style="height: 0; border: 0; border-top: 1px solid var(--color-text); margin: 0; animation: fadeIn .9s ease .12s both">
+
+  <div data-px="0.045" style="padding: clamp(30px, 5vw, 64px) 0 0; will-change: transform">
+    <h1 lang="en" style="display: flex; margin-left: -0.035em; font-size: clamp(6rem, 18vw, 15rem); line-height: 0.9; letter-spacing: -0.028em">
+      <span style="display: inline-block; animation: heroL 1.5s cubic-bezier(.16,1,.3,1) .1s both">T</span>
+      <span style="display: inline-block; animation: heroL 1.5s cubic-bezier(.16,1,.3,1) .21s both">S</span>
+      <span style="display: inline-block; animation: heroL 1.5s cubic-bezier(.16,1,.3,1) .32s both; color: var(--color-accent)">U</span>
+    </h1>
+  </div>
+
+  <div style="margin-top: clamp(34px, 5vw, 62px); display: grid; gap: clamp(28px, 5vw, 80px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: start">
+    <div>
+      <p style="max-width: 20ch; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(2.1rem, 4.4vw, 4.2rem); line-height: 1.08; letter-spacing: -0.022em; animation: maskUp 1.3s cubic-bezier(.16,1,.3,1) .5s both" data-zh="开发软件、浏览器插件与游戏。">Software, browser extensions, and games.</p>
+
+      <div style="margin-top: 34px; display: grid; gap: 10px; max-width: 30rem; animation: fadeIn 1s ease .95s both">
+        <p style="display: flex; align-items: baseline; gap: 8px; font-size: 15.5px; line-height: 28px">
+          <span data-zh="插件开发者">Extension Developer</span>
+          <span style="flex: 1; min-width: 28px; align-self: flex-end; margin-bottom: .34em; border-bottom: 1px dotted rgba(32,30,29,.45)"></span>
+          <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; color: var(--color-accent-700)">01</span>
+        </p>
+        <p style="display: flex; align-items: baseline; gap: 8px; font-size: 15.5px; line-height: 28px">
+          <span data-zh="独立开发者">Independent Developer</span>
+          <span style="flex: 1; min-width: 28px; align-self: flex-end; margin-bottom: .34em; border-bottom: 1px dotted rgba(32,30,29,.45)"></span>
+          <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px">02</span>
+        </p>
+        <p style="display: flex; align-items: baseline; gap: 8px; font-size: 15.5px; line-height: 28px">
+          <span data-zh="游戏开发者">Game Developer</span>
+          <span style="flex: 1; min-width: 28px; align-self: flex-end; margin-bottom: .34em; border-bottom: 1px dotted rgba(32,30,29,.45)"></span>
+          <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px">03</span>
+        </p>
+      </div>
+    </div>
+
+    <div style="animation: fadeIn 1s ease .78s both">
+      <p style="max-width: 58ch; font-size: 17px; line-height: 28px; color: var(--color-neutral-800)" data-zh="独立开发浏览器插件与软件，目前正在进行一个游戏开发项目。">I independently develop browser extensions and software. I am currently working on a game development project.</p>
+      <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 15px">
+        <a href="./thinkbreak.html" class="btn btn-primary">
+          <span data-zh="探索 ThinkBreak">Explore ThinkBreak</span>
+          <i class="ph-duotone ph-arrow-up-right" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/TSU333" target="_blank" rel="noreferrer" class="btn btn-secondary">
+          <i class="ph-duotone ph-github-logo" aria-hidden="true"></i>
+          <span data-zh="查看 GitHub">View GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: clamp(40px, 6vw, 76px); display: flex; align-items: center; gap: 12px; animation: fadeIn 1s ease 1.3s both">
+    <span style="position: relative; width: 1px; height: 34px; overflow: hidden; background: rgba(32,30,29,.18)">
+      <span style="position: absolute; inset: 0; background: var(--color-accent); animation: cueDrop 2.6s ease-in-out infinite"></span>
+    </span>
+    <span style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="向下滚动">Scroll</span>
+  </div>
+</section>
+
+<section id="thinkbreak" style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0; scroll-margin-top: 80px">
+  <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up" data-zh="公开项目">Public Project</p>
+  <div style="margin-top: 26px; display: grid; gap: clamp(24px, 4vw, 64px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: end">
+    <h2 lang="en" style="margin-left: -0.035em; font-size: clamp(3.2rem, 7.4vw, 7rem); line-height: 0.98; letter-spacing: -0.026em; opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(22px)" data-rv="mask">ThinkBreak</h2>
+    <p style="max-width: 17ch; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(1.9rem, 3.7vw, 3.5rem); line-height: 1.1; letter-spacing: -0.02em; opacity: 0; filter: blur(14px); transform: translateY(16px)" data-rv="blur" data-rv-d="160" data-zh="AI 思考时，去休息一下。">Take a break while AI thinks.</p>
+  </div>
+</section>
+
+<section data-pin="tb" style="position: relative; height: 380vh; margin-top: clamp(34px, 5vw, 68px)">
+  <div style="position: sticky; top: 0; height: 100svh; display: flex; align-items: center; overflow: hidden; padding: 78px 0 clamp(20px, 3vw, 40px)">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px); height: 100%; max-height: 720px; display: grid; gap: clamp(24px, 4vw, 64px); grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr)">
+      <figure style="margin: 0; min-height: 0; display: flex; flex-direction: column">
+        <figcaption style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)">
+          <span data-zh="实时工作流">Live Workflow</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px">
+            <span style="width: 6px; height: 6px; background: var(--color-accent); animation: pulseDot 1.8s ease-in-out infinite"></span>
+            <span data-zh="浏览器插件">Browser Extension</span>
+          </span>
+        </figcaption>
+
+        <svg viewBox="0 0 660 420" preserveAspectRatio="xMidYMid meet" style="flex: 1; min-height: 0; width: 100%; margin-top: 18px; overflow: visible">
+          <g font-family="Source Serif 4, serif" font-size="12" letter-spacing="1.1" fill="var(--color-neutral-700)">
+            <text x="20" y="52">AI TAB</text>
+            <text x="370" y="52">BREAK DESTINATION</text>
+          </g>
+          <g id="tbAI" style="transition: opacity .5s ease">
+            <rect x="20" y="70" width="270" height="280" fill="none" stroke="rgba(32,30,29,.3)"></rect>
+            <line x1="20" y1="104" x2="290" y2="104" stroke="rgba(32,30,29,.3)"></line>
+            <rect id="tbScan" x="21" y="106" width="268" height="44" fill="var(--color-accent-100)" opacity="0"></rect>
+            <rect id="tbL1" x="44" y="134" width="200" height="7" fill="rgba(32,30,29,.34)"></rect>
+            <rect id="tbL2" x="44" y="160" width="168" height="7" fill="rgba(32,30,29,.28)"></rect>
+            <rect id="tbL3" x="44" y="186" width="192" height="7" fill="rgba(32,30,29,.22)"></rect>
+            <rect id="tbL4" x="44" y="212" width="96" height="7" fill="rgba(32,30,29,.16)"></rect>
+            <rect id="tbCaret" x="146" y="209" width="9" height="13" fill="var(--color-accent)" style="animation: caret 1.1s steps(1) infinite"></rect>
+            <g id="tbAnswer" opacity="0" style="transition: opacity .45s ease">
+              <rect x="44" y="242" width="212" height="7" fill="var(--color-accent)"></rect>
+              <rect x="44" y="264" width="178" height="7" fill="var(--color-accent-500)"></rect>
+              <rect x="44" y="286" width="132" height="7" fill="var(--color-accent-300)"></rect>
+            </g>
+            <text id="tbStatus" x="44" y="330" font-family="Source Serif 4, serif" font-size="12" letter-spacing="1.1" fill="var(--color-neutral-700)">GENERATING</text>
+          </g>
+          <g id="tbBreak" style="transition: opacity .5s ease" opacity="0.34">
+            <rect x="370" y="70" width="270" height="280" fill="none" stroke="rgba(32,30,29,.3)"></rect>
+            <line x1="370" y1="104" x2="640" y2="104" stroke="rgba(32,30,29,.3)"></line>
+            <rect id="tbB1" x="394" y="130" width="222" height="96" fill="var(--color-accent-100)" stroke="rgba(32,30,29,.24)"></rect>
+            <rect id="tbB2" x="394" y="240" width="104" height="72" fill="rgba(32,30,29,.07)"></rect>
+            <rect id="tbB3" x="512" y="240" width="104" height="72" fill="rgba(32,30,29,.07)"></rect>
+            <text x="394" y="332" font-family="Source Serif 4, serif" font-size="12" letter-spacing="1.1" fill="var(--color-neutral-700)">SELECTED SITE</text>
+          </g>
+          <path id="tbOut" d="M 292 152 C 320 96 340 96 368 152" fill="none" stroke="rgba(32,30,29,.3)" stroke-dasharray="3 5"></path>
+          <path id="tbBack" d="M 368 268 C 340 324 320 324 292 268" fill="none" stroke="rgba(32,30,29,.3)" stroke-dasharray="3 5"></path>
+          <circle id="tbRingTrack" cx="330" cy="210" r="25" fill="none" stroke="rgba(32,30,29,.2)" stroke-width="2"></circle>
+          <circle id="tbRing" cx="330" cy="210" r="25" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" transform="rotate(-90 330 210)" stroke-dasharray="157" stroke-dashoffset="157"></circle>
+          <text id="tbRingLabel" x="330" y="215" text-anchor="middle" font-family="Source Serif 4, serif" font-size="14" fill="var(--color-text)">0s</text>
+          <circle id="tbDot" cx="292" cy="152" r="5.5" fill="var(--color-accent)" opacity="0"></circle>
+        </svg>
+      </figure>
+
+      <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 26px; min-height: 0">
+        <div>
+          <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(1.7rem, 2.9vw, 3rem); line-height: 1; letter-spacing: -0.024em">ThinkBreak</p>
+          <p style="margin-top: 12px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)">Chrome / Edge</p>
+        </div>
+
+        <div style="display: grid; gap: 14px">
+          <p data-step="0" style="display: flex; align-items: baseline; gap: 10px; font-size: 17px; line-height: 28px; transition: color .45s ease, opacity .45s ease; opacity: .38">
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 15px">01</span>
+            <span data-zh="检测">Detect</span>
+          </p>
+          <p data-step="1" style="display: flex; align-items: baseline; gap: 10px; font-size: 17px; line-height: 28px; transition: color .45s ease, opacity .45s ease; opacity: .38">
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 15px">02</span>
+            <span data-zh="释放">Release</span>
+          </p>
+          <p data-step="2" style="display: flex; align-items: baseline; gap: 10px; font-size: 17px; line-height: 28px; transition: color .45s ease, opacity .45s ease; opacity: .38">
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 15px">03</span>
+            <span data-zh="返回">Return</span>
+          </p>
+        </div>
+
+        <div>
+          <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="支持平台">AI platforms</p>
+          <p style="margin-top: 12px; font-size: 15.5px; line-height: 28px; color: var(--color-neutral-800)" data-zh="ChatGPT · Claude · Gemini · Grok · 豆包">ChatGPT · Claude · Gemini · Grok · Doubao</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(50px, 7vw, 96px) clamp(20px, 5vw, 72px) 0">
+  <div style="display: grid; gap: clamp(24px, 4vw, 64px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: start">
+    <p style="max-width: 58ch; font-size: 17px; line-height: 28px; color: var(--color-neutral-800); opacity: 0; transform: translateY(24px)" data-rv="up" data-zh="一个面向 Chrome 与 Edge 的浏览器插件：监测较长的 AI 回复，打开选定的休息页面，并在答案完成后带你返回。">A Chrome and Edge extension that monitors long AI replies, opens a chosen break site, and returns when the answer is ready.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; opacity: 0; transform: translateY(24px)" data-rv="up" data-rv-d="120">
+      <a href="https://chromewebstore.google.com/detail/thinkbreak/iniicihbhceodiibohojnfodficielel" target="_blank" rel="noreferrer" class="btn btn-primary">
+        <i class="ph-duotone ph-storefront" aria-hidden="true"></i>
+        <span data-zh="前往 Chrome 商店">Get on Chrome</span>
+      </a>
+      <a href="https://github.com/TSU333/ThinkBreak" target="_blank" rel="noreferrer" class="btn btn-secondary">
+        <i class="ph-duotone ph-github-logo" aria-hidden="true"></i>
+        <span data-zh="查看 GitHub 源码">Source on GitHub</span>
+      </a>
+      <a href="./thinkbreak.html" class="btn btn-ghost">
+        <span data-zh="阅读技术实现">Read the technical story</span>
+        <i class="ph-duotone ph-arrow-up-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="web-design" style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0; scroll-margin-top: 80px">
+  <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up" data-zh="网页设计服务">Web Design Service</p>
+
+  <div style="margin-top: 26px; display: grid; gap: clamp(24px, 4vw, 64px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: end">
+    <h2 style="max-width: 13ch; margin-left: -0.035em; font-size: clamp(3rem, 7vw, 6.6rem); line-height: 0.99; letter-spacing: -0.026em; opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(22px)" data-rv="mask" data-zh="提供清晰、有辨识度的网站设计。">Websites with a clear point of view.</h2>
+    <div>
+      <p style="max-width: 58ch; font-size: 17px; line-height: 28px; color: var(--color-neutral-800); opacity: 0; transform: translateY(24px)" data-rv="up" data-rv-d="140" data-zh="为独立品牌与创意项目设计并开发网站。Maison Tsu 是一套完整的餐厅官网设计与实现示例。">I design and build focused websites for independent businesses and creative work. Maison Tsu is a complete restaurant website concept and implementation sample.</p>
+      <div style="margin-top: 28px; opacity: 0; transform: translateY(22px)" data-rv="up" data-rv-d="220">
+        <a href="./maison-tsu.html" class="btn btn-primary">
+          <span data-zh="查看实例网页">View live sample</span>
+          <i class="ph-duotone ph-arrow-up-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: clamp(36px, 5vw, 64px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 30px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up">
+    <span>01 / Maison Tsu</span>
+    <span data-zh="网页设计实例">Website design sample</span>
+  </div>
+
+  <a href="./maison-tsu.html" style="display: block; margin-top: 18px; opacity: 0; clip-path: inset(0 0 100% 0)" data-rv="mask" data-rv-d="80">
+    <figure class="cmyk" style="margin: 0; aspect-ratio: 16 / 9">
+      <img src="./public/maison-tsu/exterior.png" alt="Maison Tsu restaurant website preview" style="width: 100%; height: 100%; object-fit: cover">
+      <img src="./public/maison-tsu/exterior.png" alt="" class="sep-c" aria-hidden="true" data-px="0.028" style="will-change: transform">
+      <img src="./public/maison-tsu/exterior.png" alt="" class="sep-m" aria-hidden="true" data-px="0.034" style="will-change: transform">
+      <img src="./public/maison-tsu/exterior.png" alt="" class="sep-y" aria-hidden="true" data-px="0.04" style="will-change: transform">
+      <img src="./public/maison-tsu/exterior.png" alt="" class="sep-k" aria-hidden="true" data-px="0.046" style="will-change: transform">
+    </figure>
+    <p style="margin-top: 20px; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(2rem, 4.4vw, 4.4rem); line-height: 1; letter-spacing: -0.024em">Maison Tsu</p>
+  </a>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 14px 30px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up">
+    <span data-zh="游戏开发">Game Development</span>
+    <span class="tag tag-accent-2" data-zh="进行中">In progress</span>
+  </div>
+
+  <h2 style="margin-top: 30px; max-width: 20ch; margin-left: -0.035em; font-size: clamp(2.4rem, 5.4vw, 5.2rem); line-height: 1.04; letter-spacing: -0.022em; opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(22px)" data-rv="mask" data-zh="目前正在进行一个游戏开发项目。">I am currently working on a game development project.</h2>
+  <p style="margin-top: 34px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(18px)" data-rv="up" data-rv-d="160" data-zh="游戏开发项目">Game Development Project</p>
+</section>
+
+<section id="contact" style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0; scroll-margin-top: 80px">
+  <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up" data-zh="联系">Contact</p>
+
+  <div style="margin-top: 26px; display: grid; gap: clamp(24px, 4vw, 64px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: end">
+    <h2 style="margin-left: -0.035em; font-size: clamp(3rem, 7vw, 6.6rem); line-height: 0.99; letter-spacing: -0.026em; opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(22px)" data-rv="mask" data-zh="联系 TSU">Contact TSU</h2>
+    <p style="max-width: 58ch; font-size: 17px; line-height: 28px; color: var(--color-neutral-800); opacity: 0; transform: translateY(22px)" data-rv="up" data-rv-d="140" data-zh="乐于交流实用的数字产品、浏览器插件、游戏与独立开发。">I am open to conversations around useful digital products, browser extensions, games, and independent development.</p>
+  </div>
+
+  <a href="mailto:ShawnXiaTsu@outlook.com" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-top: clamp(50px, 7vw, 96px); font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(1.5rem, 5.2vw, 5rem); line-height: 1.02; letter-spacing: -0.024em; color: var(--color-accent-700); overflow-wrap: anywhere; transition: color .3s ease, letter-spacing .5s cubic-bezier(.16,1,.3,1)" style-hover="color: var(--color-accent-900); letter-spacing: -0.014em">
+    <span>ShawnXiaTsu@outlook.com</span>
+    <i class="ph-duotone ph-arrow-up-right" aria-hidden="true" style="font-size: clamp(1.5rem, 4vw, 3.5rem)"></i>
+  </a>
+
+  <div style="margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px 30px">
+    <a href="https://github.com/TSU333" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: 9px; font-size: 15.5px; line-height: 28px; color: var(--color-neutral-800); transition: color .25s ease" style-hover="color: var(--color-accent-700)">
+      <i class="ph-duotone ph-github-logo" aria-hidden="true"></i>
+      github.com/TSU333
+    </a>
+    <span style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="邮件是联系我的最快方式。">Email is the fastest way to reach me.</span>
+  </div>
+</section>
+
+<footer style="max-width: 1200px; margin: 0 auto; padding: clamp(70px, 9vw, 120px) clamp(20px, 5vw, 72px) clamp(40px, 5vw, 64px)">
+  <hr style="height: 0; border: 0; border-top: 1px solid var(--color-text); margin: 0 0 20px">
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 30px; font-size: 15.5px; line-height: 28px; color: var(--color-neutral-800)">
+    <div>
+      <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 18px; color: var(--color-text)">TSU</p>
+      <p style="max-width: 34ch" data-zh="TSU 的独立软件、浏览器插件与游戏。">Independent software, extensions, and games by TSU.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-end">
+      <p data-zh="© 2026 TSU. 保留所有权利。">© 2026 TSU. All rights reserved.</p>
+      <a href="#contact" data-zh="联系">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motionIntensity&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;subtle&quot;,&quot;confident&quot;,&quot;cinematic&quot;],&quot;default&quot;:&quot;cinematic&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { locale: "en" };
+
+  componentDidMount() {
+    this.boot();
+  }
+
+  boot(tries = 0) {
+    if (!window.TSUMotion) {
+      if (tries < 60) setTimeout(() => this.boot(tries + 1), 50);
+      return;
+    }
+    const map = { subtle: 0.45, confident: 0.75, cinematic: 1 };
+    window.TSUMotion.init({
+      intensity: map[this.props.motionIntensity] ?? 1,
+      pins: { tb: (p) => this.thinkBreakScene(p) },
+    });
+  }
+
+  thinkBreakScene(p) {
+    const q = (id) => document.getElementById(id);
+    const dot = q("tbDot");
+    const out = q("tbOut");
+    const back = q("tbBack");
+    if (!dot || !out || !back) return;
+
+    const INK = "rgba(32,30,29,.3)";
+    const CYAN = "var(--color-accent)";
+    const act = p < 0.36 ? 0 : p < 0.7 ? 1 : 2;
+    const local = act === 0 ? p / 0.36 : act === 1 ? (p - 0.36) / 0.34 : (p - 0.7) / 0.3;
+
+    for (let i = 0; i < 3; i++) {
+      const row = document.querySelector('[data-step="' + i + '"]');
+      if (!row) continue;
+      const on = i === act;
+      row.style.opacity = on ? "1" : "0.38";
+      row.style.color = on ? "var(--color-accent-700)" : "var(--color-text)";
+    }
+
+    const ring = q("tbRing");
+    const label = q("tbRingLabel");
+    const scan = q("tbScan");
+    const ai = q("tbAI");
+    const brk = q("tbBreak");
+    const answer = q("tbAnswer");
+    const status = q("tbStatus");
+    const caret = q("tbCaret");
+    const b1 = q("tbB1");
+
+    const fill = act === 0 ? local : 1;
+    if (ring) ring.setAttribute("stroke-dashoffset", String(157 * (1 - fill)));
+    if (label) label.textContent = (fill * 8).toFixed(fill < 1 ? 1 : 0) + "s";
+
+    if (scan) {
+      scan.setAttribute("opacity", act === 0 ? "1" : "0");
+      scan.setAttribute("y", String(106 + ((local * 1.4) % 1) * 190));
+    }
+
+    if (act === 0) {
+      if (ai) ai.setAttribute("opacity", "1");
+      if (brk) brk.setAttribute("opacity", "0.34");
+      if (answer) answer.setAttribute("opacity", "0");
+      dot.setAttribute("opacity", "0");
+      if (status) { status.textContent = "GENERATING"; status.setAttribute("fill", "var(--color-neutral-700)"); }
+      if (caret) caret.setAttribute("opacity", "1");
+      if (b1) b1.setAttribute("fill", "rgba(32,30,29,.05)");
+    } else if (act === 1) {
+      const pt = out.getPointAtLength(out.getTotalLength() * Math.min(1, local * 1.5));
+      dot.setAttribute("cx", pt.x);
+      dot.setAttribute("cy", pt.y);
+      dot.setAttribute("opacity", "1");
+      dot.setAttribute("r", String(5.5 + Math.sin(local * Math.PI) * 2.5));
+      if (ai) ai.setAttribute("opacity", String(1 - local * 0.62));
+      if (brk) brk.setAttribute("opacity", String(0.34 + local * 0.66));
+      if (b1) b1.setAttribute("fill", local > 0.5 ? "var(--color-accent-100)" : "rgba(32,30,29,.05)");
+      if (answer) answer.setAttribute("opacity", String(Math.max(0, (local - 0.6) / 0.4)));
+      if (status) status.textContent = local > 0.6 ? "COMPLETE" : "GENERATING";
+      if (caret) caret.setAttribute("opacity", local > 0.6 ? "0" : "1");
+    } else {
+      const pt = back.getPointAtLength(back.getTotalLength() * Math.min(1, local * 1.5));
+      dot.setAttribute("cx", pt.x);
+      dot.setAttribute("cy", pt.y);
+      dot.setAttribute("opacity", String(1 - Math.max(0, (local - 0.75) / 0.25)));
+      dot.setAttribute("r", "5.5");
+      if (ai) ai.setAttribute("opacity", String(0.38 + local * 0.62));
+      if (brk) brk.setAttribute("opacity", String(1 - local * 0.6));
+      if (answer) answer.setAttribute("opacity", "1");
+      if (status) { status.textContent = "COMPLETE"; status.setAttribute("fill", "var(--color-accent-700)"); }
+      if (caret) caret.setAttribute("opacity", "0");
+      if (b1) b1.setAttribute("fill", "var(--color-accent-100)");
+    }
+
+    out.setAttribute("stroke", act === 1 ? CYAN : INK);
+    back.setAttribute("stroke", act === 2 ? CYAN : INK);
+  }
+
+  renderVals() {
+    const locale = this.state.locale;
+    return {
+      localeLabel: locale === "en" ? "中文" : "EN",
+      toggleLocale: () => {
+        const next = locale === "en" ? "zh" : "en";
+        this.setState({ locale: next });
+        if (window.TSUMotion) window.TSUMotion.setLocale(next);
+      },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

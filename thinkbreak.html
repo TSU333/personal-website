@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThinkBreak | TSU</title>
+<link rel="icon" href="./public/tsu-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="_ds/broadsheet-9e78ebc8-dea0-4583-a636-d7d56102e2e0/styles.css">
+<script src="_ds/broadsheet-9e78ebc8-dea0-4583-a636-d7d56102e2e0/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+<script src="./motion.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; text-wrap: pretty; background: var(--color-bg); color: var(--color-text); }
+  html[lang="zh"] body { font-family: "Source Serif 4", "Songti SC", "PingFang SC", serif; }
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--color-accent-700); }
+  i[class^="ph-"] { line-height: 1; }
+  @keyframes heroL { from { opacity: 0; transform: translateY(0.9em); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(-16% 0 -20% 0); } }
+  @keyframes maskUp { from { opacity: 0; transform: translateY(22px); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(-10% 0 -14% 0); } }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: .28; } }
+  @keyframes flowDash { to { stroke-dashoffset: -84; } }
+  @keyframes nodeBreathe { 0%, 100% { opacity: .45; transform: scale(1); } 50% { opacity: 1; transform: scale(1.07); } }
+  @keyframes sigBlink { 0%, 100% { opacity: .22; } 50% { opacity: 1; } }
+  @media (max-width: 700px) {
+    .nav { flex-wrap: wrap; gap: 8px 14px; padding: 10px 20px !important; }
+    .nav::after { content: ""; flex-basis: 100%; height: 0; order: 2; }
+    .nav-brand { order: 1; margin-right: auto !important; }
+    .nav-brand span:last-child { display: none; }
+    .nav > button { order: 1; }
+    .nav > a:not(.nav-brand) { order: 3; font-size: 12px; }
+    #top { padding-top: calc(102px + clamp(30px, 5vw, 60px)) !important; }
+  }
+</style>
+</helmet>
+
+<div style="position: fixed; inset: 0 0 auto 0; height: 2px; background: var(--color-accent); transform: scaleX(0); transform-origin: 0 50%; z-index: 60; will-change: transform" data-progress></div>
+
+<header data-nav data-nav-bg="rgba(243,242,242,.72)" data-nav-bg-scrolled="rgba(243,242,242,.96)" data-nav-border="rgba(32,30,29,.14)" data-nav-border-scrolled="rgba(32,30,29,.9)" class="nav" style="position: fixed; inset: 0 0 auto 0; z-index: 50; background: rgba(243,242,242,.72); border-bottom: 1px solid rgba(32,30,29,.14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding-inline: clamp(20px, 5vw, 72px); transition: background .4s ease, border-color .4s ease">
+  <a href="./index.html" class="nav-brand" style="display: flex; align-items: baseline; gap: 12px; margin-right: auto">
+    <span>TSU</span>
+    <span style="font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="独立开发者">Independent Developer</span>
+  </a>
+  <a href="./index.html" data-zh="首页">Home</a>
+  <a href="#top" aria-current="page">ThinkBreak</a>
+  <a href="./maison-tsu.html" data-zh="网页设计">Web Design</a>
+  <a href="./index.html#contact" data-zh="联系">Contact</a>
+  <button type="button" class="btn btn-ghost" onClick="{{ toggleLocale }}" style="min-height: 32px; padding: 4px 10px; font-size: 13px">{{ localeLabel }}</button>
+</header>
+
+<section id="top" style="max-width: 1200px; margin: 0 auto; padding: calc(65px + clamp(30px, 5vw, 60px)) clamp(20px, 5vw, 72px) 0">
+  <a href="./index.html" style="display: inline-flex; align-items: center; gap: 9px; font-size: 15.5px; color: var(--color-neutral-800); animation: fadeIn .8s ease both; transition: color .25s ease, gap .25s ease" style-hover="color: var(--color-accent-700); gap: 14px">
+    <i class="ph-duotone ph-arrow-left" aria-hidden="true"></i>
+    <span data-zh="返回首页">Back to home</span>
+  </a>
+
+  <hr style="height: 5px; border: 0; margin: 26px 0 0; border-top: 2px solid var(--color-text); border-bottom: 1px solid var(--color-text); animation: fadeIn .85s ease .05s both">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 30px; padding: 14px 0; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); animation: fadeIn .9s ease .1s both">
+    <span>01 / <span data-zh="浏览器插件">Browser Extension</span></span>
+    <span>TypeScript / Manifest V3</span>
+    <span data-zh="Chrome 商店 · GitHub · Apache 2.0">Chrome Web Store · GitHub · Apache 2.0</span>
+  </div>
+  <hr style="height: 0; border: 0; border-top: 1px solid var(--color-text); margin: 0; animation: fadeIn .9s ease .14s both">
+
+  <h1 lang="en" style="display: flex; flex-wrap: wrap; margin: clamp(34px, 5vw, 64px) 0 0 -0.035em; font-size: clamp(3.6rem, 9.6vw, 8.6rem); line-height: 0.94; letter-spacing: -0.03em">
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .06s both">T</span>
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .12s both">h</span>
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .18s both">i</span>
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .24s both">n</span>
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .3s both">k</span>
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .36s both; color: var(--color-accent)">B</span>
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .42s both; color: var(--color-accent)">r</span>
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .48s both; color: var(--color-accent)">e</span>
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .54s both; color: var(--color-accent)">a</span>
+    <span style="display: inline-block; animation: heroL 1.4s cubic-bezier(.16,1,.3,1) .6s both; color: var(--color-accent)">k</span>
+  </h1>
+
+  <p style="margin-top: 34px; max-width: 58ch; font-size: 17px; line-height: 28px; color: var(--color-neutral-800); animation: maskUp 1.2s cubic-bezier(.16,1,.3,1) .5s both" data-zh="不必一直盯着 AI 的等待界面。回复时间过长时，ThinkBreak 会打开你选择的休息页面，并在答案完成后带你返回。">Stop staring at the screen while waiting for AI. ThinkBreak opens a chosen break site when a reply takes too long, then returns you when the response is ready.</p>
+
+  <div style="margin-top: 30px; display: flex; flex-wrap: wrap; gap: 15px; animation: fadeIn 1s ease .8s both">
+    <a href="https://chromewebstore.google.com/detail/thinkbreak/iniicihbhceodiibohojnfodficielel" target="_blank" rel="noreferrer" class="btn btn-primary">
+      <i class="ph-duotone ph-storefront" aria-hidden="true"></i>
+      <span data-zh="Chrome 商店">Chrome Web Store</span>
+    </a>
+    <a href="https://github.com/TSU333/ThinkBreak" target="_blank" rel="noreferrer" class="btn btn-secondary">
+      <i class="ph-duotone ph-github-logo" aria-hidden="true"></i>
+      GitHub
+    </a>
+  </div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(70px, 10vw, 140px) clamp(20px, 5vw, 72px) 0">
+  <figure data-px="0.03" style="margin: 0; opacity: 0; clip-path: inset(0 0 100% 0); will-change: transform" data-rv="mask">
+    <figcaption style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)">
+      <span data-zh="系统结构">Architecture</span>
+      <span style="display: inline-flex; align-items: center; gap: 8px">
+        <span style="width: 6px; height: 6px; background: var(--color-accent); animation: pulseDot 1.8s ease-in-out infinite"></span>
+        <span data-zh="实时">Live</span>
+      </span>
+    </figcaption>
+
+    <div style="margin-top: 22px; display: grid; gap: clamp(28px, 4vw, 72px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center">
+      <svg viewBox="0 0 560 300" style="width: 100%; overflow: visible">
+        <g font-family="Source Serif 4, serif" font-size="12" letter-spacing="1" fill="var(--color-neutral-700)">
+          <text x="0" y="44">DOM STRUCTURE</text>
+          <text x="0" y="94">BUSY STATE</text>
+          <text x="0" y="144">RESPONSE DELTA</text>
+          <text x="0" y="194">INPUT AVAILABILITY</text>
+          <text x="0" y="244">STOP CONTROL</text>
+        </g>
+        <g fill="var(--color-accent)">
+          <circle cx="152" cy="40" r="3.2" style="animation: sigBlink 2.2s ease-in-out 0s infinite"></circle>
+          <circle cx="152" cy="90" r="3.2" style="animation: sigBlink 2.2s ease-in-out .35s infinite"></circle>
+          <circle cx="152" cy="140" r="3.2" style="animation: sigBlink 2.2s ease-in-out .7s infinite"></circle>
+          <circle cx="152" cy="190" r="3.2" style="animation: sigBlink 2.2s ease-in-out 1.05s infinite"></circle>
+          <circle cx="152" cy="240" r="3.2" style="animation: sigBlink 2.2s ease-in-out 1.4s infinite"></circle>
+        </g>
+        <g fill="none" stroke="var(--color-accent-400)" stroke-width="1.2" stroke-dasharray="6 8" stroke-linecap="round">
+          <path d="M160 40 C 236 40, 252 140, 306 140" style="animation: flowDash 3s linear 0s infinite"></path>
+          <path d="M160 90 C 236 90, 252 140, 306 140" style="animation: flowDash 3s linear .3s infinite"></path>
+          <path d="M160 140 L 306 140" style="animation: flowDash 3s linear .6s infinite"></path>
+          <path d="M160 190 C 236 190, 252 140, 306 140" style="animation: flowDash 3s linear .9s infinite"></path>
+          <path d="M160 240 C 236 240, 252 140, 306 140" style="animation: flowDash 3s linear 1.2s infinite"></path>
+        </g>
+        <circle cx="352" cy="140" r="46" fill="var(--color-accent-100)"></circle>
+        <circle cx="352" cy="140" r="46" fill="none" stroke="var(--color-accent)" style="transform-origin: 352px 140px; animation: nodeBreathe 3.4s ease-in-out infinite"></circle>
+        <text x="352" y="136" text-anchor="middle" font-family="Source Serif 4, serif" font-size="13" fill="var(--color-accent-700)">AI STATE</text>
+        <text x="352" y="154" text-anchor="middle" font-family="Source Serif 4, serif" font-size="12" letter-spacing="1" fill="var(--color-neutral-700)">INFERRED</text>
+        <path d="M402 140 L 486 140" fill="none" stroke="rgba(32,30,29,.4)" stroke-width="1.2" stroke-dasharray="6 8" style="animation: flowDash 3s linear 1.5s infinite"></path>
+        <path d="M480 134 L 490 140 L 480 146" fill="none" stroke="var(--color-text)" stroke-width="1.4" stroke-linecap="round"></path>
+        <text x="500" y="136" font-family="Source Serif 4, serif" font-size="12" letter-spacing="1" fill="var(--color-neutral-700)">BREAK</text>
+        <text x="500" y="154" font-family="Source Serif 4, serif" font-size="12" letter-spacing="1" fill="var(--color-neutral-700)">RETURN</text>
+      </svg>
+
+      <div style="display: grid; gap: 24px">
+        <p style="max-width: 15ch; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(1.6rem, 2.7vw, 2.6rem); line-height: 1.1; letter-spacing: -0.02em" data-zh="AI 思考时，去休息一下。">Take a break while AI thinks.</p>
+        <div style="display: grid; gap: 10px; max-width: 30rem">
+          <p style="display: flex; align-items: baseline; gap: 8px; font-size: 15.5px; line-height: 28px">
+            <span style="color: var(--color-neutral-800)" data-zh="触发阈值">Trigger threshold</span>
+            <span style="flex: 1; min-width: 24px; align-self: flex-end; margin-bottom: .34em; border-bottom: 1px dotted rgba(32,30,29,.45)"></span>
+            <span data-zh="8 秒">8 seconds</span>
+          </p>
+          <p style="display: flex; align-items: baseline; gap: 8px; font-size: 15.5px; line-height: 28px">
+            <span style="color: var(--color-neutral-800)" data-zh="休息页面">Break destination</span>
+            <span style="flex: 1; min-width: 24px; align-self: flex-end; margin-bottom: .34em; border-bottom: 1px dotted rgba(32,30,29,.45)"></span>
+            <span data-zh="已选择网站">Selected site</span>
+          </p>
+          <p style="display: flex; align-items: baseline; gap: 8px; font-size: 15.5px; line-height: 28px">
+            <span style="color: var(--color-neutral-800)" data-zh="完成后">Completion action</span>
+            <span style="flex: 1; min-width: 24px; align-self: flex-end; margin-bottom: .34em; border-bottom: 1px dotted rgba(32,30,29,.45)"></span>
+            <span data-zh="自动返回">Return automatically</span>
+          </p>
+        </div>
+        <div>
+          <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="支持平台">AI platforms</p>
+          <p style="margin-top: 12px; font-size: 15.5px; line-height: 28px; color: var(--color-neutral-800)" data-zh="ChatGPT · Claude · Gemini · Grok · 豆包">ChatGPT · Claude · Gemini · Grok · Doubao</p>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 26px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="内容脚本 · Service Worker · 标签页编排">Content scripts · Service worker · Tab orchestration</p>
+  </figure>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0">
+  <div style="display: grid; gap: clamp(24px, 4vw, 72px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
+    <p style="align-self: start; position: sticky; top: 100px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up">01 / <span data-zh="项目概览">Overview</span></p>
+    <p style="max-width: 46rem; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(1.8rem, 3.6vw, 3.4rem); line-height: 1.14; letter-spacing: -0.02em; opacity: 0; filter: blur(16px); transform: translateY(18px)" data-rv="blur" data-rv-d="80" data-zh="ThinkBreak 是一个面向 Chrome 与 Edge 的浏览器插件。它会监测支持的 AI 页面，判断回复是否仍在生成，并把漫长等待转化成一次可控的短暂休息，同时保留原本的对话流程。">ThinkBreak is a Chrome and Edge extension for long AI response times. It watches supported AI pages, detects when a response is still being generated, and opens a short break while preserving the original conversation.</p>
+  </div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(80px, 11vw, 160px) clamp(20px, 5vw, 72px) 0">
+  <div style="display: grid; gap: clamp(34px, 5vw, 80px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))">
+    <div style="opacity: 0; transform: translateY(24px)" data-rv="up">
+      <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="要解决的问题">The problem</p>
+      <p style="margin-top: 22px; max-width: 52ch; font-size: 17px; line-height: 28px; color: var(--color-neutral-800)" data-zh="较长的 AI 回复会制造无效等待。一直停留在页面会消耗注意力，手动切走又容易错过答案完成的时刻。">Long AI replies create dead time. Staying on the page wastes attention, while switching away manually makes it easy to miss when the answer is finished.</p>
+    </div>
+    <div style="opacity: 0; transform: translateY(24px)" data-rv="up" data-rv-d="130">
+      <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)" data-zh="系统实现">The system</p>
+      <p style="margin-top: 22px; max-width: 52ch; font-size: 17px; line-height: 28px; color: var(--color-neutral-800)" data-zh="ThinkBreak 综合 DOM 结构、忙碌状态、回复变化、输入框可用性和完成按钮等信号判断 AI 状态。达到自定义等待阈值后，它会打开选定的休息页面，并在生成结束时自动返回或发送通知。">ThinkBreak combines DOM structure, busy states, response changes, input availability, and completion controls to infer the AI state. After a configurable threshold it opens a selected break site, then returns automatically or sends a notification when generation finishes.</p>
+    </div>
+  </div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0">
+  <div style="display: grid; gap: clamp(24px, 4vw, 72px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
+    <div style="align-self: start; position: sticky; top: 100px; opacity: 0; transform: translateY(16px)" data-rv="up">
+      <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)">02 / <span data-zh="核心能力">Capabilities</span></p>
+      <p style="margin-top: 22px; max-width: 24ch; font-size: 13px; line-height: 20px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)">TypeScript / Manifest V3 / Chrome / Edge / DOM Signals</p>
+    </div>
+
+    <div style="display: grid; gap: 30px">
+      <div style="display: grid; grid-template-columns: 2.6rem 1fr; gap: 16px; align-items: baseline; opacity: 0; transform: translateY(22px)" data-rv="up">
+        <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; color: var(--color-accent-700)">01</span>
+        <p style="max-width: 46ch; font-size: 17px; line-height: 28px" data-zh="支持 ChatGPT、Claude、Gemini、Grok 与豆包网页端。">Supports ChatGPT, Claude, Gemini, Grok, and Doubao web experiences.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 2.6rem 1fr; gap: 16px; align-items: baseline; opacity: 0; transform: translateY(22px)" data-rv="up" data-rv-d="90">
+        <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; color: var(--color-neutral-700)">02</span>
+        <p style="max-width: 46ch; font-size: 17px; line-height: 28px" data-zh="通过多个页面信号判断状态，不依赖官方 AI API。">Combines multiple page signals to infer the AI state.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 2.6rem 1fr; gap: 16px; align-items: baseline; opacity: 0; transform: translateY(22px)" data-rv="up" data-rv-d="180">
+        <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; color: var(--color-neutral-700)">03</span>
+        <p style="max-width: 46ch; font-size: 17px; line-height: 28px" data-zh="支持自定义等待阈值、休息页面和完成后的处理方式。">Offers configurable thresholds, break destinations, and completion actions.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 2.6rem 1fr; gap: 16px; align-items: baseline; opacity: 0; transform: translateY(22px)" data-rv="up" data-rv-d="270">
+        <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; color: var(--color-neutral-700)">04</span>
+        <p style="max-width: 46ch; font-size: 17px; line-height: 28px" data-zh="基于 Manifest V3，可运行于 Chrome 与 Edge。">Runs as a Manifest V3 extension for Chrome and Edge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0">
+  <div style="display: grid; gap: clamp(24px, 4vw, 72px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
+    <p style="align-self: start; position: sticky; top: 100px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up">03 / <span data-zh="工程挑战">Engineering challenges</span></p>
+
+    <div style="display: grid; gap: 30px">
+      <div style="display: grid; grid-template-columns: 2.6rem 1fr; gap: 16px; align-items: baseline; opacity: 0; transform: translateY(22px)" data-rv="up">
+        <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; color: var(--color-accent-700)">01</span>
+        <p style="max-width: 46ch; font-size: 17px; line-height: 28px" data-zh="在 AI 产品界面持续变化的情况下保持检测稳定。">Keeping detection stable as AI products continuously change their interfaces.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 2.6rem 1fr; gap: 16px; align-items: baseline; opacity: 0; transform: translateY(22px)" data-rv="up" data-rv-d="90">
+        <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; color: var(--color-neutral-700)">02</span>
+        <p style="max-width: 46ch; font-size: 17px; line-height: 28px" data-zh="协调内容脚本、Service Worker、标签页和会话状态，同时避免打断用户。">Coordinating content scripts, the service worker, tabs, and session state reliably.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 2.6rem 1fr; gap: 16px; align-items: baseline; opacity: 0; transform: translateY(22px)" data-rv="up" data-rv-d="180">
+        <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; color: var(--color-neutral-700)">03</span>
+        <p style="max-width: 46ch; font-size: 17px; line-height: 28px" data-zh="让自动切换保持可控、可预测。">Keeping automatic switching predictable and easy to control.</p>
+      </div>
+
+      <div style="opacity: 0; transform: translateY(18px)" data-rv="up" data-rv-d="260">
+        <a href="https://github.com/TSU333/ThinkBreak" target="_blank" rel="noreferrer" class="btn btn-secondary">
+          <i class="ph-duotone ph-github-logo" aria-hidden="true"></i>
+          <span data-zh="查看 GitHub 源码">Source on GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="max-width: 1200px; margin: 0 auto; padding: clamp(80px, 10vw, 130px) clamp(20px, 5vw, 72px) clamp(40px, 5vw, 64px)">
+  <hr style="height: 0; border: 0; border-top: 1px solid var(--color-text); margin: 0 0 20px">
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 30px; font-size: 15.5px; line-height: 28px; color: var(--color-neutral-800)">
+    <div>
+      <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 18px; color: var(--color-text)">TSU</p>
+      <p style="max-width: 34ch" data-zh="TSU 的独立软件、浏览器插件与游戏。">Independent software, extensions, and games by TSU.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-end">
+      <p data-zh="© 2026 TSU. 保留所有权利。">© 2026 TSU. All rights reserved.</p>
+      <a href="./index.html#contact" data-zh="联系">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motionIntensity&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;subtle&quot;,&quot;confident&quot;,&quot;cinematic&quot;],&quot;default&quot;:&quot;cinematic&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { locale: "en" };
+
+  componentDidMount() {
+    this.boot();
+  }
+
+  boot(tries = 0) {
+    if (!window.TSUMotion) {
+      if (tries < 60) setTimeout(() => this.boot(tries + 1), 50);
+      return;
+    }
+    const map = { subtle: 0.45, confident: 0.75, cinematic: 1 };
+    window.TSUMotion.init({ intensity: map[this.props.motionIntensity] ?? 1 });
+  }
+
+  renderVals() {
+    const locale = this.state.locale;
+    return {
+      localeLabel: locale === "en" ? "中文" : "EN",
+      toggleLocale: () => {
+        const next = locale === "en" ? "zh" : "en";
+        this.setState({ locale: next });
+        if (window.TSUMotion) window.TSUMotion.setLocale(next);
+      },
+    };
+  }
+}
+
+</script>
+</body>
+</html>
