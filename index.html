@@ -32,14 +32,15 @@
   @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: .28; } }
   @keyframes caret { 0%, 45% { opacity: 1; } 46%, 100% { opacity: .12; } }
   @keyframes cueDrop { 0% { transform: translateY(-60%); opacity: 0; } 40% { opacity: 1; } 100% { transform: translateY(60%); opacity: 0; } }
-  @media (max-width: 700px) {
-    .nav { flex-wrap: wrap; gap: 8px 14px; padding: 10px 20px !important; }
-    .nav::after { content: ""; flex-basis: 100%; height: 0; order: 2; }
-    .nav-brand { order: 1; margin-right: auto !important; }
-    .nav-brand span:last-child { display: none; }
-    .nav > button { order: 1; }
-    .nav > a:not(.nav-brand) { order: 3; font-size: 12px; }
-    #top { padding-top: calc(102px + clamp(40px, 7vw, 96px)) !important; }
+  @media (max-width: 860px) {
+    header.nav { flex-wrap: wrap; row-gap: 6px; column-gap: 14px; }
+    header.nav .nav-brand { margin-right: 0 !important; }
+    header.nav .nav-brand span + span { display: none; }
+  }
+  @media (max-width: 860px) {
+    [data-pin="tb"] { height: auto !important; }
+    [data-pin="tb"] > div { position: static !important; height: auto !important; padding-top: 0 !important; }
+    [data-pin-grid] { grid-template-columns: 1fr !important; max-height: none !important; }
   }
 </style>
 </helmet>
@@ -58,7 +59,7 @@
   <button type="button" class="btn btn-ghost" onClick="{{ toggleLocale }}" style="min-height: 32px; padding: 4px 10px; font-size: 13px">{{ localeLabel }}</button>
 </header>
 
-<section id="top" style="max-width: 1200px; margin: 0 auto; padding: calc(65px + clamp(40px, 7vw, 96px)) clamp(20px, 5vw, 72px) 0">
+<section id="top" style="max-width: 1200px; margin: 0 auto; padding: calc(var(--nav-h, 65px) + clamp(40px, 7vw, 96px)) clamp(20px, 5vw, 72px) 0">
   <hr style="height: 5px; border: 0; margin: 0; border-top: 2px solid var(--color-text); border-bottom: 1px solid var(--color-text); animation: fadeIn .8s ease both">
   <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 30px; padding: 14px 0; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); animation: fadeIn .9s ease .08s both">
     <span data-zh="独立开发者 / TSU">Independent Developer / TSU</span>
@@ -132,8 +133,8 @@
 </section>
 
 <section data-pin="tb" style="position: relative; height: 380vh; margin-top: clamp(34px, 5vw, 68px)">
-  <div style="position: sticky; top: 0; height: 100svh; display: flex; align-items: center; overflow: hidden; padding: 78px 0 clamp(20px, 3vw, 40px)">
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px); height: 100%; max-height: 720px; display: grid; gap: clamp(24px, 4vw, 64px); grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr)">
+  <div style="position: sticky; top: 0; height: 100svh; display: flex; align-items: center; overflow: hidden; padding: calc(var(--nav-h, 65px) + 13px) 0 clamp(20px, 3vw, 40px)">
+    <div data-pin-grid style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px); height: 100%; max-height: 720px; display: grid; gap: clamp(24px, 4vw, 64px); grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr)">
       <figure style="margin: 0; min-height: 0; display: flex; flex-direction: column">
         <figcaption style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)">
           <span data-zh="实时工作流">Live Workflow</span>
@@ -331,7 +332,8 @@ class Component extends DCLogic {
     });
   }
 
-  thinkBreakScene(p) {
+  thinkBreakScene(pIn) {
+    let p = pIn;
     const q = (id) => document.getElementById(id);
     const dot = q("tbDot");
     const out = q("tbOut");
@@ -340,15 +342,22 @@ class Component extends DCLogic {
 
     const INK = "rgba(32,30,29,.3)";
     const CYAN = "var(--color-accent)";
+
+    // On narrow screens the section is unwrapped (no sticky pin), so there is
+    // no scroll runway to play the three acts — settle on the resolved state
+    // and keep all three steps legible.
+    const unpinned = window.matchMedia("(max-width: 860px)").matches;
+    if (unpinned) p = 1;
+
     const act = p < 0.36 ? 0 : p < 0.7 ? 1 : 2;
     const local = act === 0 ? p / 0.36 : act === 1 ? (p - 0.36) / 0.34 : (p - 0.7) / 0.3;
 
     for (let i = 0; i < 3; i++) {
       const row = document.querySelector('[data-step="' + i + '"]');
       if (!row) continue;
-      const on = i === act;
+      const on = unpinned || i === act;
       row.style.opacity = on ? "1" : "0.38";
-      row.style.color = on ? "var(--color-accent-700)" : "var(--color-text)";
+      row.style.color = !unpinned && i === act ? "var(--color-accent-700)" : "var(--color-text)";
     }
 
     const ring = q("tbRing");

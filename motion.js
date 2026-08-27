@@ -47,6 +47,7 @@
       }
 
       this.scrollLoop(root);
+      this.trackNav(root);
 
       // Safety net 1: observer with threshold 0 — a clip-path'd target never
       // reaches a nonzero ratio, so any positive threshold strands it.
@@ -71,11 +72,34 @@
       return this;
     },
 
+    /* --nav-h: the header wraps to 2-3 rows on narrow screens and grows again
+       when webfonts swap, so heroes cannot reserve a hardcoded offset. Written
+       independently of the scroll frame. */
+    trackNav(root) {
+      let last = 0;
+      function write() {
+        const nav = root.querySelector("[data-nav]");
+        if (!nav) return;
+        const h = Math.round(nav.getBoundingClientRect().height);
+        if (h > 0 && h !== last) {
+          last = h;
+          document.documentElement.style.setProperty("--nav-h", h + "px");
+        }
+      }
+      write();
+      window.addEventListener("resize", write);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(write);
+      // Polled rather than observed: the render can replace the header node at
+      // any time, which silently kills an observer bound to the old one. One
+      // getBoundingClientRect every 300ms, and it can never go stale.
+      if (this._navTimer) clearInterval(this._navTimer);
+      this._navTimer = setInterval(write, 300);
+    },
+
     scrollLoop(root) {
       let pending = Array.from(root.querySelectorAll("[data-rv]"));
       const px = Array.from(root.querySelectorAll("[data-px]"));
       const pins = Array.from(root.querySelectorAll("[data-pin]"));
-      const nav = root.querySelector("[data-nav]");
       const bar = root.querySelector("[data-progress]");
       let raf = 0;
 
@@ -120,6 +144,7 @@
           if (fn) fn(p, el);
         });
 
+        const nav = root.querySelector("[data-nav]");
         if (nav) {
           const on = window.scrollY > 24;
           const bg = nav.getAttribute(on ? "data-nav-bg-scrolled" : "data-nav-bg");
@@ -141,6 +166,8 @@
       };
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", onScroll);
+      const navEl = root.querySelector("[data-nav]");
+      if (navEl && window.ResizeObserver) new ResizeObserver(onScroll).observe(navEl);
       frame();
       this.refresh = onScroll;
     },
@@ -163,7 +190,6 @@
   if (window.TSUMotion) {
     Object.assign(window.TSUMotion, api, {
       intensity: window.TSUMotion.intensity,
-      refresh: window.TSUMotion.refresh,
     });
   } else {
     window.TSUMotion = api;

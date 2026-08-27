@@ -33,14 +33,11 @@
   @keyframes flowDash { to { stroke-dashoffset: -84; } }
   @keyframes nodeBreathe { 0%, 100% { opacity: .45; transform: scale(1); } 50% { opacity: 1; transform: scale(1.07); } }
   @keyframes sigBlink { 0%, 100% { opacity: .22; } 50% { opacity: 1; } }
-  @media (max-width: 700px) {
-    .nav { flex-wrap: wrap; gap: 8px 14px; padding: 10px 20px !important; }
-    .nav::after { content: ""; flex-basis: 100%; height: 0; order: 2; }
-    .nav-brand { order: 1; margin-right: auto !important; }
-    .nav-brand span:last-child { display: none; }
-    .nav > button { order: 1; }
-    .nav > a:not(.nav-brand) { order: 3; font-size: 12px; }
-    #top { padding-top: calc(102px + clamp(30px, 5vw, 60px)) !important; }
+  @media (max-width: 860px) {
+    header.nav { flex-wrap: wrap; row-gap: 6px; column-gap: 14px; }
+    header.nav .nav-brand { margin-right: 0 !important; }
+    header.nav .nav-brand span + span { display: none; }
+    [data-sticky] { position: static !important; top: auto !important; }
   }
 </style>
 </helmet>
@@ -59,7 +56,7 @@
   <button type="button" class="btn btn-ghost" onClick="{{ toggleLocale }}" style="min-height: 32px; padding: 4px 10px; font-size: 13px">{{ localeLabel }}</button>
 </header>
 
-<section id="top" style="max-width: 1200px; margin: 0 auto; padding: calc(65px + clamp(30px, 5vw, 60px)) clamp(20px, 5vw, 72px) 0">
+<section id="top" style="max-width: 1200px; margin: 0 auto; padding: calc(var(--nav-h, 65px) + clamp(30px, 5vw, 60px)) clamp(20px, 5vw, 72px) 0">
   <a href="./index.html" style="display: inline-flex; align-items: center; gap: 9px; font-size: 15.5px; color: var(--color-neutral-800); animation: fadeIn .8s ease both; transition: color .25s ease, gap .25s ease" style-hover="color: var(--color-accent-700); gap: 14px">
     <i class="ph-duotone ph-arrow-left" aria-hidden="true"></i>
     <span data-zh="返回首页">Back to home</span>
@@ -175,7 +172,7 @@
 
 <section style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0">
   <div style="display: grid; gap: clamp(24px, 4vw, 72px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
-    <p style="align-self: start; position: sticky; top: 100px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up">01 / <span data-zh="项目概览">Overview</span></p>
+    <p data-sticky style="align-self: start; position: sticky; top: 100px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up">01 / <span data-zh="项目概览">Overview</span></p>
     <p style="max-width: 46rem; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(1.8rem, 3.6vw, 3.4rem); line-height: 1.14; letter-spacing: -0.02em; opacity: 0; filter: blur(16px); transform: translateY(18px)" data-rv="blur" data-rv-d="80" data-zh="ThinkBreak 是一个面向 Chrome 与 Edge 的浏览器插件。它会监测支持的 AI 页面，判断回复是否仍在生成，并把漫长等待转化成一次可控的短暂休息，同时保留原本的对话流程。">ThinkBreak is a Chrome and Edge extension for long AI response times. It watches supported AI pages, detects when a response is still being generated, and opens a short break while preserving the original conversation.</p>
   </div>
 </section>
@@ -195,7 +192,7 @@
 
 <section style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0">
   <div style="display: grid; gap: clamp(24px, 4vw, 72px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
-    <div style="align-self: start; position: sticky; top: 100px; opacity: 0; transform: translateY(16px)" data-rv="up">
+    <div data-sticky style="align-self: start; position: sticky; top: 100px; opacity: 0; transform: translateY(16px)" data-rv="up">
       <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)">02 / <span data-zh="核心能力">Capabilities</span></p>
       <p style="margin-top: 22px; max-width: 24ch; font-size: 13px; line-height: 20px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700)">TypeScript / Manifest V3 / Chrome / Edge / DOM Signals</p>
     </div>
@@ -223,7 +220,7 @@
 
 <section style="max-width: 1200px; margin: 0 auto; padding: clamp(90px, 13vw, 190px) clamp(20px, 5vw, 72px) 0">
   <div style="display: grid; gap: clamp(24px, 4vw, 72px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
-    <p style="align-self: start; position: sticky; top: 100px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up">03 / <span data-zh="工程挑战">Engineering challenges</span></p>
+    <p data-sticky style="align-self: start; position: sticky; top: 100px; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); opacity: 0; transform: translateY(16px)" data-rv="up">03 / <span data-zh="工程挑战">Engineering challenges</span></p>
 
     <div style="display: grid; gap: 30px">
       <div style="display: grid; grid-template-columns: 2.6rem 1fr; gap: 16px; align-items: baseline; opacity: 0; transform: translateY(22px)" data-rv="up">
